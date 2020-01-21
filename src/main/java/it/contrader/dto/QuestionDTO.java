@@ -45,7 +45,13 @@ public class QuestionDTO {
 		return  id + "\t"  + type +"\t\t" +   id_user + "\t\t" + surveylgt;
 	}
 
-
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getType() {
 		return type;

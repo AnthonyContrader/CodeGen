@@ -18,17 +18,17 @@ public class User {
 	/**
 	 * Definisco i due costruttori, uno vuoto e uno con tre parametri per costrire oggetti di tipo User
 	 */
-	public User() {
+	public User() {//vuoto
 		
 	}
 
-	public User (String username, String password, String usertype) {
+	public User (String username, String password, String usertype) {//construttore pieno
 		this.username = username;
 		this.password = password;
 		this.usertype = usertype;
 	}
 
-	public User (int id, String username, String password, String usertype) {
+	public User (int id, String username, String password, String usertype) {//construttore pieno con ID
 		this.id = id;
 		this.username = username;
 		this.password = password;

@@ -4,53 +4,48 @@ import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
 
+/**
+ * 
+ * @author Depy
+ *
+ */
 public class FieldInsertView extends AbstractView{
 	private Request request;
 
-	private String username;
-	private String password;
-	private String usertype;
+	private String name;
+	private String type;
+	private String entity;
 	private final String mode = "INSERT";
 
 	public FieldInsertView() {
 	}
 	
-	/**
-	 * Se la request non è nulla (ovvero se si arriva dalla mode INSERT del controller) mostra
-	 * l'esito dell'operazione
-	 */
 	@Override
 	public void showResults(Request request) {
 		if (request!=null) {
 			System.out.println("Inserimento andato a buon fine.\n");
-			MainDispatcher.getInstance().callView("User", null);
+			MainDispatcher.getInstance().callView("Field", null);
 		}
 	}
 
-	/**
-	 * Chiede all'utente di inserire gli attributi dell'utente da inserire
-	 */
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci username dell'utente:");
-			username = getInput();
-			System.out.println("Inserisci password dell'utente:");
-			password = getInput();
-			System.out.println("Inserisci tipo dell'utente:");
-			usertype = getInput();
+			System.out.println("Inserisci il nome del campo: ");
+			name = getInput();
+			System.out.println("Inserisci il tipo del campo: ");
+			type = getInput();
+			System.out.println("Inserisci l'entita' proprietaria del campo:");
+			entity = getInput();
 	}
 
-	/**
-	 * Impacchetta la request con i dati inseriti nel metodo showOption()
-	 */
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("username", username);
-		request.put("password", password);
-		request.put("usertype", usertype);
+		request.put("name", name);
+		request.put("type", type);
+		request.put("entity", entity);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Field", "doControl", request);
 	}
 
 

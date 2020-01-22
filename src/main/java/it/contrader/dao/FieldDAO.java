@@ -35,8 +35,7 @@ public class FieldDAO {
 				String name = resultSet.getString("name");
 				String type = resultSet.getString("type");
 				String entity = resultSet.getString("entity");
-				field = new Field(name, type, entity);
-				field.setId(id);
+				field = new Field(id,name, type, entity);				
 				fieldList.add(field);//Aggiunge tramite comando add un nuovo oggetto per la lista 
 			}
 		} catch (SQLException e) {

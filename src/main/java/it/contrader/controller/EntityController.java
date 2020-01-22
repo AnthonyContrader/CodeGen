@@ -37,8 +37,8 @@ public class EntityController implements Controller {
 	
 		case "READ":
 			id = Integer.parseInt(request.get("id").toString());
-			EntityDTO entitiesDTO = entityService.read(id);
-			request.put("entities", entitiesDTO);
+			EntityDTO entityDTO = entityService.read(id);
+			request.put("entity", entityDTO);
 			MainDispatcher.getInstance().callView(sub_package + "EntityRead", request);
 			break;
 		
@@ -81,10 +81,10 @@ public class EntityController implements Controller {
 			break;
 			
 		
-		case "EntityLIST":
-			List<EntityDTO> entityDTO = entityService.getAll();
+		case "ENTITYLIST":
+			List<EntityDTO> entitiesDTO = entityService.getAll();
 		
-			request.put("entity", entityDTO);
+			request.put("entities", entitiesDTO);
 			MainDispatcher.getInstance().callView("Entity", request);
 			break;
 			

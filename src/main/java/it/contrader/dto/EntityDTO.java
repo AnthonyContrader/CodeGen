@@ -44,7 +44,7 @@ public class EntityDTO {
 			return name;
 		}
 
-		//Trasforma un oggetto in una stringa
+		
 		@Override
 		public String toString() {
 			return  id + "\t"  + name ;

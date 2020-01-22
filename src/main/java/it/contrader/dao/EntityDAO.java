@@ -84,21 +84,21 @@ public Entity read(int entityId) {
 public boolean update(Entity entityToUpdate) {
 	Connection connection = ConnectionSingleton.getInstance();
 
-	// Check if id is present
+	
 	if (entityToUpdate.getId() == 0)
 		return false;
 
 	Entity entityRead = read(entityToUpdate.getId());
 	if (!entityRead.equals(entityToUpdate)) {
 		try {
-			// Fill the userToUpdate object
+			
 			if (entityToUpdate.getName() == null || entityToUpdate.getName().equals("")) {
 				entityToUpdate.setName(entityRead.getName());
 			}
 
 			
 
-			// Update the user
+			
 			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 			preparedStatement.setString(1, entityToUpdate.getName());
 			preparedStatement.setInt(2, entityToUpdate.getId());

@@ -31,7 +31,7 @@ public EntityDAO() {
 }
 
 public List<Entity> getAll() {
-	List<Entity> entityList = new ArrayList<>();
+	List<Entity> entitiesList = new ArrayList<>();
 	Connection connection = ConnectionSingleton.getInstance();
 	try {
 		Statement statement = connection.createStatement();
@@ -43,12 +43,12 @@ public List<Entity> getAll() {
 			
 			entity = new Entity(name);
 			entity.setId(id);
-			entityList.add(entity);
+			entitiesList.add(entity);
 		}
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
-	return entityList;
+	return entitiesList;
 }
 
 public boolean insert(Entity entityToInsert) {

@@ -23,7 +23,7 @@ public class HomeAdminView extends AbstractView {
 	 */
     public void showResults(Request request) {
     	if(request!=null) {
-    	System.out.println("\n Benvenuto in SAMPLE PROJECT "+request.get("username").toString() + "\n");
+    	System.out.println("\nCiao! " +request.get("username").toString().toUpperCase() + " Benvenuto in CodeGen, il tuo generatore di codice personale !! " + "\n");
     	}
     }
 
@@ -34,7 +34,7 @@ public class HomeAdminView extends AbstractView {
     public void showOptions() {
         System.out.println("-------------MENU------------\n");
         System.out.println(" Seleziona cosa vuoi gestire:");
-        System.out.println("[U]tenti  [E]sci");
+        System.out.println("[U]tenti [EN]tity [F]IELD [R]ELATIONSHIP [E]sci");
         //Il metodo che salva l'input nella stringa choice.
         //getInput() è definito in AbstractView.
         choice = this.getInput();
@@ -56,6 +56,22 @@ public class HomeAdminView extends AbstractView {
         case "e":
         	MainDispatcher.getInstance().callAction("Login", "doControl", null);
         	break;
+        	
+        case "en":
+        	this.request.put("mode", "ENTITYLIST");
+        	MainDispatcher.getInstance().callAction("Entity", "doControl", request);
+        	break;
+        	
+        case "f":
+        	this.request.put("mode", "FIELDLIST");
+        	MainDispatcher.getInstance().callAction("Field", "doControl", request);
+        	break;
+        	
+        case "r":
+        	this.request.put("mode", "RELATIONSHIPLIST");
+        	MainDispatcher.getInstance().callAction("Relationship", "doControl", request);
+        	break;
+        	
         default:
         	
             request.put("choice", choice);

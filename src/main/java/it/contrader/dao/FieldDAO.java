@@ -4,55 +4,54 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import it.contrader.main.ConnectionSingleton;
-import it.contrader.model.User;
+import it.contrader.model.Field;
 
 /**
  * 
- * @author Vittorio
+ * @author Depy
  *
- *Per i dettagli della classe vedi Guida sez 6: DAO
  */
 public class FieldDAO {
 
-	private final String QUERY_ALL = "SELECT * FROM user";
-	private final String QUERY_CREATE = "INSERT INTO user (username, password, usertype) VALUES (?,?,?)";
-	private final String QUERY_READ = "SELECT * FROM user WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE user SET username=?, password=?, usertype=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM user WHERE id=?";
+	private final String QUERY_ALL = "SELECT * FROM field ";
+	private final String QUERY_CREATE = "INSERT INTO field (name, type, entity) VALUES (?,?,?)";
+	private final String QUERY_READ = "SELECT * FROM field WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE field SET name=?, type=?, entity=? WHERE id=?";
+	private final String QUERY_DELETE = "DELETE FROM field WHERE id=?";
 
 	public FieldDAO() {
 
 	}
 
-	public List<User> getAll() {
-		List<User> usersList = new ArrayList<>();
+	public List<Field> getAll() {
+		List<Field> fieldList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
-			User user;
+			Field field;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
-				String username = resultSet.getString("username");
-				String password = resultSet.getString("password");
-				String usertype = resultSet.getString("usertype");
-				user = new User(username, password, usertype);
-				user.setId(id);
-				usersList.add(user);
+				String name = resultSet.getString("name");
+				String type = resultSet.getString("type");
+				String entity = resultSet.getString("entity");
+				field = new Field(name, type, entity);
+				field.setId(id);
+				fieldList.add(field);//Aggiunge tramite comando add un nuovo oggetto per la lista 
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return usersList;
+		return fieldList;
 	}
 
-	public boolean insert(User userToInsert) {
+	public boolean insert(Field fieldToInsert) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-			preparedStatement.setString(1, userToInsert.getUsername());
-			preparedStatement.setString(2, userToInsert.getPassword());
-			preparedStatement.setString(3, userToInsert.getUsertype());
+			preparedStatement.setString(1, fieldToInsert.getName());
+			preparedStatement.setString(2, fieldToInsert.getType());
+			preparedStatement.setString(3, fieldToInsert.getEntity());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -61,58 +60,59 @@ public class FieldDAO {
 
 	}
 
-	public User read(int userId) {
+	public Field read(int fieldId) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
-			preparedStatement.setInt(1, userId);
+			preparedStatement.setInt(1, fieldId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String username, password, usertype;
+			String name, type, entity;
 
-			username = resultSet.getString("username");
-			password = resultSet.getString("password");
-			usertype = resultSet.getString("usertype");
-			User user = new User(username, password, usertype);
-			user.setId(resultSet.getInt("id"));
+			name = resultSet.getString("name");
+			type = resultSet.getString("type");
+			entity = resultSet.getString("entity");
+			Field field = new Field(name, type, entity);
+			field.setId(resultSet.getInt("id"));
 
-			return user;
+			return field;
 		} catch (SQLException e) {
 			return null;
 		}
 
 	}
+	
 
-	public boolean update(User userToUpdate) {
+	public boolean update(Field fieldToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (userToUpdate.getId() == 0)
+		if (fieldToUpdate.getId() == 0)
 			return false;
 
-		User userRead = read(userToUpdate.getId());
-		if (!userRead.equals(userToUpdate)) {
+		Field fieldRead = read(fieldToUpdate.getId());
+		if (!fieldRead.equals(fieldToUpdate)) {
 			try {
 				// Fill the userToUpdate object
-				if (userToUpdate.getUsername() == null || userToUpdate.getUsername().equals("")) {
-					userToUpdate.setUsername(userRead.getUsername());
+				if (fieldToUpdate.getName() == null || fieldToUpdate.getName().equals("")) {
+					fieldToUpdate.setName(fieldRead.getName());
 				}
 
-				if (userToUpdate.getPassword() == null || userToUpdate.getPassword().equals("")) {
-					userToUpdate.setPassword(userRead.getPassword());
+				if (fieldToUpdate.getType() == null || fieldToUpdate.getType().equals("")) {
+					fieldToUpdate.setType(fieldRead.getType());
 				}
 
-				if (userToUpdate.getUsertype() == null || userToUpdate.getUsertype().equals("")) {
-					userToUpdate.setUsertype(userRead.getUsertype());
+				if (fieldToUpdate.getEntity() == null || fieldToUpdate.getEntity().equals("")) {
+					fieldToUpdate.setEntity(fieldRead.getEntity());
 				}
 
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setString(1, userToUpdate.getUsername());
-				preparedStatement.setString(2, userToUpdate.getPassword());
-				preparedStatement.setString(3, userToUpdate.getUsertype());
-				preparedStatement.setInt(4, userToUpdate.getId());
+				preparedStatement.setString(1, fieldToUpdate.getName());
+				preparedStatement.setString(2, fieldToUpdate.getType());
+				preparedStatement.setString(3, fieldToUpdate.getEntity());
+				preparedStatement.setInt(4, fieldToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

@@ -39,7 +39,7 @@ public class FieldController implements Controller {
 		case "READ":
 			id = Integer.parseInt(request.get("id").toString());
 			FieldDTO fieldDTO = fieldService.read(id);
-			request.put("fields", fieldDTO);
+			request.put("field", fieldDTO);
 			MainDispatcher.getInstance().callView(sub_package + "FieldRead", request);
 			break;
 		

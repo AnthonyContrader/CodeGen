@@ -7,9 +7,8 @@ import it.contrader.view.AbstractView;
 public class RelationshipInsertView extends AbstractView{
 	private Request request;
 
-	private String username;
-	private String password;
-	private String usertype;
+	private String entity1;
+	private String entity2;
 	private final String mode = "INSERT";
 
 	public RelationshipInsertView() {
@@ -23,21 +22,19 @@ public class RelationshipInsertView extends AbstractView{
 	public void showResults(Request request) {
 		if (request!=null) {
 			System.out.println("Inserimento andato a buon fine.\n");
-			MainDispatcher.getInstance().callView("User", null);
+			MainDispatcher.getInstance().callView("Relationship", null);
 		}
 	}
 
 	/**
-	 * Chiede all'utente di inserire gli attributi dell'utente da inserire
+	 * Chiede all'utente di inserire gli attributi della relazione da inserire
 	 */
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci username dell'utente:");
-			username = getInput();
-			System.out.println("Inserisci password dell'utente:");
-			password = getInput();
-			System.out.println("Inserisci tipo dell'utente:");
-			usertype = getInput();
+			System.out.println("Inserisci prima entità relazionale:");
+			entity1 = getInput();
+			System.out.println("Inserisci seconda entità relazionale:");
+			entity2 = getInput();
 	}
 
 	/**
@@ -46,11 +43,10 @@ public class RelationshipInsertView extends AbstractView{
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("username", username);
-		request.put("password", password);
-		request.put("usertype", usertype);
+		request.put("entity1", entity1);
+		request.put("entity2", entity2);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Relationship", "doControl", request);
 	}
 
 

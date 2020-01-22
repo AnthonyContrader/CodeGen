@@ -22,7 +22,7 @@ public class RelationshipDeleteView extends AbstractView {
 	public void showResults(Request request) {
 		if (request!=null) {
 			System.out.println("Cancellazione andata a buon fine.\n");
-			MainDispatcher.getInstance().callView("User", null);
+			MainDispatcher.getInstance().callView("Relationship", null);
 		}
 	}
 
@@ -31,20 +31,20 @@ public class RelationshipDeleteView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci id dell'utente:");
+			System.out.println("Inserisci id della relazione:");
 			id = Integer.parseInt(getInput());
 
 	}
 
 	/**
-	 * impacchetta la request con l'id dell'utente da cancellare
+	 * impacchetta la request con l'id della relazione da cancellare
 	 */
 	@Override
 	public void submit() {
 		request = new Request();
 		request.put("id", id);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Relationship", "doControl", request);
 	}
 
 

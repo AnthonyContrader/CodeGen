@@ -10,9 +10,8 @@ public class RelationshipUpdateView extends AbstractView {
 	private Request request;
 
 	private int id;
-	private String username;
-	private String password;
-	private String usertype;
+	private String entity1;
+	private String entity2;
 	private final String mode = "UPDATE";
 
 	public RelationshipUpdateView() {
@@ -26,24 +25,22 @@ public class RelationshipUpdateView extends AbstractView {
 	public void showResults(Request request) {
 		if (request!=null) {
 			System.out.println("Modifica andata a buon fine.\n");
-			MainDispatcher.getInstance().callView("User", null);
+			MainDispatcher.getInstance().callView("Relationship", null);
 		}
 	}
 
 	/**
-	 * Chiede all'utente di inserire gli attributi dell'utente da modificare
+	 * Chiede all'utente di inserire gli attributi della relazione da modificare
 	 */
 	@Override
 	public void showOptions() {
 		try {
-			System.out.println("Inserisci id dell'utente:");
+			System.out.println("Inserisci id della relazione:");
 			id = Integer.parseInt(getInput());
-			System.out.println("Inserisci username dell'utente:");
-			username = getInput();
-			System.out.println("Inserisci password dell'utente:");
-			password = getInput();
-			System.out.println("Inserisci tipo dell'utente:");
-			usertype = getInput();
+			System.out.println("Inserisci la prima entità relazionale:");
+			entity1 = getInput();
+			System.out.println("Inserisci la seconda entità relazionale:");
+			entity2 = getInput();
 		} catch (Exception e) {
 
 		}
@@ -57,11 +54,10 @@ public class RelationshipUpdateView extends AbstractView {
 	public void submit() {
 		request = new Request();
 		request.put("id", id);
-		request.put("username", username);
-		request.put("password", password);
-		request.put("usertype", usertype);
+		request.put("entity1", entity1);
+		request.put("entity2", entity2);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("User", "doControl", request);
+		MainDispatcher.getInstance().callAction("Relationship", "doControl", request);
 	}
 
 }

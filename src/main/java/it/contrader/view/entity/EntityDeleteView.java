@@ -1,45 +1,45 @@
-package it.contrader.view.field;
+package it.contrader.view.entity;
 
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
 
-
-/**
- * @author Depy
- */
-public class FieldDeleteView extends AbstractView {
+public class EntityDeleteView extends AbstractView {
 	private Request request;
 
 	private int id;
 	private final String mode = "DELETE";
 
-	public FieldDeleteView() {
+	public EntityDeleteView() {
 		
 	}
 
+	
 	@Override
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println(" La Cancellazione del Campo andata a buon fine.\n");
-			MainDispatcher.getInstance().callView("Field", null);
+			System.out.println("Cancellazione andata a buon fine.\n");
+			MainDispatcher.getInstance().callView("Entity", null);
 		}
 	}
 
+	
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci ID del Campo: ");
+			System.out.println("Inserisci id dell'entità:");
 			id = Integer.parseInt(getInput());
 
 	}
 
+	
 	@Override
 	public void submit() {
 		request = new Request();
 		request.put("id", id);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("Field", "doControl", request);
+		MainDispatcher.getInstance().callAction("Entity", "doControl", request);
 	}
+
 
 
 }

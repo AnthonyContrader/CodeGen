@@ -31,7 +31,7 @@ import it.contrader.main.MainDispatcher;
 				System.out.println("----------------------------------------------------\n");
 				
 				@SuppressWarnings("unchecked")
-				List<EntityDTO> entities = (List<EntityDTO>) request.get("entitiesa");
+				List<EntityDTO> entities = (List<EntityDTO>) request.get("entities");
 				for (EntityDTO e: entities)
 					System.out.println(e);
 				System.out.println();

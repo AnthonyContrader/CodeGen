@@ -1,4 +1,10 @@
 package it.contrader.dto;
+/*
+ * 
+ * @author Selenia, Brunco 
+ *
+ */
+
 
 public class EntityDTO {
 

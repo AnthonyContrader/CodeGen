@@ -1,4 +1,10 @@
 package it.contrader.model;
+/*
+ * 
+ * @author Selenia, Brunco 
+ *
+ */
+
 
 public class Entity {
 

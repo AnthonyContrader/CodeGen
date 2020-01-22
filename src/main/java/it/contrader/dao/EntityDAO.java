@@ -10,6 +10,12 @@ import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Entity;
+/*
+ * 
+ * @author Selenia, Brunco 
+ *
+ */
+
 
 public class EntityDAO {
 

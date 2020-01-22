@@ -25,21 +25,25 @@ public class FieldView extends AbstractView {
 	public void showResults(Request request) {
 		if (request != null) {
 			System.out.println("\n------------------- Gestione Campi di tutte le entita' ----------------\n");
-			System.out.println("ID\tNome\tTipo\tEntita' Collegata");
+			System.out.println("ID\tNome\tTipo\tEntita'");
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")
 			List<FieldDTO> fields = (List<FieldDTO>) request.get("fields");
-			for (FieldDTO f: fields)
-				System.out.println(f);
-			System.out.println();
+			
+
+			for (int i =0; i<fields.size(); i++) {
+				System.out.println(fields.get(i));
+			}
+			
+			System.out.println("\n____________________________________________________\n");
 		}
 	}
 
 	@Override
 	public void showOptions() {
 		System.out.println("          Scegli l'operazione da effettuare:");
-		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
+		System.out.println("[1]Leggi [2]Inserisci [3]Modifica [4]Cancella [5]Torna [6]Esci");
 
 		this.choice = getInput();		
 	}

@@ -3,6 +3,7 @@ package it.contrader.dto;
  * 
  * @author Depy
  *
+
  */
 public class FieldDTO {
 
@@ -12,20 +13,25 @@ public class FieldDTO {
 	private String name;
 	
 	private String type;
+	
+	private String entity;
 
 	public FieldDTO() {//construttore vuoto
 		
 	}
 
-	public FieldDTO (String name, String type) {//construttore PIENO
+	public FieldDTO (String name, String type, String entity) {//construttore PIENO
 		this.name = name;
 		this.type = type;
+		this.entity = entity;
+		
 	}
 
-	public FieldDTO (int id, String name, String type) {//construttore PIENO con ID
+	public FieldDTO (int id, String name, String type, String entity) {//construttore PIENO con ID
 		this.id = id;
 		this.name = name;
 		this.type = type;
+		this.entity = entity;
 	}
 
 	public int getId() {
@@ -49,11 +55,21 @@ public class FieldDTO {
 	public void setType(String type) {
 		this.type = type;
 	}
-
-
-	@Override
-	public String toString() {
-		return  id + "\t"  + name +"\t\t" +   type ;
+	
+	public String getEntity() {
+		return entity;
 	}
 
+	public void setEntity(String entity) {
+		this.entity = entity;
+	}
+
+	//Trasforma un oggetto in una stringa
+	@Override
+	public String toString() {
+		return  id + "\t"  + name +"\t\t" +   type+"\t\t" +   entity ;
+	}
+
+
+	
 }

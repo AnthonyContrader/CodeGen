@@ -23,7 +23,7 @@ public class HomeAdminView extends AbstractView {
 	 */
     public void showResults(Request request) {
     	if(request!=null) {
-    	System.out.println("\nCiao! " +request.get("username").toString().toUpperCase() + " Benvenuto in CodeGen, il tuo generatore di codice personale !! " + "\n");
+    	System.out.println("\nCiao! " +request.get("username").toString().toUpperCase() + "\nBenvenuto in CodeGen, il tuo generatore di codice personale !! " + "\n");
     	}
     }
 
@@ -72,10 +72,11 @@ public class HomeAdminView extends AbstractView {
         	MainDispatcher.getInstance().callAction("Login", "doControl", null);
         	break;
         	
-        default:
-        	
+        default:        	
             request.put("choice", choice);
         	MainDispatcher.getInstance().callAction("Login", "doControl", request);
+        	
+        	
         }
     }
 }

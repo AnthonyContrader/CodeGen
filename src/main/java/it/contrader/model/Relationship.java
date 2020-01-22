@@ -5,7 +5,7 @@ package it.contrader.model;
 public class Relationship {
 
 	/**
-	 * Qui sotto definisco gli attributi di User. 
+	 * Qui sotto definisco gli attributi di Relationship. 
 	 */
 	private int id;
 
@@ -32,7 +32,7 @@ public class Relationship {
 	}
 
 	/**
-	 * Getter e Setter: servono alle altre classi a recuperare e modificare gli attributi di User
+	 * Getter e Setter: servono alle altre classi a recuperare e modificare gli attributi di Relationship
 	 */
 	public int getId() {
 		return this.id;

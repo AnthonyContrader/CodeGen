@@ -55,6 +55,7 @@ public class Field {
 		this.type = type;
 	}
 	
+	
 	public String getEntity() {
 		return entity;
 	}

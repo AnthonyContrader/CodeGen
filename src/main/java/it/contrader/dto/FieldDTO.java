@@ -1,4 +1,5 @@
 package it.contrader.dto;
+
 /**
  * 
  * @author Depy
@@ -6,8 +7,7 @@ package it.contrader.dto;
 
  */
 public class FieldDTO {
-
-
+	
 	private int id;
 
 	private String name;
@@ -16,18 +16,18 @@ public class FieldDTO {
 	
 	private String entity;
 
-	public FieldDTO() {//construttore vuoto
+	
+	public FieldDTO() {
 		
 	}
 
-	public FieldDTO (String name, String type, String entity) {//construttore PIENO
+	public FieldDTO (String name, String type, String entity) {
 		this.name = name;
 		this.type = type;
 		this.entity = entity;
-		
 	}
 
-	public FieldDTO (int id, String name, String type, String entity) {//construttore PIENO con ID
+	public FieldDTO (int id, String name, String type, String entity) {
 		this.id = id;
 		this.name = name;
 		this.type = type;
@@ -40,22 +40,29 @@ public class FieldDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
-	public String getName() {
-		return this.name;
+
+
+	@Override
+	public String toString() {
+		return  id + "\t"  + name +"\t\t" +   type + "\t\t" + entity;
 	}
+
+	public String getName() {
+		return name;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getType() {
-		return this.type;
+		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	public String getEntity() {
 		return entity;
 	}
@@ -63,13 +70,4 @@ public class FieldDTO {
 	public void setEntity(String entity) {
 		this.entity = entity;
 	}
-
-	//Trasforma un oggetto in una stringa
-	@Override
-	public String toString() {
-		return  id + "\t"  + name +"\t\t" +   type+"\t\t" +   entity ;
-	}
-
-
-	
 }

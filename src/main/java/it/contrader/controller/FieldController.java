@@ -13,7 +13,7 @@ import it.contrader.service.FieldService;
  */
 public class FieldController implements Controller {
 
-	private static String sub_package = "user.";
+	private static String sub_package = "field.";
 	
 	private FieldService fieldService;
 	public FieldController() {

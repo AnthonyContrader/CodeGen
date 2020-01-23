@@ -44,7 +44,7 @@ public class FieldDTO {
 
 	@Override
 	public String toString() {
-		return  id + "\t"  + name +"\t\t" +   type + "\t\t" + entity;
+		return  id + "\t"  + name +"\t" +   type + "\t" + entity;
 	}
 
 	public String getName() {

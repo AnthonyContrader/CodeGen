@@ -23,12 +23,10 @@ public class FieldController implements Controller {
 	@Override
 	public void doControl(Request request) {
 		
-		//Estrae dalla request mode e choice
 		String mode = (String) request.get("mode");
 		
 		String choice = (String) request.get("choice");
 
-		//Definisce i campi della classe (serviranno sempre, tanto vale definirli una sola volta)
 		int id;
 		String name;
 		String type;
@@ -60,7 +58,6 @@ public class FieldController implements Controller {
 		
 		case "DELETE":
 			id = Integer.parseInt(request.get("id").toString());
-			//Qui chiama il service
 			fieldService.delete(id);
 			request = new Request();
 			request.put("mode", "mode");

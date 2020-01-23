@@ -42,7 +42,7 @@ import it.contrader.main.MainDispatcher;
 		@Override
 		public void showOptions() {
 			System.out.println("          Scegli l'operazione da effettuare:");
-			System.out.println("[1]Leggi [2]Inserisci [3]Modifica [4]Cancella [5]Back [6]Esci");
+			System.out.println("[1]Leggi [2]Inserisci [3]Modifica [4]Cancella [5]Menù [6]Esci");
 
 			this.choice = getInput();
 

@@ -59,6 +59,6 @@ public class RelationshipDTO {
 
 	@Override
 	public String toString() {
-		return  id + "\t"  + entity1 +"\t" +   entity2;
+		return  id + "\t"  + entity1 +"\t\t" +   entity2;
 	}
 }

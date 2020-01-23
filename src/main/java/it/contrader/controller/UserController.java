@@ -116,27 +116,23 @@ public class UserController implements Controller {
 					//toUpperCase() mette in maiuscolo la scelta
 			switch (choice.toUpperCase()) {
 			
-			case "L":
+			case "1":
 				MainDispatcher.getInstance().callView(sub_package + "UserRead", null);
 				break;
 				
-			case "I":
+			case "2":
 				MainDispatcher.getInstance().callView(sub_package + "UserInsert", null);
 				break;
 				
-			case "M":
+			case "3":
 				MainDispatcher.getInstance().callView(sub_package + "UserUpdate", null);
 				break;
 				
-			case "C":
+			case "4":
 				MainDispatcher.getInstance().callView(sub_package + "UserDelete", null);
 				break;
 				
-			case "E":
-				MainDispatcher.getInstance().callView("Login", null);
-				break;
-
-			case "B":
+			case "5":
 				MainDispatcher.getInstance().callView("HomeAdmin", null);
 				break;
 				

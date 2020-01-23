@@ -24,8 +24,8 @@ public class FieldView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			System.out.println("\n------------------- Gestione Campi di tutte le entita' ----------------\n");
-			System.out.println("ID\tNome\tTipo\tEntita'");
+			System.out.println("\n------------------- Gestione Campi di tutte le entità ----------------\n");
+			System.out.println("ID\tNome\tTipo\tEntità");
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")
@@ -43,7 +43,7 @@ public class FieldView extends AbstractView {
 	@Override
 	public void showOptions() {
 		System.out.println("          Scegli l'operazione da effettuare:");
-		System.out.println("[1]Leggi [2]Inserisci [3]Modifica [4]Cancella [5]Torna [6]Esci");
+		System.out.println("[1]Leggi [2]Inserisci [3]Modifica [4]Cancella [5]Menù [6]Esci");
 
 		this.choice = getInput();		
 	}

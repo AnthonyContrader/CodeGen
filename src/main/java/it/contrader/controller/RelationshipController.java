@@ -130,11 +130,11 @@ public class RelationshipController implements Controller {
 				break;
 				
 			case "5":
-				MainDispatcher.getInstance().callView("Login", null);
+				MainDispatcher.getInstance().callView("HomeAdmin", null);
 				break;
 
 			case "6":
-				MainDispatcher.getInstance().callView("HomeAdmin", null);
+				MainDispatcher.getInstance().callView("Login", null);
 				break;
 				
 			default:

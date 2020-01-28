@@ -69,7 +69,7 @@
       <label for="name">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="name" name="name" placeholder="Inserisci Name">
+      <input type="text" id="name" name="name" placeholder="Insert Name">
     </div>
   </div>
   <div class="row">
@@ -77,7 +77,13 @@
      <label for="type">Type</label>
     </div>
     <div class="col-75">
-      <input type="text" id="type" name="type" placeholder="Inserisci Type"> 
+      	<select id="type" name="type">
+ 				<option value="" disabled selected>Insert Type</option>
+ 				<option value="string"  >String</option>
+ 				<option value="int"  >Int</option>
+ 				<option value="double"  >Double</option>
+ 				<option value="date"  >Date</option>
+		</select>
     </div>
   </div>
   <div class="row">
@@ -85,7 +91,7 @@
       <label for="type">Select Entity</label>
     </div>
    		 <div class="col-75">
- 			<select id="type" name="entity">
+ 			<select id="entity" name="entity">
  				<option value="" disabled selected>Select Entities</option>
  				<%
  			

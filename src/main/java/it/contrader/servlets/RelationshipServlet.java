@@ -38,7 +38,7 @@ public class RelationshipServlet extends HttpServlet {
 
 		switch (mode.toUpperCase()) {
 
-		case "USERLIST":
+		case "RELATIONSHIPLIST":
 			updateList(request);
 			getServletContext().getRequestDispatcher("/relationship/relationshipmanager.jsp").forward(request, response);
 			break;

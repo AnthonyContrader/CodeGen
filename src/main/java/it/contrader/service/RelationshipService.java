@@ -15,7 +15,7 @@ import it.contrader.dto.RelationshipDTO;
  *ereditare i metodi della classe AbstractService. Pertanto la classe risulta meno complicata
  *da scrivere, facendoci risparmiare tempo e fatica!
  */
-public class RelationshipService {
+public class RelationshipService implements Service<RelationshipDTO> {
 	
 	private RelationshipDAO relationshipDAO;
 	private RelationshipConverter relationshipConverter;

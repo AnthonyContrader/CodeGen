@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.FieldDTO"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.EntityDTO"%>
+    pageEncoding="ISO-8859-1" import="java.util.List" import="it.contrader.dto.FieldDTO" import="it.contrader.dto.EntityDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +23,7 @@
 
 <%FieldDTO u = (FieldDTO) request.getAttribute("dto");
 
-List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("list");%>
+List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); //Assicurati che nella servelet %>
 
 <form id="floatleft" action="UserServlet?mode=update&id=<%=u.getId()%>" method="post">
   <div class="row">
@@ -55,7 +52,7 @@ List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("list");%>
  				<%
 					for (EntityDTO e : list_E) {
 				%>
-					<option value="<%=e.getId()%>"  <%if(e.getId()==u.getEntity()) {%>selected<%} %>  ><%e.getName();%></option>
+					<option value="<%=e.getId()%>"  <%if(e.getId()==u.getEntity()) {%>selected<%} %>  ><%=e.getName()%></option>
 				<%
 					}
 				%>

@@ -59,7 +59,7 @@ public class FieldServlet extends HttpServlet {
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id);
 			request.setAttribute("dto", dto);
-			
+			getEntity(request);
 			if (request.getParameter("update") == null) {
 				 getServletContext().getRequestDispatcher("/field/readfield.jsp").forward(request, response);
 				

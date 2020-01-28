@@ -51,6 +51,16 @@
     <servlet-name>FieldServlet</servlet-name>
     <url-pattern>/FieldServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>EntityServlet</display-name>
+    <servlet-name>EntityServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.EntityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EntityServlet</servlet-name>
+    <url-pattern>/EntityServlet</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <description></description>

@@ -14,20 +14,20 @@ public class Field {
 	
 	private String type;
 	
-	private String entity;
+	private int entity;
 
 	public Field() {//construttore vuoto
 		
 	}
 
-	public Field (String name, String type, String entity) {//construttore PIENO
+	public Field (String name, String type, int entity) {//construttore PIENO
 		this.name = name;
 		this.type = type;
 		this.entity = entity;
 		
 	}
 
-	public Field (int id, String name, String type, String entity) {//construttore PIENO con ID
+	public Field (int id, String name, String type, int entity) {//construttore PIENO con ID
 		this.id = id;
 		this.name = name;
 		this.type = type;
@@ -56,11 +56,11 @@ public class Field {
 	}
 	
 	
-	public String getEntity() {
+	public int getEntity() {
 		return entity;
 	}
 
-	public void setEntity(String entity) {
+	public void setEntity(int entity) {
 		this.entity = entity;
 	}
 
@@ -95,10 +95,10 @@ public class Field {
 		} else if (!type.equals(other.type))
 			return false;
 		
-		if (entity == null) {
-			if (other.entity != null)
+		if (entity == 0) {
+			if (other.entity != 0)
 				return false;
-		} else if (!entity.equals(other.entity))
+		} else if (entity!=other.entity)
 			return false;
 		
 		return true;

@@ -1,45 +1,24 @@
 package it.contrader.service;
 
-import java.util.List;
-
-
 import it.contrader.converter.FieldConverter;
 import it.contrader.dao.FieldDAO;
 import it.contrader.dto.FieldDTO;
+import it.contrader.model.Field;
 
 /**
  * 
- * @author Depy
+ * @author Vittorio
  *
+ *Grazie all'ereditarietà mi basta specificare i tipi di questa classe per
+ *ereditare i metodi della clase AbstractService. Pertanto la classe risulta meno complicata
+ *da scrivere, facendoci risparmiare tempo e fatica!
  */
-public class FieldService {
+public class FieldService extends AbstractService<Field, FieldDTO> {
 	
-	private FieldDAO fieldDAO;
-	private FieldConverter fieldConverter;
-	
+	//Istanzio DAO  e Converter specifici.
 	public FieldService(){
-		this.fieldDAO = new FieldDAO();
-		this.fieldConverter = new FieldConverter();
-	}
-	
-	public List<FieldDTO> getAll() {
-		return fieldConverter.toDTOList(fieldDAO.getAll());
-	}
-
-	public FieldDTO read(int id) {
-		return fieldConverter.toDTO(fieldDAO.read(id));
-	}
-
-	public boolean insert(FieldDTO dto) {
-		return fieldDAO.insert(fieldConverter.toEntity(dto));
-	}
-
-	public boolean update(FieldDTO dto) {
-		return fieldDAO.update(fieldConverter.toEntity(dto));
-	}
-
-	public boolean delete(int id) {
-		return fieldDAO.delete(id);
+		this.dao = new FieldDAO();
+		this.converter = new FieldConverter();
 	}
 	
 

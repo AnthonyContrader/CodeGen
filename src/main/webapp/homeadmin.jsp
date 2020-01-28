@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
 	import="it.contrader.dto.UserDTO"
+	import="it.contrader.dto.EntityDTO"
+	import="it.contrader.dto.FieldDTO"
+	import="it.contrader.dto.ProjectDTO"
 	import="it.contrader.dto.RelationshipDTO"%>
 	
 <!DOCTYPE html>

@@ -1,6 +1,7 @@
 package it.contrader.dao;
 
 import java.sql.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import it.contrader.utils.ConnectionSingleton;
@@ -11,9 +12,9 @@ import it.contrader.model.Field;
  * @author Depy
  *
  */
-public class FieldDAO {
+public class FieldDAO implements DAO<Field> {
 
-	private final String QUERY_ALL = "SELECT * FROM field ";
+	private final String QUERY_ALL = "SELECT f.id as 'id',f.name as 'name', f.type as 'type', f.entity as 'entity', e.name as 'nentity' FROM field f JOIN entity e ON e.id=f.entity";
 	private final String QUERY_CREATE = "INSERT INTO field (name, type, entity) VALUES (?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM field WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE field SET name=?, type=?, entity=? WHERE id=?";
@@ -24,7 +25,7 @@ public class FieldDAO {
 	}
 
 	public List<Field> getAll() {
-		List<Field> fieldList = new ArrayList<>();
+		List<Field> fieldsList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			Statement statement = connection.createStatement();
@@ -34,14 +35,15 @@ public class FieldDAO {
 				int id = resultSet.getInt("id");
 				String name = resultSet.getString("name");
 				String type = resultSet.getString("type");
-				String entity = resultSet.getString("entity");
-				field = new Field(id,name, type, entity);				
-				fieldList.add(field);//Aggiunge tramite comando add un nuovo oggetto per la lista 
+				int entity = Integer.parseInt(resultSet.getString("entity"));
+				field = new Field(name, type, entity);
+				field.setId(id);
+				fieldsList.add(field);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return fieldList;
+		return fieldsList;
 	}
 
 	public boolean insert(Field fieldToInsert) {
@@ -50,7 +52,7 @@ public class FieldDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, fieldToInsert.getName());
 			preparedStatement.setString(2, fieldToInsert.getType());
-			preparedStatement.setString(3, fieldToInsert.getEntity());
+			preparedStatement.setInt(3, fieldToInsert.getEntity());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -63,15 +65,17 @@ public class FieldDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 
+
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 			preparedStatement.setInt(1, fieldId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String name, type, entity;
+			String name, type;
+			int entity=0;
 
 			name = resultSet.getString("name");
 			type = resultSet.getString("type");
-			entity = resultSet.getString("entity");
+			entity = resultSet.getInt("entity");
 			Field field = new Field(name, type, entity);
 			field.setId(resultSet.getInt("id"));
 
@@ -81,7 +85,6 @@ public class FieldDAO {
 		}
 
 	}
-	
 
 	public boolean update(Field fieldToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
@@ -93,7 +96,7 @@ public class FieldDAO {
 		Field fieldRead = read(fieldToUpdate.getId());
 		if (!fieldRead.equals(fieldToUpdate)) {
 			try {
-				// Fill the userToUpdate object
+				// Fill the fieldToUpdate object
 				if (fieldToUpdate.getName() == null || fieldToUpdate.getName().equals("")) {
 					fieldToUpdate.setName(fieldRead.getName());
 				}
@@ -102,15 +105,15 @@ public class FieldDAO {
 					fieldToUpdate.setType(fieldRead.getType());
 				}
 
-				if (fieldToUpdate.getEntity() == null || fieldToUpdate.getEntity().equals("")) {
+				if (fieldToUpdate.getEntity() == 0 ) {
 					fieldToUpdate.setEntity(fieldRead.getEntity());
 				}
 
-				// Update the user
+				// Update the field
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, fieldToUpdate.getName());
 				preparedStatement.setString(2, fieldToUpdate.getType());
-				preparedStatement.setString(3, fieldToUpdate.getEntity());
+				preparedStatement.setInt(3, fieldToUpdate.getEntity());
 				preparedStatement.setInt(4, fieldToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)

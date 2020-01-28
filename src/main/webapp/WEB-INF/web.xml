@@ -40,4 +40,15 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>FieldServlet</display-name>
+    <servlet-name>FieldServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.FieldServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FieldServlet</servlet-name>
+    <url-pattern>/FieldServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

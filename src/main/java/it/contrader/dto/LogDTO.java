@@ -20,15 +20,17 @@ public class LogDTO {
 		
 	}
 
-	public LogDTO (String action, int iduser) {
+	public LogDTO (String action, int iduser,String date) {
 		this.action = action;
 		this.iduser = iduser;
+		this.date = date;
 	}
 
-	public LogDTO (int id,String action, int iduser) {
+	public LogDTO (int id,String action, int iduser,String date) {
 		this.id = id;
 		this.action = action;
 		this.iduser = iduser;
+		this.date = date;
 	}
 	
 

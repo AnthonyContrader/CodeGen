@@ -17,6 +17,8 @@
 <div class="navbar">
   <a class="active" href="homeadmin.jsp">Home</a>
   <a href="UserServlet?mode=userlist">Users</a>
+  <a href="EntityServlet?mode=entitylist">Entities</a>
+  <a href="FieldServlet?mode=fieldlist">Fields</a>
   <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>

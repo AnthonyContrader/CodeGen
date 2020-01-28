@@ -54,9 +54,9 @@ public class EntityServlet  extends HttpServlet {
 			break;
 
 		case "INSERT":
-			String nome = request.getParameter("nome").toString();
+			String name = request.getParameter("name").toString();
 			
-			dto = new EntityDTO (nome);
+			dto = new EntityDTO (name);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);
@@ -64,10 +64,10 @@ public class EntityServlet  extends HttpServlet {
 			break;
 			
 		case "UPDATE":
-			nome = request.getParameter("nome");
+			name = request.getParameter("name");
 			
 			id = Integer.parseInt(request.getParameter("id"));
-			dto = new EntityDTO (id,nome);
+			dto = new EntityDTO (id,name);
 			ans = service.update(dto);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/entity/entitymanager.jsp").forward(request, response);

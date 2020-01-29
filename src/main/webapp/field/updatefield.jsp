@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Edit User</title>
+<title>Edit Field</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
@@ -25,7 +25,7 @@
 
 List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); //Assicurati che nella servelet %>
 
-<form id="floatleft" action="UserServlet?mode=update&id=<%=u.getId()%>" method="post">
+<form id="floatleft" action="FieldServlet?mode=update&id=<%=u.getId()%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="name">Name</label>
@@ -58,6 +58,14 @@ List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); /
 				%>
 			</select>
     	</div>
+  </div>
+<div class="row">
+    <div class="col-25">
+     <label for="type">Lenght</label>
+    </div>
+    <div class="col-75">
+      	  <input type="range" min="1" max="255" value="<%=u.getLenght()%>" class="slider-color" id="myRange" name="lenght"  step="10" style="width:90%;">
+    </div>
   </div>
       <button type="submit" >Edit</button>
 </form>

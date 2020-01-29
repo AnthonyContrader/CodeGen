@@ -73,7 +73,8 @@ public class FieldServlet extends HttpServlet {
 			String name = request.getParameter("name").toString();
 			String type = request.getParameter("type").toString();
 			int entity = Integer.parseInt(request.getParameter("entity").toString());
-			dto = new FieldDTO (name,type,entity);
+			int lenght = Integer.parseInt(request.getParameter("lenght").toString());
+			dto = new FieldDTO (name,type,entity,lenght);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);
@@ -83,9 +84,10 @@ public class FieldServlet extends HttpServlet {
 		case "UPDATE":
 			name = request.getParameter("name");
 			type = request.getParameter("type");
-			entity = Integer.parseInt(request.getParameter("entity").toString());
+			entity = Integer.parseInt(request.getParameter("entity"));
 			id = Integer.parseInt(request.getParameter("id"));
-			dto = new FieldDTO (id,name, type, entity);
+			lenght = Integer.parseInt(request.getParameter("lenght"));
+			dto = new FieldDTO (id,name, type, entity,lenght);
 			ans = service.update(dto);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/field/fieldmanager.jsp").forward(request, response);

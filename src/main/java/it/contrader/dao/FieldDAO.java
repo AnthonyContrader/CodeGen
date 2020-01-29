@@ -14,10 +14,10 @@ import it.contrader.model.Field;
  */
 public class FieldDAO implements DAO<Field> {
 
-	private final String QUERY_ALL = "SELECT f.id as 'id',f.name as 'name', f.type as 'type', f.entity as 'entity', e.name as 'nentity' FROM field f JOIN entity e ON e.id=f.entity";
-	private final String QUERY_CREATE = "INSERT INTO field (name, type, entity) VALUES (?,?,?)";
+	private final String QUERY_ALL = "SELECT f.id as 'id',f.name as 'name', f.type as 'type', f.entity as 'entity', e.name as 'nentity',f.lenght as 'lenght' FROM field f JOIN entity e ON e.id=f.entity";
+	private final String QUERY_CREATE = "INSERT INTO field (name, type, entity,lenght) VALUES (?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM field WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE field SET name=?, type=?, entity=? WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE field SET name=?, type=?, entity=?,lenght=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM field WHERE id=?";
 
 	public FieldDAO() {
@@ -36,7 +36,8 @@ public class FieldDAO implements DAO<Field> {
 				String name = resultSet.getString("name");
 				String type = resultSet.getString("type");
 				int entity = Integer.parseInt(resultSet.getString("entity"));
-				field = new Field(name, type, entity);
+				int lenght = Integer.parseInt(resultSet.getString("lenght"));
+				field = new Field(name, type, entity,lenght);
 				field.setId(id);
 				fieldsList.add(field);
 			}
@@ -53,6 +54,7 @@ public class FieldDAO implements DAO<Field> {
 			preparedStatement.setString(1, fieldToInsert.getName());
 			preparedStatement.setString(2, fieldToInsert.getType());
 			preparedStatement.setInt(3, fieldToInsert.getEntity());
+			preparedStatement.setInt(4, fieldToInsert.getLenght());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -76,7 +78,8 @@ public class FieldDAO implements DAO<Field> {
 			name = resultSet.getString("name");
 			type = resultSet.getString("type");
 			entity = resultSet.getInt("entity");
-			Field field = new Field(name, type, entity);
+			int lenght = resultSet.getInt("lenght");
+			Field field = new Field(name, type, entity,lenght);
 			field.setId(resultSet.getInt("id"));
 
 			return field;
@@ -108,13 +111,17 @@ public class FieldDAO implements DAO<Field> {
 				if (fieldToUpdate.getEntity() == 0 ) {
 					fieldToUpdate.setEntity(fieldRead.getEntity());
 				}
+				if (fieldToUpdate.getLenght() == 0 ) {
+					fieldToUpdate.setLenght(fieldRead.getLenght());
+				}
 
 				// Update the field
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, fieldToUpdate.getName());
 				preparedStatement.setString(2, fieldToUpdate.getType());
 				preparedStatement.setInt(3, fieldToUpdate.getEntity());
-				preparedStatement.setInt(4, fieldToUpdate.getId());
+				preparedStatement.setInt(4, fieldToUpdate.getLenght());
+				preparedStatement.setInt(5, fieldToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

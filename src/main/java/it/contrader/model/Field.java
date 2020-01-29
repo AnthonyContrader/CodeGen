@@ -15,23 +15,26 @@ public class Field {
 	private String type;
 	
 	private int entity;
+	
+	private int lenght;
 
 	public Field() {//construttore vuoto
 		
 	}
 
-	public Field (String name, String type, int entity) {//construttore PIENO
+	public Field (String name, String type, int entity, int lenght) {//construttore PIENO
 		this.name = name;
 		this.type = type;
 		this.entity = entity;
-		
+		this.lenght = lenght;
 	}
 
-	public Field (int id, String name, String type, int entity) {//construttore PIENO con ID
+	public Field (int id, String name, String type, int entity, int lenght) {//construttore PIENO con ID
 		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.entity = entity;
+		this.lenght = lenght;
 	}
 
 	public int getId() {
@@ -67,7 +70,7 @@ public class Field {
 	//Trasforma un oggetto in una stringa
 	@Override
 	public String toString() {
-		return  id + "\t"  + name +"\t\t" +   type+"\t\t" +   entity ;
+		return  id + "\t"  + name +"\t\t" +   type+" ("+lenght+")"    +"\t\t" +   entity;
 	}
 
 	//confronto degli oggetti
@@ -101,7 +104,21 @@ public class Field {
 		} else if (entity!=other.entity)
 			return false;
 		
+		if (lenght == 0) {
+			if (other.lenght != 0)
+				return false;
+		} else if (lenght!=other.lenght)
+			return false;
+		
 		return true;
+	}
+
+	public int getLenght() {
+		return lenght;
+	}
+
+	public void setLenght(int lenght) {
+		this.lenght = lenght;
 	}
 
 	

@@ -9,7 +9,7 @@
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Field Manager</title>
 </head>
-<body>
+<body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="FieldServlet?mode=fieldlist";' <% }  %>>
 <%@ include file="../css/header.jsp" %>
 
 <div class="navbar">
@@ -22,18 +22,19 @@
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
+
 	<%
-		List<FieldDTO> list = (List<FieldDTO>) request.getAttribute("list");
-	
-		List<EntityDTO> list_E = (List<EntityDTO>)request.getAttribute("listEntity");
+		List<FieldDTO> list = (List<FieldDTO>) request.getAttribute("list");	
+		List<EntityDTO> list_E = (List<EntityDTO>)request.getAttribute("listEntity");		 
 	%>
+	
 
 <br>
 
 	<table>
 		<tr>
 			<th>Name</th>
-			<th>Type</th>
+			<th>Type (Lenght)</th>
 			<th>Entity</th>
 			<th></th>
 			<th></th>
@@ -45,7 +46,7 @@
 			<td><a href=FieldServlet?mode=read&id=<%=u.getId()%>>
 					<%=u.getName()%>
 			</a></td>
-			<td><%=u.getType()%></td>
+			<td><%=u.getType()%>&nbsp;(<%=u.getLenght()%>)</td>
 			<td><%for (EntityDTO e : list_E){ 
 					if(u.getEntity()==e.getId())
 						out.print(e.getName());
@@ -69,7 +70,7 @@
       <label for="name">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="name" name="name" placeholder="Insert Name" required maxlength="20">
+      <input type="text" id="name" name="name" placeholder="Insert Name" required maxlength="20" style="width:90%;">
     </div>
   </div>
   <div class="row">
@@ -91,7 +92,7 @@
      <label for="type">Lenght</label>
     </div>
     <div class="col-75">
-      	  <input type="range" min="1" max="255" value="50" class="slider" id="myRange" step="10">
+      	  <input type="range" min="1" max="255" value="50" class="slider-color" id="myRange" name="lenght" step="10" style="width:90%;">
     </div>
   </div>
   <div class="row">

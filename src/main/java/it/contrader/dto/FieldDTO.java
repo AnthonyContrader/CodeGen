@@ -15,23 +15,26 @@ public class FieldDTO {
 	private String type;
 	
 	private int entity;
+	
+	private int lenght;
 
 	public FieldDTO() {//construttore vuoto
 		
 	}
 
-	public FieldDTO (String name, String type, int entity) {//construttore PIENO
+	public FieldDTO (String name, String type, int entity, int lenght) {//construttore PIENO
 		this.name = name;
 		this.type = type;
 		this.entity = entity;
-		
+		this.lenght = lenght;
 	}
 
-	public FieldDTO (int id, String name, String type, int entity) {//construttore PIENO con ID
+	public FieldDTO (int id, String name, String type, int entity, int lenght) {//construttore PIENO con ID
 		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.entity = entity;
+		this.lenght = lenght;
 	}
 
 	public int getId() {
@@ -67,9 +70,15 @@ public class FieldDTO {
 	//Trasforma un oggetto in una stringa
 	@Override
 	public String toString() {
-		return  id + "\t"  + name +"\t\t" +   type+"\t\t" +   entity ;
+		return  id + "\t"  + name +"\t\t" +   type+"\t\t" +   entity+"\t\t" +   lenght ;
+	}
+	public int getLenght() {
+		return lenght;
 	}
 
+	public void setLenght(int lenght) {
+		this.lenght = lenght;
+	}
 
 
 	

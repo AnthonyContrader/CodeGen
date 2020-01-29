@@ -34,7 +34,8 @@
 	<table>
 		<tr>
 			<th>Name</th>
-			<th>Idproject</th>
+			<th>Project</th>
+			<th></th>
 			<th></th>
 		</tr>
 		<%
@@ -43,10 +44,9 @@
 		<tr>
 			<td><a href=EntityServlet?mode=read&id=<%=e.getId()%>>
 					<%=e.getName()%>
-					<%=e.getIdproject()%>
 			</a></td>
 			<td><%for (ProjectDTO p : listP){ 
-					if(p.getId()==e.getIdproject())
+					
 						out.print(p.getName());
 				}%></td>
 			
@@ -71,7 +71,8 @@
   <div class="col-75">
       <input type="text" id="name" name="name" placeholder="insert name">
     </div>
-     <div class="row">
+   </div>
+  <div class="row">
     <div class="col-25">
       <label for="type">Select IdProject</label>
     </div>

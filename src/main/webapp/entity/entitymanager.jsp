@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.util.List"
-    import="it.contrader.dto.EntityDTO"%>
+    import="it.contrader.dto.EntityDTO"
+     import="it.contrader.dto.ProjectDTO"
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,15 +25,16 @@
 <div class="main">
 	<%
 		List<EntityDTO> list = (List<EntityDTO>) request.getAttribute("list");
+		List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listP");	
 	%>
+	
 
 <br>
 
 	<table>
 		<tr>
 			<th>Name</th>
-			
-			<th></th>
+			<th>Idproject</th>
 			<th></th>
 		</tr>
 		<%
@@ -40,7 +43,12 @@
 		<tr>
 			<td><a href=EntityServlet?mode=read&id=<%=e.getId()%>>
 					<%=e.getName()%>
+					<%=e.getIdproject()%>
 			</a></td>
+			<td><%for (ProjectDTO p : listP){ 
+					if(p.getId()==e.getIdproject())
+						out.print(p.getName());
+				}%></td>
 			
 			<td><a href=EntityServlet?mode=read&update=true&id=<%=e.getId()%>>Edit</a>
 			</td>
@@ -63,6 +71,24 @@
   <div class="col-75">
       <input type="text" id="name" name="name" placeholder="insert name">
     </div>
+     <div class="row">
+    <div class="col-25">
+      <label for="type">Select IdProject</label>
+    </div>
+   		 <div class="col-75">
+ 			<select id="entity" name="entity" required>
+ 				<option value="" disabled selected>Select Entities</option>
+ 				<% 			
+					for (ProjectDTO p : listP) {
+				%>
+				<option value="<%=p.getId()%>"><%=p.getName()%></option>
+				<%
+					}
+				%>
+ 
+			</select>
+    	</div>
+  </div>
       <button type="submit" >Insert</button>
 </form>
 

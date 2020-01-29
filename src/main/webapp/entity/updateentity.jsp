@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.List" import="it.contrader.dto.EntityDTO"%>
+    pageEncoding="ISO-8859-1" import="java.util.List" import="it.contrader.dto.EntityDTO" import="it.contrader.dto.ProjectDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +24,8 @@
 <div class="main">
 
 
-<%EntityDTO e = (EntityDTO) request.getAttribute("dto"); //Assicurati che nella servelet %>
+<%EntityDTO e = (EntityDTO) request.getAttribute("dto"); //Assicurati che nella servelet 
+List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listProject");%>
 
 <form id="floatleft" action="EntityServlet?mode=update&id=<%=e.getId()%>" method="post">
    <div class="row">
@@ -35,7 +36,22 @@
       <input type="text" id="name" name="name" value=<%=e.getName()%>>
     </div>
   </div>
- 
+   <div class="row">
+    <div class="col-25">
+      <label for="idproject">IdProject</label>
+    </div>
+   		 <div class="col-75">
+ 			<select id="idproject" name="idproject">
+ 				<%
+					for (ProjectDTO p : listP) {
+				%>
+					<option value="<%=p.getId()%>"  <%if(p.getId()==e.getIdproject()) {%>selected<%} %>  ><%=p.getName()%></option>
+				<%
+					}
+				%>
+			</select>
+    	</div>
+  </div>
  	
   
       <button type="submit" >Edit</button>

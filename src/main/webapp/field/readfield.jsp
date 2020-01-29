@@ -33,7 +33,7 @@
 	</tr>
 	<tr>
 		<td><%=u.getName()%></td>
-		<td> <%=u.getType()%></td>
+		<td> <%=u.getType()%> (<%=u.getLenght()%>)</td>
 		<td> <%=u.getEntity()%></td>
 	</tr>	
 </table>

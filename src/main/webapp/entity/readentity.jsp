@@ -27,11 +27,12 @@
 <table>
 	<tr> 
 		<th>Name</th>
+		<th>Idproject</th>
 		
 	</tr>
 	<tr>
 		<td><%=e.getName()%></td>
-		
+		<td><%=e.getIdproject()%></td>
 	</tr>	
 </table>
 

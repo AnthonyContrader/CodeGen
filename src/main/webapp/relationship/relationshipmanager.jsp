@@ -17,10 +17,10 @@
   <a href="UserServlet?mode=userlist">Users</a>
   <a href="EntityServlet?mode=entitylist">Entities</a>
   <a href="FieldServlet?mode=fieldlist">Fields</a>
-   <a href="LogServlet?mode=loglist">Logs</a>
   <a href="RelationshipServlet?mode=relationshiplist"class="active">Relationships</a>
   <a href="ProjectServlet?mode=projectlist">Projects</a>
   <a href="LogoutServlet" id="logout">Logout</a>
+  <a href="LogServlet?mode=loglist" id ="log">Logs</a>
 </div>
 <div class="main">
 	<%
@@ -44,7 +44,7 @@
 					<%=r.getEntity1()%>
 			</a></td>
 			<td><%=r.getEntity2()%></td>
-			<td><a href=RelationshipServlet?mode=read&update=true&id=<%=r.getId()%>><img src="images/pencil.jpg" alt="Edit" width="25" height="25" ></img></a>
+			<td><a href=RelationshipServlet?mode=read&update=true&id=<%=r.getId()%>><img src="images/edit.png" alt="Edit" width="27" height="27" ></img></a>
 			</td>
 			<td><a href=RelationshipServlet?mode=delete&id=<%=r.getId()%>>Delete</a>
 			</td>

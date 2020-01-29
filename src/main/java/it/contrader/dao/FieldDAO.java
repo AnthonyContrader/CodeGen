@@ -14,7 +14,13 @@ import it.contrader.model.Field;
  */
 public class FieldDAO implements DAO<Field> {
 
-	private final String QUERY_ALL = "SELECT f.id as 'id',f.name as 'name', f.type as 'type', f.entity as 'entity', e.name as 'nentity',f.lenght as 'lenght' FROM field f JOIN entity e ON e.id=f.entity";
+	private final String QUERY_ALL = "SELECT f.id as 'id',"
+			+ "f.name as 'name', "
+			+ "f.type as 'type', "
+			+ "f.entity as 'entity', "
+			+ "e.name as 'nentity',"
+			+ "f.lenght as 'lenght' "
+			+ "FROM field f JOIN entity e ON e.id=f.entity";
 	private final String QUERY_CREATE = "INSERT INTO field (name, type, entity,lenght) VALUES (?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM field WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE field SET name=?, type=?, entity=?,lenght=? WHERE id=?";

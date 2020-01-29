@@ -72,4 +72,15 @@
     <servlet-name>ProjectServlet</servlet-name>
     <url-pattern>/ProjectServlet</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>LogServlet</display-name>
+    <servlet-name>LogServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.LogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogServlet</servlet-name>
+    <url-pattern>/LogServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

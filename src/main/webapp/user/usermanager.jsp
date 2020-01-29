@@ -20,7 +20,7 @@
   <a href="ProjectServlet?mode=projectlist">Projects</a>
   
   <a href="LogoutServlet" id="logout">Logout</a>
-  <a href="LogServlet?mode=projectlist" id="log" >Logs</a>
+  <a href="LogServlet?mode=loglist" id="log" >Logs</a>
 </div>
 <div class="main">
 	<%

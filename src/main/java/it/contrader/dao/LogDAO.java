@@ -14,7 +14,7 @@ import it.contrader.model.Log;
  */
 public class LogDAO implements DAO<Log> {
 
-	private final String QUERY_ALL = "SELECT * FROM log";
+	private final String QUERY_ALL = "SELECT id, action, iduser, DATE_FORMAT(date, '%d/%m/%Y %H:%i') as 'date' FROM log";
 	private final String QUERY_CREATE = "INSERT INTO log (action, iduser) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM log WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE log SET action=?, iduser=? WHERE id=?";

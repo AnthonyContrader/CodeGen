@@ -23,7 +23,7 @@
 
 <%FieldDTO u = (FieldDTO) request.getAttribute("dto");
 
-List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); //Assicurati che nella servelet %>
+List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); //Assicurati che nella servelet c'è l'attributo %>
 
 <form id="floatleft" action="FieldServlet?mode=update&id=<%=u.getId()%>" method="post">
   <div class="row">

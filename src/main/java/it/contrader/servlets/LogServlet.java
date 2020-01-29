@@ -40,7 +40,7 @@ public class LogServlet extends HttpServlet {
 
 		switch (mode.toUpperCase()) {
 
-		case "USERLIST":
+		case "LOGLIST":
 			updateList(request);
 			getServletContext().getRequestDispatcher("/log/logmanager.jsp").forward(request, response);
 			break;

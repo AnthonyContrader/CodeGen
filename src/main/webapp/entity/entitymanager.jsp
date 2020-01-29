@@ -56,7 +56,9 @@
     <div class="col-25">
       <label for="entity">Name</label>
     </div>
-  
+  <div class="col-75">
+      <input type="text" id="entity" name="name" placeholder="inserisci name">
+    </div>
       <button type="submit" >Insert</button>
 </form>
 

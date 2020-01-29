@@ -15,11 +15,11 @@
 <div class="navbar">
   <a href="homeadmin.jsp">Home</a>
   <a class="active" href="RelationshipServlet?mode=relationshiplist">Relationships</a>
-  <a href="LogServlet?mode=logslist" >Logs</a>
+  <a href="LogServlet?mode=logslist">Logs</a>
   <a href="EntityServlet?mode=entitylist">Entities</a>
   <a href="FieldServlet?mode=fieldlist">Fields</a>
   <a href="ProjectServlet?mode=projectlist">Projects</a>
-  <a href="LogServlet?mode=loglist" id="log">Logs</a>
+  <a href="LogServlet?mode=loglist">Logs</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -29,7 +29,7 @@
 	List<RelationshipDTO> list = (List<RelationshipDTO>) request.getAttribute("list");
 %>
 
-<form id="floatleft" action="ProjectServlet?mode=update&id=<%=r.getId()%>" method="post">
+<form id="floatleft" action="RelationshipServlet?mode=update&id=<%=r.getId()%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="entity1">Entity1</label>

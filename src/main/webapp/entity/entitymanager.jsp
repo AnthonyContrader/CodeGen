@@ -13,7 +13,11 @@
 
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
-  <a class="active" href="EntityServlet?mode=entitylist">Users</a>
+   <a href="UserServlet?mode=userlist">Users</a>
+  <a class="active" href="EntityServlet?mode=entitylist">Entities</a>
+  <a href="FieldServlet?mode=fieldlist">Fields</a>
+  <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
+   <a href="ProjectServlet?mode=projectlist">Projects</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
@@ -54,10 +58,10 @@
 <form id="floatright" action="EntityServlet?mode=insert" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="entity">Name</label>
+      <label for="name">Name</label>
     </div>
   <div class="col-75">
-      <input type="text" id="entity" name="name" placeholder="inserisci name">
+      <input type="text" id="name" name="name" placeholder="insert name">
     </div>
       <button type="submit" >Insert</button>
 </form>

@@ -11,11 +11,13 @@
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
 <a  href="../homeadmin.jsp">Home</a>
-  <a href="UserServlet?mode=userlist">Users</a>
-  <a href="EntityServlet?mode=entitylist">Entities</a>
-  <a href="FieldServlet?mode=fieldlist" class="active">Fields</a>
+<a href="UserServlet?mode=userlist">Users</a>
+<a class="active" href="EntityServlet?mode=entitylist">Entities</a>
+<a href="FieldServlet?mode=fieldlist">Fields</a>
   <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
-  <a href="ProjectServlet?mode=projectlist">Projects</a>
+   <a href="ProjectServlet?mode=projectlist">Projects</a>
+  
+
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -25,7 +27,7 @@
 <%EntityDTO e = (EntityDTO) request.getAttribute("dto"); //Assicurati che nella servelet %>
 
 <form id="floatleft" action="EntityServlet?mode=update&id=<%=e.getId()%>" method="post">
-  <div class="row">
+   <div class="row">
     <div class="col-25">
       <label for="name">Name</label>
     </div>

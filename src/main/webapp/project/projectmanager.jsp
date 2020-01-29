@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.FieldDTO"
-	import="it.contrader.dto.EntityDTO"%>
+	import="it.contrader.dto.ProjectDTO"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Field Manager</title>
+<title>Project Manager</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
@@ -23,9 +23,7 @@
 </div>
 <div class="main">
 	<%
-		List<FieldDTO> list = (List<FieldDTO>) request.getAttribute("list");
-	
-		List<EntityDTO> list_E = (List<EntityDTO>)request.getAttribute("listEntity");
+		List<ProjectDTO> list = (List<ProjectDTO>) request.getAttribute("list");
 	%>
 
 <br>
@@ -33,26 +31,21 @@
 	<table>
 		<tr>
 			<th>Name</th>
-			<th>Type</th>
-			<th>Entity</th>
+			<th>Description</th>
 			<th></th>
 			<th></th>
 		</tr>
 		<%
-			for (FieldDTO u : list) {
+			for (ProjectDTO u : list) {
 		%>
 		<tr>
-			<td><a href=FieldServlet?mode=read&id=<%=u.getId()%>>
+			<td><a href=ProjectServlet?mode=read&id=<%=u.getId()%>>
 					<%=u.getName()%>
 			</a></td>
-			<td><%=u.getType()%></td>
-			<td><%for (EntityDTO e : list_E){ 
-					if(u.getEntity()==e.getId())
-						out.print(e.getName());
-				}%></td>
-			<td><a href=FieldServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
+			<td><%=u.getDescription()%></td>
+			<td><a href=ProjectServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
 			</td>
-			<td><a href=FieldServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
+			<td><a href=ProjectServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
 			</td>
 
 		</tr>
@@ -63,7 +56,7 @@
 
 
 
-<form id="floatright" action="FieldServlet?mode=insert" method="post">
+<form id="floatright" action="ProjectServlet?mode=insert" method="post">
   <div class="row">
     <div class="col-25">
       <label for="name">Name</label>
@@ -74,39 +67,11 @@
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="type">Type</label>
+     <label for="type">Description</label>
     </div>
     <div class="col-75">
-      	<select id="type" name="type">
- 				<option value="" disabled selected>Insert Type</option>
- 				<option value="string"  >String</option>
- 				<option value="int"  >Int</option>
- 				<option value="double"  >Double</option>
- 				<option value="date"  >Date</option>
-		</select>
+      	<input type="text" id="description" name="description" placeholder="Insert Description">
     </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-      <label for="type">Select Entity</label>
-    </div>
-   		 <div class="col-75">
- 			<select id="entity" name="entity">
- 				<option value="" disabled selected>Select Entities</option>
- 				<%
- 			
- 			
- 				
- 			
-					for (EntityDTO e : list_E) {
-				%>
-				<option value="<%=e.getId()%>"><%=e.getName()%></option>
-				<%
-					}
-				%>
- 
-			</select>
-    	</div>
   </div>
       <button type="submit" >Insert</button>
 </form>

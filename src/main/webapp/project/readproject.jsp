@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.FieldDTO"%>
+    pageEncoding="ISO-8859-1" import="it.contrader.dto.ProjectDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Read Field</title>
+<title>Read Project</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
@@ -21,19 +21,17 @@
 <br>
 
 <div class="main">
-<%FieldDTO u = (FieldDTO) request.getAttribute("dto");%>
+<%ProjectDTO u = (ProjectDTO) request.getAttribute("dto");%>
 
 
 <table>
 	<tr> 
 		<th>Name</th>
-		<th>Type</th>
-		<th>Entity</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<td><%=u.getName()%></td>
-		<td> <%=u.getType()%></td>
-		<td> <%=u.getEntity()%></td>
+		<td> <%=u.getDescription()%></td>
 	</tr>	
 </table>
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List"
+	pageEncoding="ISO-8859-1" 
+	import="java.util.List"
 	import="it.contrader.dto.UserDTO"%>
 <!DOCTYPE html>
 <html>
@@ -65,7 +66,7 @@
       <label for="user">Username</label>
     </div>
     <div class="col-75">
-      <input type="text" id="user" name="username" placeholder="inserisci username">
+      <input type="text" id="user" name="username" placeholder="insert username">
     </div>
   </div>
   <div class="row">
@@ -73,7 +74,7 @@
      <label for="pass">Password</label>
     </div>
     <div class="col-75">
-      <input type="text" id="pass" name="password" placeholder="inserisci password"> 
+      <input type="text" id="pass" name="password" placeholder="insert password"> 
     </div>
   </div>
   <div class="row">

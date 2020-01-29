@@ -21,7 +21,7 @@ public class ProjectConverter  implements Converter<Project, ProjectDTO> {
 	 */
 	@Override
 	public ProjectDTO toDTO(Project project) {
-		ProjectDTO projectDTO = new ProjectDTO(project.getId(), project.getName(), project.getDescription());
+		ProjectDTO projectDTO = new ProjectDTO(project.getId(), project.getName(), project.getDescription(), project.getShippingdate());
 		return projectDTO;
 	}
 
@@ -31,7 +31,7 @@ public class ProjectConverter  implements Converter<Project, ProjectDTO> {
 	 */
 	@Override
 	public Project toEntity(ProjectDTO projectDTO) {
-		Project project = new Project(projectDTO.getId(), projectDTO.getName(), projectDTO.getDescription());
+		Project project = new Project(projectDTO.getId(), projectDTO.getName(), projectDTO.getDescription(), projectDTO.getShippingdate());
 		return project;
 	}
 	

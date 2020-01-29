@@ -13,12 +13,12 @@
 <%@ include file="../css/header.jsp" %>
 
 <div class="navbar">
-  <a  href="../homeadmin.jsp">Home</a>
+  <a  href="homeadmin.jsp">Home</a>
   <a href="UserServlet?mode=userlist">Users</a>
   <a href="EntityServlet?mode=entitylist">Entities</a>
-  <a href="FieldServlet?mode=fieldlist" class="active">Fields</a>
+  <a href="FieldServlet?mode=fieldlist">Fields</a>
   <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
-  <a href="ProjectServlet?mode=projectlist">Projects</a>
+  <a href="ProjectServlet?mode=projectlist" class="active">Projects</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
@@ -32,6 +32,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Description</th>
+			<th>Shippingdate</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -43,6 +44,7 @@
 					<%=u.getName()%>
 			</a></td>
 			<td><%=u.getDescription()%></td>
+			<td><%=u.getShippingdate()%></td>
 			<td><a href=ProjectServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
 			</td>
 			<td><a href=ProjectServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
@@ -67,10 +69,18 @@
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="type">Description</label>
+     <label for="description">Description</label>
     </div>
     <div class="col-75">
       	<input type="text" id="description" name="description" placeholder="Insert Description">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+     <label for="shippingdate">Shipping date</label>
+    </div>
+    <div class="col-75">
+      	<input type="date" id="shippingdate" name="shippingdate" placeholder="Insert Shipping date">
     </div>
   </div>
       <button type="submit" >Insert</button>

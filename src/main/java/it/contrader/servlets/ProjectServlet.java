@@ -60,7 +60,8 @@ public class ProjectServlet extends HttpServlet {
 		case "INSERT":
 			String name = request.getParameter("name").toString();
 			String description = request.getParameter("description").toString();
-			dto = new ProjectDTO (name,description);
+			String shippingdate = request.getParameter("shippingdate").toString();
+			dto = new ProjectDTO (name,description,shippingdate);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);
@@ -70,8 +71,9 @@ public class ProjectServlet extends HttpServlet {
 		case "UPDATE":
 			name = request.getParameter("name");
 			description = request.getParameter("description");
+			shippingdate = request.getParameter("shippingdate");
 			id = Integer.parseInt(request.getParameter("id"));
-			dto = new ProjectDTO (id,name, description);
+			dto = new ProjectDTO (id,name,description,shippingdate);
 			ans = service.update(dto);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/project/projectmanager.jsp").forward(request, response);

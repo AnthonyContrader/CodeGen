@@ -20,6 +20,8 @@ public class ProjectDTO {
 	
 	private String description;
 	
+	private String shippingdate;
+	
 
 	/**
 	 * Definisco i due costruttori, uno vuoto e uno con tre parametri per costrire oggetti di tipo Project
@@ -28,15 +30,17 @@ public class ProjectDTO {
 		
 	}
 
-	public ProjectDTO (String name, String description) {
+	public ProjectDTO (String name, String description, String shippingdate) {
 		this.name = name;
 		this.description = description;
+		this.shippingdate = shippingdate;
 	}
 
-	public ProjectDTO (int id, String name, String description) {
+	public ProjectDTO (int id, String name, String description, String shippingdate) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.shippingdate = shippingdate;
 	}
 
 	/**
@@ -66,10 +70,17 @@ public class ProjectDTO {
 		this.description = description;
 	}
 
+	public String getShippingdate() {
+		return this.shippingdate;
+	}
+
+	public void setShippingdate(String shippingdate) {
+		this.shippingdate = shippingdate;
+	}
 	
 	//Trasforma un oggetto in una stringa
 	@Override
 	public String toString() {
-		return  id + "\t"  + name +"\t\t" +   description;
+		return  id + "\t"  + name +"\t\t" +   description +"\t\t" +   shippingdate;
 	}
 }

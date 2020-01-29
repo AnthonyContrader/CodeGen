@@ -16,9 +16,9 @@ import it.contrader.model.Entity;
 public class EntityDAO implements DAO<Entity> {
 
 	private final String QUERY_ALL = "SELECT * FROM entity";
-	private final String QUERY_CREATE = "INSERT INTO entity (name) VALUES (?)";
+	private final String QUERY_CREATE = "INSERT INTO entity (name, idproject) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM entity WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE entity SET name=?, WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE entity SET name=?,idproject=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM entity WHERE id=?";
 
 	public EntityDAO() {
@@ -35,8 +35,9 @@ public class EntityDAO implements DAO<Entity> {
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
 				String name = resultSet.getString("name");
+				int idproject = Integer.parseInt(resultSet.getString("idproject"));
 			
-				entity = new Entity(name);
+				entity = new Entity(name,idproject);
 				entity.setId(id);
 				entitiesList.add(entity);
 			}
@@ -51,7 +52,7 @@ public class EntityDAO implements DAO<Entity> {
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, entityToInsert.getName());
-			
+			preparedStatement.setInt(2, entityToInsert.getIdproject());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -70,10 +71,12 @@ public class EntityDAO implements DAO<Entity> {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			String name;
+			int idproject;
 
 			name = resultSet.getString("name");
+			idproject = resultSet.getInt("idproject");
 			
-			Entity entity = new Entity(name);
+			Entity entity = new Entity(name, idproject);
 			entity.setId(resultSet.getInt("id"));
 
 			return entity;
@@ -98,13 +101,16 @@ public class EntityDAO implements DAO<Entity> {
 					entityToUpdate.setName(entityRead.getName());
 				}
 
-				
+				if (entityToUpdate.getIdproject() == 0 ) {
+					entityToUpdate.setIdproject(entityRead.getIdproject());
+				}
 				
 
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, entityToUpdate.getName());
-				preparedStatement.setInt(2, entityToUpdate.getId());
+				preparedStatement.setInt(2, entityToUpdate.getIdproject());
+				preparedStatement.setInt(3, entityToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

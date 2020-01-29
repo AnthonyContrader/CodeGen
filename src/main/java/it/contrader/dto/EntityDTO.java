@@ -13,6 +13,7 @@ public class EntityDTO {
 		private int id;
 
 		private String name;
+		 private int idproject;
 		
 		
 
@@ -21,14 +22,16 @@ public class EntityDTO {
 			
 		}
 
-		public EntityDTO (String name) {
+		public EntityDTO (String name, int idproject) {
 			this.name = name;
+			this.idproject = idproject;
 			
 		}
 
-		public EntityDTO (int id, String name) {
+		public EntityDTO (int id, String name , int idproject) {
 			this.id = id;
 			this.name = name;
+			this.idproject = idproject;
 			
 		}
 
@@ -49,11 +52,19 @@ public class EntityDTO {
 		public String getName() {
 			return name;
 		}
-
 		
+		
+		public int getIdproject() {
+			return idproject;
+		}
+
+		public void setIdproject(int idproject) {
+			this.idproject = idproject;
+		}
+
 		@Override
 		public String toString() {
-			return  id + "\t"  + name ;
+			return  id + "\t"  + name + "\t" + idproject ;
 		}
 
 }

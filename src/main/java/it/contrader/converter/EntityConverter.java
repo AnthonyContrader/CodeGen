@@ -21,7 +21,7 @@ public class EntityConverter  implements Converter<Entity, EntityDTO> {
 	 */
 	@Override
 	public EntityDTO toDTO(Entity entity) {
-		EntityDTO entityDTO = new EntityDTO(entity.getId(), entity.getName());
+		EntityDTO entityDTO = new EntityDTO(entity.getId(), entity.getName(), entity.getIdproject());
 		return entityDTO;
 	}
 
@@ -31,7 +31,7 @@ public class EntityConverter  implements Converter<Entity, EntityDTO> {
 	 */
 	@Override
 	public Entity toEntity(EntityDTO entityDTO) {
-		Entity entity = new Entity(entityDTO.getId(), entityDTO.getName());
+		Entity entity = new Entity(entityDTO.getId(), entityDTO.getName(), entityDTO.getIdproject());
 		return entity;
 	}
 	

@@ -14,7 +14,7 @@
 
 <div class="navbar">
   <a class="" href="homeadmin.jsp">Home</a>
-  <a href="LogServlet?mode=userlist" >Logs</a>
+  <a href="UserServlet?mode=userlist" >Users</a>
   <a href="EntityServlet?mode=entitylist">Entities</a>
   <a href="FieldServlet?mode=fieldlist">Fields</a>
   <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>

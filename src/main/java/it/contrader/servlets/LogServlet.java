@@ -40,12 +40,7 @@ public class LogServlet extends HttpServlet {
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Service<LogDTO> service = new LogService();
 		String mode = request.getParameter("mode");
-		LogDTO dto;
-		int id;
-		boolean ans;
-
 		switch (mode.toUpperCase()) {
 
 		case "LOGLIST":

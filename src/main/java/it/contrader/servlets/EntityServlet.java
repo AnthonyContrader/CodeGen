@@ -43,6 +43,7 @@ public class EntityServlet  extends HttpServlet {
 
 		case "ENTITYLIST":
 			updateList(request);
+			getIdproject(request);
 			getServletContext().getRequestDispatcher("/entity/entitymanager.jsp").forward(request, response);
 			break;
 

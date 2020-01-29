@@ -69,7 +69,7 @@
       <label for="name">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="name" name="name" placeholder="Insert Name">
+      <input type="text" id="name" name="name" placeholder="Insert Name" required maxlength="20">
     </div>
   </div>
   <div class="row">
@@ -77,7 +77,7 @@
      <label for="type">Type</label>
     </div>
     <div class="col-75">
-      	<select id="type" name="type">
+      	<select id="type" name="type" required>
  				<option value="" disabled selected>Insert Type</option>
  				<option value="string"  >String</option>
  				<option value="int"  >Int</option>
@@ -88,16 +88,20 @@
   </div>
   <div class="row">
     <div class="col-25">
+     <label for="type">Lenght</label>
+    </div>
+    <div class="col-75">
+      	  <input type="range" min="1" max="255" value="50" class="slider" id="myRange" step="10">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
       <label for="type">Select Entity</label>
     </div>
    		 <div class="col-75">
- 			<select id="entity" name="entity">
+ 			<select id="entity" name="entity" required>
  				<option value="" disabled selected>Select Entities</option>
- 				<%
- 			
- 			
- 				
- 			
+ 				<% 			
 					for (EntityDTO e : list_E) {
 				%>
 				<option value="<%=e.getId()%>"><%=e.getName()%></option>

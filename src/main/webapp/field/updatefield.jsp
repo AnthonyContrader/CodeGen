@@ -61,10 +61,12 @@ List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); /
   </div>
 <div class="row">
     <div class="col-25">
-     <label for="type">Lenght</label>
+     <label for="lenght">Lenght (<span id="v_len"><%=u.getLenght()%></span>)</label>
     </div>
     <div class="col-75">
-      	  <input type="range" min="1" max="255" value="<%=u.getLenght()%>" class="slider-color" id="myRange" name="lenght"  step="10" style="width:90%;">
+      	  <input type="range" min="1" max="255" value="<%=u.getLenght()%>" class="slider-color" id="lenght" name="lenght" step="1" style="width:90%;"
+      	  oninput="document.getElementById('v_len').innerHTML=this.value;" 
+      	  >
     </div>
   </div>
       <button type="submit" >Edit</button>

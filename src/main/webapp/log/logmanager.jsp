@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.LogDTO"%>
+	import="it.contrader.dto.LogDTO"
+	import="it.contrader.dto.UserDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +26,8 @@
 <div class="main">
 	<%
 		List<LogDTO> list = (List<LogDTO>) request.getAttribute("list");
+	
+		List<UserDTO> list_U = (List<UserDTO>) request.getAttribute("listUser");
 	%>
 
 <br>
@@ -40,7 +43,10 @@
 		%>
 		<tr>
 			<td><% out.print( u.getAction().toUpperCase() ); %></td>
-			<td><%=u.getIduser()%></td>
+			<td><%for (UserDTO e : list_U){ 
+					if(u.getId()==e.getId())
+						out.print(e.getUsername().toUpperCase());
+				}%></td>
 			<td><%=u.getDate()%></td>
 
 		</tr>

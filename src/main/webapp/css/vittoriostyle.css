@@ -358,6 +358,10 @@ button:hover {
 	float: right;
 	color: #ffffff;
 }
+#log {
+	float: right;
+	color: #ffffff;
+}
 
 #floatleft {
 	float:left;

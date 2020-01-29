@@ -24,7 +24,9 @@
   <a href="FieldServlet?mode=fieldlist">Fields</a>
   <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
   <a href="ProjectServlet?mode=projectlist">Projects</a>
+  
   <a href="LogoutServlet" id="logout">Logout</a>
+  <a href="LogServlet?mode=projectlist" id="log" >Logs</a>
 </div>
 
 <div class="main">

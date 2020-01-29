@@ -412,6 +412,21 @@ div.navbar a.active {
 }
 
 /*Images*/
+.edit {
+	
+  content:url("../images/edit.png");
+  width: 27px; 
+  height: 27px;
+  
+}
+
+.delete {
+	
+  content:url("../images/delete.png");
+  width: 27px; 
+  height: 27px;
+  
+}
 .imgheader {
 	position: center; z-index : -1;
 	opacity: .9;

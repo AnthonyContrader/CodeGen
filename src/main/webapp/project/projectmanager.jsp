@@ -33,9 +33,9 @@
 		<tr>
 			<th>Name</th>
 			<th>Description</th>
-			<th>Shippingdate</th>
-			<th></th>
-			<th></th>
+			<th>Shipping Date</th>
+			<th>Edit Row</th>
+			<th>Delete Row</th>
 		</tr>
 		<%
 			for (ProjectDTO u : list) {
@@ -46,9 +46,9 @@
 			</a></td>
 			<td><%=u.getDescription()%></td>
 			<td><%=u.getShippingdate()%></td>
-			<td><a href=ProjectServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
+			<td><a class="edit" href=ProjectServlet?mode=read&update=true&id=<%=u.getId()%>></a>
 			</td>
-			<td><a href=ProjectServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
+			<td><a class="delete" href=ProjectServlet?mode=delete&id=<%=u.getId()%>></a>
 			</td>
 
 		</tr>
@@ -65,7 +65,7 @@
       <label for="name">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="name" name="name" placeholder="Insert Name">
+      <input type="text" id="name" name="name" placeholder="Insert Name" required>
     </div>
   </div>
   <div class="row">
@@ -73,7 +73,7 @@
      <label for="description">Description</label>
     </div>
     <div class="col-75">
-      	<input type="text" id="description" name="description" placeholder="Insert Description">
+      	<input type="text" id="description" name="description" placeholder="Insert Description" required>
     </div>
   </div>
   <div class="row">
@@ -81,7 +81,7 @@
      <label for="shippingdate">Shipping date</label>
     </div>
     <div class="col-75">
-      	<input type="date" id="shippingdate" name="shippingdate" placeholder="Insert Shipping date">
+      	<input type="date" id="shippingdate" name="shippingdate" placeholder="Insert Shipping date" required>
     </div>
   </div>
       <button type="submit" >Insert</button>

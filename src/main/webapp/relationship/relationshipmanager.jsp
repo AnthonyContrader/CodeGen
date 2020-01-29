@@ -33,8 +33,8 @@
 		<tr>
 			<th>Entity1</th>
 			<th>Entity2</th>
-			<th></th>
-			<th></th>
+			<th>Edit Row</th>
+			<th>Delete Row</th>
 		</tr>
 		<%
 			for (RelationshipDTO r : list) {
@@ -44,9 +44,9 @@
 					<%=r.getEntity1()%>
 			</a></td>
 			<td><%=r.getEntity2()%></td>
-			<td><a href=RelationshipServlet?mode=read&update=true&id=<%=r.getId()%>><img src="images/edit.png" alt="Edit" width="27" height="27" ></img></a>
+			<td><a class="edit" href=RelationshipServlet?mode=read&update=true&id=<%=r.getId()%>></a>
 			</td>
-			<td><a href=RelationshipServlet?mode=delete&id=<%=r.getId()%>>Delete</a>
+			<td><a class="delete" href=RelationshipServlet?mode=delete&id=<%=r.getId()%>></a>
 			</td>
 
 		</tr>
@@ -63,7 +63,7 @@
       <label for="entity1">Entity1</label>
     </div>
     <div class="col-75">
-      <input type="text" id="entity1" name="entity1" placeholder="Insert Name of Entity1">
+      <input type="text" id="entity1" name="entity1" placeholder="Insert Name of Entity1" required>
     </div>
   </div>
   <div class="row">
@@ -71,7 +71,7 @@
      <label for="entity2">Entity2</label>
     </div>
     <div class="col-75">
-      	<input type="text" id="entity2" name="entity2" placeholder="Insert Name of Entity2">
+      	<input type="text" id="entity2" name="entity2" placeholder="Insert Name of Entity2" required>
     </div>
   </div>
       <button type="submit" >Insert</button>

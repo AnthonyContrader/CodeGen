@@ -32,8 +32,8 @@
 		<tr>
 			<th>Entity1</th>
 			<th>Entity2</th>
-			<th><img src="../images/pencil.jpg" alt="Pencil" ></img></th>
-			<th></th>
+			<th>Action</th>
+			<th>Action</th>
 		</tr>
 		<%
 			for (RelationshipDTO r : list) {
@@ -43,7 +43,7 @@
 					<%=r.getEntity1()%>
 			</a></td>
 			<td><%=r.getEntity2()%></td>
-			<td><a href=RelationshipServlet?mode=read&update=true&id=<%=r.getId()%>>Edit</a>
+			<td><a href=RelationshipServlet?mode=read&update=true&id=<%=r.getId()%>><img src="images/pencil.jpg" alt="Pencil" width="25" height="25"></img></a>
 			</td>
 			<td><a href=RelationshipServlet?mode=delete&id=<%=r.getId()%>>Delete</a>
 			</td>

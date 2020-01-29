@@ -13,11 +13,11 @@ import it.contrader.model.Project;
  *Per i dettagli della classe vedi Guida sez 6: DAO
  */
 public class ProjectDAO {
-
+	
 	private final String QUERY_ALL = "SELECT * FROM project";
-	private final String QUERY_CREATE = "INSERT INTO project (name, description) VALUES (?,?)";
+	private final String QUERY_CREATE = "INSERT INTO project (name, description, shippingdate) VALUES (?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM project WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE project SET name=?, description=? WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE project SET name=?, description=?, shippingdate=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM project WHERE id=?";
 
 	public ProjectDAO() {
@@ -35,7 +35,8 @@ public class ProjectDAO {
 				int id = resultSet.getInt("id");
 				String name = resultSet.getString("name");
 				String description = resultSet.getString("description");
-				project = new Project(name, description);
+				String shippingdate = resultSet.getString("shippingdate");
+				project = new Project(name, description, shippingdate);
 				project.setId(id);
 				projectsList.add(project);
 			}
@@ -51,6 +52,7 @@ public class ProjectDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, projectToInsert.getName());
 			preparedStatement.setString(2, projectToInsert.getDescription());
+			preparedStatement.setString(3, projectToInsert.getShippingdate());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -67,11 +69,12 @@ public class ProjectDAO {
 			preparedStatement.setInt(1, projectId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String name, description;
+			String name, description,shippingdate;
 
 			name = resultSet.getString("name");
 			description = resultSet.getString("description");
-			Project project = new Project(name, description);
+			shippingdate = resultSet.getString("shippingdate");
+			Project project = new Project(name, description,shippingdate);
 			project.setId(resultSet.getInt("id"));
 
 			return project;
@@ -99,12 +102,16 @@ public class ProjectDAO {
 				if (projectToUpdate.getDescription() == null || projectToUpdate.getDescription().equals("")) {
 					projectToUpdate.setDescription(projectRead.getDescription());
 				}
+				if (projectToUpdate.getShippingdate() == null || projectToUpdate.getShippingdate().equals("")) {
+					projectToUpdate.setShippingdate(projectRead.getShippingdate());
+				}
 
 				// Update the project
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, projectToUpdate.getName());
 				preparedStatement.setString(2, projectToUpdate.getDescription());
-				preparedStatement.setInt(3, projectToUpdate.getId());
+				preparedStatement.setString(3, projectToUpdate.getShippingdate());
+				preparedStatement.setInt(4, projectToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

@@ -1,4 +1,5 @@
 package it.contrader.model;
+
 /**
  * Per dettagli vedi guida sez 4 Model
  */
@@ -13,6 +14,8 @@ public class Project {
 	
 	private String description;
 	
+	private String shippingdate;
+	
 
 	/**
 	 * Definisco i due costruttori, uno vuoto e uno con tre parametri per costrire oggetti di tipo Project
@@ -21,15 +24,17 @@ public class Project {
 		
 	}
 
-	public Project (String name, String description) {
+	public Project (String name, String description, String shippingdate) {
 		this.name = name;
 		this.description = description;
+		this.shippingdate = shippingdate;
 	}
 
-	public Project (int id, String name, String description) {
+	public Project (int id, String name, String description, String shippingdate) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.shippingdate = shippingdate;
 	}
 
 	/**
@@ -58,12 +63,20 @@ public class Project {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public String getShippingdate() {
+		return this.shippingdate;
+	}
+
+	public void setShippingdate(String shippingdate) {
+		this.shippingdate = shippingdate;
+	}
 
 	
 	//Trasforma un oggetto in una stringa
 	@Override
 	public String toString() {
-		return  id + "\t"  + name +"\t\t" +   description;
+		return  id + "\t"  + name +"\t\t" +   description +"\t\t" +   shippingdate;
 	}
 
 	//Metodo per il confronto degli oggetti
@@ -87,6 +100,11 @@ public class Project {
 			if (other.description != null)
 				return false;
 		} else if (!description.equals(other.description))
+			return false;
+		if (shippingdate == null) {
+			if (other.shippingdate != null)
+				return false;
+		} else if (!shippingdate.equals(other.shippingdate))
 			return false;
 		return true;
 	}

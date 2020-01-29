@@ -13,9 +13,9 @@
 <a  href="../homeadmin.jsp">Home</a>
   <a href="UserServlet?mode=userlist">Users</a>
   <a href="EntityServlet?mode=entitylist">Entities</a>
-  <a href="FieldServlet?mode=fieldlist" class="active">Fields</a>
+  <a href="FieldServlet?mode=fieldlist">Fields</a>
   <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
-  <a href="ProjectServlet?mode=projectlist">Projects</a>
+  <a href="ProjectServlet?mode=projectlist" class="active">Projects</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -28,10 +28,12 @@
 	<tr> 
 		<th>Name</th>
 		<th>Description</th>
+		<th>Shipping Date</th>
 	</tr>
 	<tr>
 		<td><%=u.getName()%></td>
 		<td> <%=u.getDescription()%></td>
+		<td> <%=u.getShippingdate()%></td>
 	</tr>	
 </table>
 

@@ -43,10 +43,10 @@
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="description">Description</label>
+     <label for="shippingdate">Shipping date</label>
     </div>
     <div class="col-75">
-      <input type="text" id="description" name="description" value=<%=u.getDescription()%>> 
+      <input type="text" id="shippingdate" name="shippingdate" value=<%=u.getShippingdate()%>> 
     </div>
   </div>
       <button type="submit" >Edit</button>

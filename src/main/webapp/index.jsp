@@ -5,7 +5,7 @@
 
 <title>Login SAMPLE</title>
 </head>
-<body>
+<body <% if( request.getParameterMap().containsKey("cred") && request.getParameter("cred").equals( "1") ){ %>onload='alert("Crendiali Errate.\nSi prega di riprovare.");' <% }  %>>
 
 		<form class="login" action="LoginServlet" method="post">
 

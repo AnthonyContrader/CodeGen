@@ -17,7 +17,7 @@ import it.contrader.model.User;
  */
 public class LoginDAO {
 
-	private final String QUERY_LOGIN = "SELECT * FROM user WHERE username = ? AND password = ?";
+	private final String QUERY_LOGIN = "SELECT * FROM user WHERE username LIKE ? AND password = ?";
 
 	
 	public User login (String username, String password) {
@@ -42,11 +42,10 @@ public class LoginDAO {
 				return user;
 			}
 
-			return null;
+			return new User(0, "-",  "-",  "-");
 		}
 		
 		catch (SQLException e) {
-			
 			return null;
 		}
 	}

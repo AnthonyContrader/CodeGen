@@ -52,6 +52,10 @@ public class LoginServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/homeadmin.jsp").forward(request, response);
 				break;
 				
+			case "-":
+				getServletContext().getRequestDispatcher("/index.jsp?cred=1").forward(request, response);
+				break;
+				
 			default:
 				//di default rimanda al login
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);

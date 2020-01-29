@@ -32,7 +32,7 @@
 		<tr>
 			<th>Entity1</th>
 			<th>Entity2</th>
-			<th><img src="../images/pencil.jpg" alt="Pencil" ></img></th>
+			<th><img src="images/pencil.jpg" alt="Pencil" ></img></th>
 			<th></th>
 		</tr>
 		<%

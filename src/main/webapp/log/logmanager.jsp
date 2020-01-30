@@ -42,10 +42,9 @@
 		%>
 		<tr>
 			<td><% out.print( u.getAction().toUpperCase() ); %></td>
-			<td><%for (UserDTO e : list_U){ 
-					if(u.getId()==e.getId())
-						out.print(e.getUsername().toUpperCase());
-				}%></td>
+			<td><%
+				out.print(u.getUser().toUpperCase());
+				%></td>
 			<td><%=u.getDate()%></td>
 
 		</tr>

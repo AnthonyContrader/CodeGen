@@ -9,7 +9,7 @@ public class Log {
 
 	private String action;
 	
-	private int iduser;
+	private String user;
 	
 	private String date;
 
@@ -19,16 +19,16 @@ public class Log {
 		
 	}
 
-	public Log (String action, int iduser,String date) {
+	public Log (String action, String user,String date) {
 		this.action = action;
-		this.iduser = iduser;
+		this.user = user;
 		this.date = date;
 	}
 
-	public Log (int id,String action, int iduser,String date) {
+	public Log (int id,String action, String user,String date) {
 		this.id = id;
 		this.action = action;
-		this.iduser = iduser;
+		this.user = user;
 		this.date = date;
 	}
 	
@@ -53,14 +53,14 @@ public class Log {
 
 
 
-	public int getIduser() {
-		return iduser;
+	public String getUser() {
+		return user;
 	}
 
 
 
-	public void setIduser(int iduser) {
-		this.iduser = iduser;
+	public void setUser(String user) {
+		this.user = user;
 	}
 
 
@@ -71,7 +71,7 @@ public class Log {
 
 	@Override
 	public String toString() {
-		return  id + "\t"  + action +"\t\t" +   iduser + "\t\t" + date;
+		return  id + "\t"  + action +"\t\t" +   user + "\t\t" + date;
 	}
 
 	@Override
@@ -92,11 +92,10 @@ public class Log {
 		} else if (!action.equals(other.action))
 			return false;
 		
-		if (iduser == 0) {
-			if (other.iduser != 0)
+		if (user == null) {
+			if (other.user != null)
 				return false;
-			
-		} else if (iduser!=(other.iduser))
+		} else if (!user.equals(other.user))
 			return false;
 		
 		if (date == null) {

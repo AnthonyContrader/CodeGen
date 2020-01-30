@@ -18,7 +18,6 @@ import it.contrader.service.Service;
 import it.contrader.service.EntityService;
 import it.contrader.service.FieldService;
 import it.contrader.service.LogService;
-import it.contrader.service.UserService;
 
 
 /**
@@ -56,7 +55,7 @@ public class FieldServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession(); 
 		UserDTO dtoUser = (UserDTO) session.getAttribute("user");
-		dtoLog = new LogDTO(dtoUser.getUsername(),1, "");
+		dtoLog = new LogDTO(mode,dtoUser.getUsername(), "");
 		
 		ans = service_log.insert(dtoLog);
 		request.setAttribute("ans", ans);
@@ -67,7 +66,7 @@ public class FieldServlet extends HttpServlet {
 		case "FIELDLIST":
 			updateList(request);			
 			
-			getServletContext().getRequestDispatcher("/field/-"+dtoUser.getUsername()+".jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/field/fieldmanager.jsp").forward(request, response);
 			break;
 
 		case "READ":

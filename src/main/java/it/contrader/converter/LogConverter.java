@@ -16,13 +16,13 @@ public class LogConverter  implements Converter<Log, LogDTO> {
 	
 	@Override
 	public LogDTO toDTO(Log log) {
-		LogDTO logDTO = new LogDTO(log.getId(), log.getAction(), log.getIduser(), log.getDate());
+		LogDTO logDTO = new LogDTO(log.getId(), log.getAction(), log.getUser(), log.getDate());
 		return logDTO;
 	}
 
 	@Override
 	public Log toEntity(LogDTO logDTO) {
-		Log log = new Log(logDTO.getId(), logDTO.getAction(), logDTO.getIduser(), logDTO.getDate());
+		Log log = new Log(logDTO.getId(), logDTO.getAction(), logDTO.getUser(), logDTO.getDate());
 		return log;
 	}
 	

@@ -1,8 +1,7 @@
 package it.contrader.dto;
 /**
- * 
  * @author Depy
- *
+ * 
  */
 public class LogDTO {
 
@@ -10,7 +9,7 @@ public class LogDTO {
 
 	private String action;
 	
-	private int iduser;
+	private String user;
 	
 	private String date;
 
@@ -20,19 +19,17 @@ public class LogDTO {
 		
 	}
 
-	public LogDTO (String action, int iduser, String Date) {
+	public LogDTO (String action, String user,String date) {
 		this.action = action;
-		this.iduser = iduser;
-		if(!Date.equals(""))
-			this.date = Date;
+		this.user = user;
+		this.date = date;
 	}
 
-	public LogDTO (int id,String action, int iduser,String Date) {
+	public LogDTO (int id,String action, String user,String date) {
 		this.id = id;
 		this.action = action;
-		this.iduser = iduser;
-		if(!Date.equals(""))
-			this.date = Date;
+		this.user = user;
+		this.date = date;
 	}
 	
 
@@ -56,14 +53,14 @@ public class LogDTO {
 
 
 
-	public int getIduser() {
-		return iduser;
+	public String getUser() {
+		return user;
 	}
 
 
 
-	public void setIduser(int iduser) {
-		this.iduser = iduser;
+	public void setUser(String user) {
+		this.user = user;
 	}
 
 
@@ -74,7 +71,12 @@ public class LogDTO {
 
 	@Override
 	public String toString() {
-		return  id + "\t"  + action +"\t\t" +   iduser + "\t\t" + date;
+		return  id + "\t"  + action +"\t\t" +   user + "\t\t" + date;
 	}
+
+
+
+
+
 
 }

@@ -14,10 +14,10 @@ import it.contrader.model.Log;
  */
 public class LogDAO implements DAO<Log> {
 
-	private final String QUERY_ALL = "SELECT id, action, iduser, DATE_FORMAT(date, '%d/%m/%Y %H:%i') as 'date' FROM log";
-	private final String QUERY_CREATE = "INSERT INTO log (action, iduser) VALUES (?,?)";
+	private final String QUERY_ALL = "SELECT id, action, user, DATE_FORMAT(date, '%d/%m/%Y %H:%i') as 'date' FROM log";
+	private final String QUERY_CREATE = "INSERT INTO log (action, user) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM log WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE log SET action=?, iduser=? WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE log SET action=?, user LIKE ? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM log WHERE id=?";
 
 	public LogDAO() {
@@ -34,9 +34,9 @@ public class LogDAO implements DAO<Log> {
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
 				String action = resultSet.getString("action");
-				int iduser = resultSet.getInt("iduser");
+				String user = resultSet.getString("user");
 				String date = resultSet.getString("date");
-				log = new Log(action, iduser,date);
+				log = new Log(action, user,date);
 				log.setId(id);
 				logList.add(log);
 			}
@@ -51,7 +51,7 @@ public class LogDAO implements DAO<Log> {
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, logToInsert.getAction());
-			preparedStatement.setInt(2, logToInsert.getIduser());
+			preparedStatement.setString(2, logToInsert.getUser());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -69,13 +69,12 @@ public class LogDAO implements DAO<Log> {
 			preparedStatement.setInt(1, logId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String action, date;
-			int iduser;
+			String action, date,user;
 
 			action = resultSet.getString("action");
-			iduser = resultSet.getInt("iduser");
+			user = resultSet.getString("user");
 			date = resultSet.getString("date");
-			Log log = new Log(action, iduser, date);
+			Log log = new Log(action, user, date);
 			log.setId(resultSet.getInt("id"));
 
 			return log;
@@ -100,15 +99,15 @@ public class LogDAO implements DAO<Log> {
 					logToUpdate.setAction(logRead.getAction());
 				}
 
-				if (logToUpdate.getIduser() == 0 || logToUpdate.getIduser()==0) {
-					logToUpdate.setIduser(logRead.getIduser());
+				if (logToUpdate.getUser() == null || logToUpdate.getUser().equals("")) {
+					logToUpdate.setUser(logRead.getUser());
 				}
 
 
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, logToUpdate.getAction());
-				preparedStatement.setInt(2, logToUpdate.getIduser());
+				preparedStatement.setString(2, logToUpdate.getUser());
 				preparedStatement.setInt(3, logToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)

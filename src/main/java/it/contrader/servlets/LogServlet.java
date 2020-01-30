@@ -55,9 +55,9 @@ public class LogServlet extends HttpServlet {
 				
 			case "INSERT":
 				String action = request.getParameter("action").toString();
-				int iduser = Integer.parseInt(request.getParameter("iduser").toString());
+				String user = (request.getParameter("user").toString());
 				
-				dto = new LogDTO (action,iduser,"");
+				dto = new LogDTO (action,user,"");
 				ans = service.insert(dto);
 				request.setAttribute("ans", ans);
 				updateList(request);

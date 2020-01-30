@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="../css/vittoriostyle.css" rel="stylesheet">
+<link href="css/vittoriostyle.css" rel="stylesheet">
 <title>User Manager</title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
 
 <div class="navbar">
-  <a class="active" href="homeadmin.jsp">Home</a>
+  <a class="" href="homeadmin.jsp">Home</a>
   <a href="UserServlet?mode=userlist" class="active">Users</a>
   <a href="EntityServlet?mode=entitylist">Entities</a>
   <a href="FieldServlet?mode=fieldlist">Fields</a>

@@ -40,15 +40,28 @@ public class LogServlet extends HttpServlet {
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Service<LogDTO> service = new LogService();
 		String mode = request.getParameter("mode");
+		LogDTO dto;
+		boolean ans;
+		
 		switch (mode.toUpperCase()) {
 
-		case "LOGLIST":
-			updateList(request);
-			getUser(request);
-			getServletContext().getRequestDispatcher("/log/logmanager.jsp").forward(request, response);
-			break;
-
+			case "LOGLIST":
+				updateList(request);
+				getUser(request);
+				getServletContext().getRequestDispatcher("/log/logmanager.jsp").forward(request, response);
+				break;
+				
+			case "INSERT":
+				String action = request.getParameter("action").toString();
+				int iduser = Integer.parseInt(request.getParameter("iduser").toString());
+				
+				dto = new LogDTO (action,iduser,"");
+				ans = service.insert(dto);
+				request.setAttribute("ans", ans);
+				updateList(request);
+				break;
 
 		}
 	}

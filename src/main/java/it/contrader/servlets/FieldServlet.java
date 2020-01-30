@@ -61,8 +61,7 @@ public class FieldServlet extends HttpServlet {
 			request.setAttribute("dto", dto);
 			getEntity(request);
 			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/field/readfield.jsp").forward(request, response);
-				
+				 getServletContext().getRequestDispatcher("/field/readfield.jsp").forward(request, response);				
 			}
 			
 			else getServletContext().getRequestDispatcher("/field/updatefield.jsp").forward(request, response);

@@ -20,11 +20,13 @@ public class FieldDAO implements DAO<Field> {
 			+ "f.entity as 'entity', "
 			+ "e.name as 'nentity',"
 			+ "f.lenght as 'lenght' "
-			+ "FROM field f JOIN entity e ON e.id=f.entity";
-	private final String QUERY_CREATE = "INSERT INTO field (name, type, entity,lenght) VALUES (?,?,?,?)";
-	private final String QUERY_READ = "SELECT * FROM field WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE field SET name=?, type=?, entity=?,lenght=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM field WHERE id=?";
+			+ "FROM field f JOIN entity e ON e.id=f.entity;"
+			+ ""
+			+ "  ";
+	private final String QUERY_CREATE = "INSERT INTO field (name, type, entity,lenght) VALUES (?,?,?,?); ";
+	private final String QUERY_READ = "SELECT * FROM field WHERE id=?; ";
+	private final String QUERY_UPDATE = "UPDATE field SET name=?, type=?, entity=?,lenght=? WHERE id=?; ";
+	private final String QUERY_DELETE = "DELETE FROM field WHERE id=?;";
 
 	public FieldDAO() {
 

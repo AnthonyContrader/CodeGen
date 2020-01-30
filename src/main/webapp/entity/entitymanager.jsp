@@ -45,10 +45,13 @@
 			<td><a href=EntityServlet?mode=read&id=<%=e.getId()%>>
 					<%=e.getName()%>
 			</a></td>
-			<td><%for (ProjectDTO p : listP){ 
-					
+			<td><%		
+			
+				for (ProjectDTO p : listP){ 
+					if( p.getId()==e.getIdproject() )
 						out.print(p.getName());
-				}%></td>
+				}%>
+			</td>
 			
 			<td><a href=EntityServlet?mode=read&update=true&id=<%=e.getId()%>>Edit</a>
 			</td>
@@ -74,11 +77,11 @@
    </div>
   <div class="row">
     <div class="col-25">
-      <label for="type">Select IdProject</label>
+      <label for="type">Select Project</label>
     </div>
    		 <div class="col-75">
- 			<select id="entity" name="entity" required>
- 				<option value="" disabled selected>Select Entities</option>
+ 			<select id="idproject" name="idproject" required> <!-- il name della select combina il name con la richiesta del post nella servlest -->
+ 				<option value="" disabled selected>Select Project</option>
  				<% 			
 					for (ProjectDTO p : listP) {
 				%>

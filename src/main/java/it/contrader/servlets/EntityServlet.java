@@ -24,6 +24,7 @@ public class EntityServlet  extends HttpServlet {
 		Service<EntityDTO> service = new EntityService();
 		List<EntityDTO>listDTO = service.getAll();
 		request.setAttribute("list", listDTO);
+		getIdproject(request);
 	}
 	public void getIdproject(HttpServletRequest request) {
 		Service<ProjectDTO> serviceProject = new ProjectService();
@@ -43,7 +44,6 @@ public class EntityServlet  extends HttpServlet {
 
 		case "ENTITYLIST":
 			updateList(request);
-			getIdproject(request);
 			getServletContext().getRequestDispatcher("/entity/entitymanager.jsp").forward(request, response);
 			break;
 
@@ -51,10 +51,9 @@ public class EntityServlet  extends HttpServlet {
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id);
 			request.setAttribute("dto", dto);
-			getIdproject(request);
+			getIdproject(request);//Aggiunto perchè non richiamato dall'updatelist
 			if (request.getParameter("update") == null) {
 				 getServletContext().getRequestDispatcher("/entity/readentity.jsp").forward(request, response);
-				
 			}
 			
 			else getServletContext().getRequestDispatcher("/entity/updateentity.jsp").forward(request, response);

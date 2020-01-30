@@ -80,6 +80,7 @@
     </div>
    		 <div class="col-75">
  			<select id="type" name="usertype">
+ 				<option value="" disabled selected>Select Usertype</option>
   				<option value="ADMIN">ADMIN</option>
   				<option value="USER">USER</option>
  

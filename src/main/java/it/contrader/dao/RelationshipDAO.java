@@ -33,8 +33,8 @@ public class RelationshipDAO {
 			Relationship relationship;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
-				String entity1 = resultSet.getString("entity1");
-				String entity2 = resultSet.getString("entity2");
+				int entity1 = resultSet.getInt("entity1");
+				int entity2 = resultSet.getInt("entity2");
 				relationship = new Relationship(entity1, entity2);
 				relationship.setId(id);
 				relationshipsList.add(relationship);
@@ -49,8 +49,8 @@ public class RelationshipDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-			preparedStatement.setString(1, relationshipToInsert.getEntity1());
-			preparedStatement.setString(2, relationshipToInsert.getEntity2());
+			preparedStatement.setInt(1, relationshipToInsert.getEntity1());
+			preparedStatement.setInt(2, relationshipToInsert.getEntity2());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -67,10 +67,10 @@ public class RelationshipDAO {
 			preparedStatement.setInt(1, relationshipId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String entity1, entity2;
+			int entity1, entity2;
 
-			entity1 = resultSet.getString("entity1");
-			entity2 = resultSet.getString("entity2");
+			entity1 = resultSet.getInt("entity1");
+			entity2 = resultSet.getInt("entity2");
 			Relationship relationship = new Relationship(entity1, entity2);
 			relationship.setId(resultSet.getInt("id"));
 
@@ -92,18 +92,18 @@ public class RelationshipDAO {
 		if (!relationshipRead.equals(relationshipToUpdate)) {
 			try {
 				// Fill the userToUpdate object
-				if (relationshipToUpdate.getEntity1() == null || relationshipToUpdate.getEntity1().equals("")) {
+				if (relationshipToUpdate.getEntity1() == 0 || relationshipToUpdate.getEntity1() == 0) {
 					relationshipToUpdate.setEntity1(relationshipRead.getEntity1());
 				}
 
-				if (relationshipToUpdate.getEntity2() == null || relationshipToUpdate.getEntity2().equals("")) {
+				if (relationshipToUpdate.getEntity2() == 0 || relationshipToUpdate.getEntity2() == 0) {
 					relationshipToUpdate.setEntity2(relationshipRead.getEntity2());
 				}
 
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setString(1, relationshipToUpdate.getEntity1());
-				preparedStatement.setString(2, relationshipToUpdate.getEntity2());
+				preparedStatement.setInt(1, relationshipToUpdate.getEntity1());
+				preparedStatement.setInt(2, relationshipToUpdate.getEntity2());
 				preparedStatement.setInt(3, relationshipToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)

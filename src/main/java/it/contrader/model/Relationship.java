@@ -8,10 +8,11 @@ public class Relationship {
 	 * Qui sotto definisco gli attributi di Relationship. 
 	 */
 	private int id;
-
-	private String entity1;
 	
-	private String entity2;
+	private int entity1;
+	
+	private int entity2;
+	
 
 	/**
 	 * Definisco i due costruttori, uno vuoto e uno con tre parametri per costruire oggetti di tipo Relationship
@@ -20,12 +21,12 @@ public class Relationship {
 		
 	}
 
-	public Relationship (String entity1, String entity2) {//construttore pieno
+	public Relationship (int entity1, int entity2) {//construttore pieno
 		this.entity1 = entity1;
 		this.entity2 = entity2;
 	}
 
-	public Relationship (int id, String entity1, String entity2) {//construttore pieno con ID
+	public Relationship (int id, int entity1, int entity2) {//construttore pieno con ID
 		this.id = id;
 		this.entity1 = entity1;
 		this.entity2 = entity2;
@@ -41,20 +42,20 @@ public class Relationship {
 		this.id = id;
 	}
 
-	public String getEntity1() {
+	public int getEntity1() {
 		return this.entity1;
 	}
 
-	public void setEntity1(String entity1) {
+	public void setEntity1(int entity1) {
 		this.entity1 = entity1;
 	}
 
 
-	public String getEntity2() {
+	public int getEntity2() {
 		return this.entity2;
 	}
 
-	public void setEntity2(String entity2) {
+	public void setEntity2(int entity2) {
 		this.entity2 = entity2;
 	}
 
@@ -76,15 +77,9 @@ public class Relationship {
 		Relationship other = (Relationship) obj;
 		if (id != other.id)
 			return false;
-		if (entity1 == null) {
-			if (other.entity1 != null)
-				return false;
-		} else if (!entity1.equals(other.entity1))
+		if (entity1 != other.entity1) 
 			return false;
-		if (entity2 == null) {
-			if (other.entity2 != null)
-				return false;
-		} else if (!entity2.equals(other.entity2))
+		if (entity2 != other.entity2)
 			return false;
 		return true;
 	}

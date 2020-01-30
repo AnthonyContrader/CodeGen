@@ -58,8 +58,8 @@ public class RelationshipServlet extends HttpServlet {
 			break;
 
 		case "INSERT":
-			String entity1 = request.getParameter("entity1").toString();
-			String entity2 = request.getParameter("entity2").toString();
+			int entity1 = Integer.parseInt(request.getParameter("entity1").toString());
+			int entity2 = Integer.parseInt(request.getParameter("entity2").toString());
 			dto = new RelationshipDTO (entity1,entity2);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
@@ -68,10 +68,10 @@ public class RelationshipServlet extends HttpServlet {
 			break;
 			
 		case "UPDATE":
-			entity1 = request.getParameter("entity1");
-			entity2 = request.getParameter("entity2");
+			entity1 = Integer.parseInt(request.getParameter("entity1").toString());
+			entity2 = Integer.parseInt(request.getParameter("entity2").toString());
 			id = Integer.parseInt(request.getParameter("id"));
-			dto = new RelationshipDTO (id,entity1, entity2);
+			dto = new RelationshipDTO (id,entity1,entity2);
 			ans = service.update(dto);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/relationship/relationshipmanager.jsp").forward(request, response);

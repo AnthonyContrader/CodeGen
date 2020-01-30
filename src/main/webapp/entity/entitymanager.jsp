@@ -11,7 +11,7 @@
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Entity </title>
 </head>
-<body>
+<body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="EntityServlet?mode=entitylist";' <% }  %>>
 <%@ include file="../css/header.jsp" %>
 
 <div class="navbar">

@@ -9,7 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Entity Manager</title>
+<title>Entity </title>
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>

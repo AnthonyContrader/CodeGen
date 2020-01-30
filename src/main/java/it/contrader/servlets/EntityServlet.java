@@ -7,11 +7,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import it.contrader.dto.EntityDTO;
+import it.contrader.dto.LogDTO;
 import it.contrader.dto.ProjectDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.Service;
 import it.contrader.service.EntityService;
 import it.contrader.service.ProjectService;
+import it.contrader.service.LogService;
 
 
 public class EntityServlet  extends HttpServlet {
@@ -27,7 +32,7 @@ public class EntityServlet  extends HttpServlet {
 
 		getIdproject(request);
 
-		getIdproject( request);
+
 
 	}
 	public void getIdproject(HttpServletRequest request) {
@@ -38,11 +43,18 @@ public class EntityServlet  extends HttpServlet {
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Service<LogDTO> service_log = new LogService(); LogDTO dtoLog;
 		Service<EntityDTO> service = new EntityService();
 		String mode = request.getParameter("mode");
 		EntityDTO dto;
 		int id;
 		boolean ans;
+		HttpSession session = request.getSession(); 
+		UserDTO dtoUser = (UserDTO) session.getAttribute("user");
+		dtoLog = new LogDTO(mode,dtoUser.getUsername(), "");
+		
+		ans = service_log.insert(dtoLog);
+		request.setAttribute("ans", ans);
 
 		switch (mode.toUpperCase()) {
 

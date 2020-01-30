@@ -25,8 +25,7 @@
 <div class="main">
 	<%
 		List<LogDTO> list = (List<LogDTO>) request.getAttribute("list");
-	
-		List<UserDTO> list_U = (List<UserDTO>) request.getAttribute("listUser");
+
 	%>
 
 <br>
@@ -43,7 +42,7 @@
 		<tr>
 			<td><% out.print( u.getAction().toUpperCase() ); %></td>
 			<td><%
-				out.print(u.getUser().toUpperCase());
+			out.print(u.getUser().toUpperCase());
 				%></td>
 			<td><%=u.getDate()%></td>
 

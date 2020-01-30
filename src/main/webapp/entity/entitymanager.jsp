@@ -74,15 +74,20 @@
    </div>
   <div class="row">
     <div class="col-25">
-      <label for="type">Select IdProject</label>
+      <label for="type">Select Idproject</label>
     </div>
    		 <div class="col-75">
  			<select id="entity" name="entity" required>
- 				<option value="" disabled selected>Select Entities</option>
- 				<% 			
+ 				<option>Select Entities</option>
+ 			
+ 				<% 		
+ 				
+ 				
+ 				
 					for (ProjectDTO p : listP) {
 				%>
 				<option value="<%=p.getId()%>"><%=p.getName()%></option>
+			
 				<%
 					}
 				%>

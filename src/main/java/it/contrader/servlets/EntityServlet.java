@@ -24,6 +24,7 @@ public class EntityServlet  extends HttpServlet {
 		Service<EntityDTO> service = new EntityService();
 		List<EntityDTO>listDTO = service.getAll();
 		request.setAttribute("list", listDTO);
+		getIdproject( request);
 	}
 	public void getIdproject(HttpServletRequest request) {
 		Service<ProjectDTO> serviceProject = new ProjectService();

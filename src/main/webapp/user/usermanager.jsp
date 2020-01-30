@@ -35,8 +35,7 @@
 			<th>Username</th>
 			<th>Password</th>
 			<th>Usertype</th>
-			<th></th>
-			<th></th>
+			<th>Action</th>
 		</tr>
 		<%
 			for (UserDTO u : list) {
@@ -47,9 +46,7 @@
 			</a></td>
 			<td><%=u.getPassword()%></td>
 			<td><%=u.getUsertype()%></td>
-			<td><a href=UserServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
-			</td>
-			<td><a href=UserServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
+			<td><a class="edit" href=UserServlet?mode=read&update=true&id=<%=u.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=UserServlet?mode=delete&id=<%=u.getId()%>></a>
 			</td>
 
 		</tr>

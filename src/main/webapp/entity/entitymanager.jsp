@@ -35,8 +35,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Project</th>
-			<th></th>
-			<th></th>
+			<th>Action</th>
 		</tr>
 		<%
 			for (EntityDTO e : list) {
@@ -53,9 +52,7 @@
 				}%>
 			</td>
 			
-			<td><a href=EntityServlet?mode=read&update=true&id=<%=e.getId()%>>Edit</a>
-			</td>
-			<td><a href=EntityServlet?mode=delete&id=<%=e.getId()%>>Delete</a>
+			<td><a class="edit" href=EntityServlet?mode=read&update=true&id=<%=e.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=EntityServlet?mode=delete&id=<%=e.getId()%>></a>
 			</td>
 
 		</tr>

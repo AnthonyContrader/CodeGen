@@ -37,8 +37,7 @@
 			<th>Name</th>
 			<th>Type (Lenght)</th>
 			<th>Entity</th>
-			<th></th>
-			<th></th>
+			<th>Action</th>
 		</tr>
 		<%
 			for (FieldDTO u : list) {
@@ -52,9 +51,7 @@
 					if(u.getEntity()==e.getId())
 						out.print(e.getName());
 				}%></td>
-			<td><a href=FieldServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
-			</td>
-			<td><a href=FieldServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
+			<td><a class="edit" href=FieldServlet?mode=read&update=true&id=<%=u.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=FieldServlet?mode=delete&id=<%=u.getId()%>></a>
 			</td>
 
 		</tr>

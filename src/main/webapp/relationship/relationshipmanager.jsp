@@ -33,7 +33,7 @@
 		<tr>
 			<th>Entity1</th>
 			<th>Entity2</th>
-			<th>Edit Row</th>
+			<th>Action</th>
 		</tr>
 		<%
 			for (RelationshipDTO r : list) {

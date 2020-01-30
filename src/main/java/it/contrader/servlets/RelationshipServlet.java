@@ -9,8 +9,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import it.contrader.dto.EntityDTO;
 import it.contrader.dto.RelationshipDTO;
 import it.contrader.service.Service;
+import it.contrader.service.EntityService;
 import it.contrader.service.RelationshipService;
 
 /*
@@ -26,6 +29,13 @@ public class RelationshipServlet extends HttpServlet {
 		Service<RelationshipDTO> service = new RelationshipService();
 		List<RelationshipDTO>listDTO = service.getAll();
 		request.setAttribute("list", listDTO);
+		updateEntity(request);
+	}
+	
+	public void updateEntity(HttpServletRequest request) {
+		Service<EntityDTO> service = new EntityService();
+		List<EntityDTO>listDTO = service.getAll();
+		request.setAttribute("listP", listDTO);
 	}
 
 	@Override
@@ -44,10 +54,11 @@ public class RelationshipServlet extends HttpServlet {
 			break;
 
 		case "READ":
+			
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id);
 			request.setAttribute("dto", dto);
-			
+			updateEntity(request);
 			if (request.getParameter("update") == null) {
 				 getServletContext().getRequestDispatcher("/relationship/readrelationship.jsp").forward(request, response);
 				

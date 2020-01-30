@@ -37,10 +37,12 @@ public class LoginServlet extends HttpServlet {
 			if (dto != null)
 				//se il login ha funzionato, salva l'utente nella sessione
 				session.setAttribute("user", dto);
-			else
+			else {
 				//altrimenti torna alla pagina di login
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-			
+				
+			}
+			session.setAttribute("user", dto);
 			//esegue una switch cae in base allo usertype per il reindirizzamento
 			switch (dto.getUsertype().toUpperCase()) {
 			case "ADMIN":

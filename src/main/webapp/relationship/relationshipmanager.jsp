@@ -42,13 +42,18 @@
 		%>
 		<tr>
 			<td><a href=RelationshipServlet?mode=read&id=<%=r.getId()%>>
-					<%=r.getEntity1()%>
+				
+				<%		
+			
+				for (EntityDTO e : listE){ 
+					if( e.getId()==r.getEntity1() )
+						out.print(e.getName());
+				}%>
 			</a></td>
-			<td><%=r.getEntity2()%></td>
 			<td><%		
 			
 				for (EntityDTO e : listE){ 
-					if( e.getId()==r.getEntity1()|| e.getId()==r.getEntity2())
+					if( e.getId()==r.getEntity2() )
 						out.print(e.getName());
 				}%>
 			</td>

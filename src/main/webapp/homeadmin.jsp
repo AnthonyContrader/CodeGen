@@ -4,7 +4,9 @@
 	import="it.contrader.dto.EntityDTO"
 	import="it.contrader.dto.FieldDTO"
 	import="it.contrader.dto.ProjectDTO"
-	import="it.contrader.dto.RelationshipDTO"%>
+	import="it.contrader.dto.RelationshipDTO"
+	
+	%>
 	
 <!DOCTYPE html>
 <html>

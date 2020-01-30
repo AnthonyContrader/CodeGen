@@ -3,7 +3,7 @@ package it.contrader.servlets;
 import java.util.List;
 
 
-
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,9 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.contrader.dto.EntityDTO;
 import it.contrader.dto.FieldDTO;
+import it.contrader.dto.LogDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.Service;
 import it.contrader.service.EntityService;
 import it.contrader.service.FieldService;
+import it.contrader.service.LogService;
+import it.contrader.service.UserService;
+
 
 /**
  * 
@@ -42,17 +47,27 @@ public class FieldServlet extends HttpServlet {
 	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Service<LogDTO> service_log = new LogService(); LogDTO dtoLog;
 		Service<FieldDTO> service = new FieldService();
 		String mode = request.getParameter("mode");
 		FieldDTO dto;
 		int id;
 		boolean ans;
-
+		
+		HttpSession session = request.getSession(); 
+		UserDTO dtoUser = (UserDTO) session.getAttribute("user");
+		dtoLog = new LogDTO(dtoUser.getUsername(),1, "");
+		
+		ans = service_log.insert(dtoLog);
+		request.setAttribute("ans", ans);
+		
+		
 		switch (mode.toUpperCase()) {
 
 		case "FIELDLIST":
 			updateList(request);			
-			getServletContext().getRequestDispatcher("/field/fieldmanager.jsp").forward(request, response);
+			
+			getServletContext().getRequestDispatcher("/field/-"+dtoUser.getUsername()+".jsp").forward(request, response);
 			break;
 
 		case "READ":
@@ -60,9 +75,8 @@ public class FieldServlet extends HttpServlet {
 			dto = service.read(id);
 			request.setAttribute("dto", dto);
 			getEntity(request);
-			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/field/readfield.jsp").forward(request, response);				
-			}
+			if (request.getParameter("update") == null) 
+				 getServletContext().getRequestDispatcher("/field/readfield.jsp").forward(request, response);		
 			
 			else getServletContext().getRequestDispatcher("/field/updatefield.jsp").forward(request, response);
 			
@@ -99,6 +113,7 @@ public class FieldServlet extends HttpServlet {
 			updateList(request);
 			getServletContext().getRequestDispatcher("/field/fieldmanager.jsp").forward(request, response);
 			break;
+
 		}
 	}
 }

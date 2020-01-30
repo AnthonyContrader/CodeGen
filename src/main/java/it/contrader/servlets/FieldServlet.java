@@ -55,7 +55,7 @@ public class FieldServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession(); 
 		UserDTO dtoUser = (UserDTO) session.getAttribute("user");
-		dtoLog = new LogDTO(mode,dtoUser.getUsername(), "");
+		dtoLog = new LogDTO(mode.replaceAll("field", "").concat(" - FIELD"),dtoUser.getUsername(), "");
 		
 		ans = service_log.insert(dtoLog);
 		request.setAttribute("ans", ans);

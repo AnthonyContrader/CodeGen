@@ -69,29 +69,29 @@
 
 
 <form id="floatright" action="RelationshipServlet?mode=insert" method="post">
-  <div class="row">
-    <div class="col-25">
-      <label for="entity1">Entity1</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="entity1" name="entity1" placeholder="Insert Name of Entity1" required>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-     <label for="entity2">Entity2</label>
-    </div>
-    <div class="col-75">
-      	<input type="text" id="entity2" name="entity2" placeholder="Insert Name of Entity2" required>
-    </div>
-  </div>
     <div class="row">
     <div class="col-25">
       <label for="type">Select Entity1</label>
     </div>
    		 <div class="col-75">
- 			<select id="identity" name="identity" required> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 			<select id="selectentity1" name="selectentity1" required> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity1</option>
+ 				<% 			
+					for (EntityDTO e : listE) {
+				%>
+				<option value="<%=e.getId()%>"><%=e.getName()%></option>
+				<%
+					}
+				%>
+ 
+			</select>
+    	</div>
+    	<div class="col-25">
+      	<label for="type">Select Entity2</label>
+    	</div>
+    	<div class="col-75">
+ 			<select id="selectentity2" name="selectentity2" required> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 				<option value="" disabled selected>Select Entity2</option>
  				<% 			
 					for (EntityDTO e : listE) {
 				%>

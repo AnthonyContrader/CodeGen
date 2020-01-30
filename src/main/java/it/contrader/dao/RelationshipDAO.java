@@ -15,7 +15,7 @@ import it.contrader.model.Relationship;
 public class RelationshipDAO {
 
 	private final String QUERY_ALL = "SELECT * FROM relationship";
-	private final String QUERY_CREATE = "INSERT INTO relationship (entity1, entity2) VALUES (?,?)";
+	private final String QUERY_CREATE = "INSERT INTO relationship (entity1,entity2) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM relationship WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE relationship SET entity1=?, entity2=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM relationship WHERE id=?";
@@ -33,8 +33,8 @@ public class RelationshipDAO {
 			Relationship relationship;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
-				int entity1 = resultSet.getInt("entity1");
-				int entity2 = resultSet.getInt("entity2");
+				int entity1 = Integer.parseInt(resultSet.getString("entity1"));
+				int entity2 = Integer.parseInt(resultSet.getString("entity2"));
 				relationship = new Relationship(entity1, entity2);
 				relationship.setId(id);
 				relationshipsList.add(relationship);

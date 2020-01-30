@@ -11,7 +11,7 @@
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Entity </title>
 </head>
-<body>
+<body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="EntityServlet?mode=entitylist";' <% }  %>>
 <%@ include file="../css/header.jsp" %>
 
 <div class="navbar">
@@ -72,7 +72,7 @@
       <label for="name">Name</label>
     </div>
   <div class="col-75">
-      <input type="text" id="name" name="name" placeholder="insert name">
+      <input type="text" id="name" name="name" required placeholder="Insert name">
     </div>
    </div>
   <div class="row">

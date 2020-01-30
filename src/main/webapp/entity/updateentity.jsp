@@ -25,7 +25,11 @@
 
 
 <%EntityDTO e = (EntityDTO) request.getAttribute("dto"); //Assicurati che nella servelet 
+<<<<<<< HEAD
 List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listP"); //Deve coincidere con l'attributo all'interno della servlet%>
+=======
+List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listP");%>
+>>>>>>> ec58cdcfc76a705abc6acf8d3b5048fc1e04a2c3
 
 <form id="floatleft" action="EntityServlet?mode=update&id=<%=e.getId()%>" method="post">
    <div class="row">
@@ -38,7 +42,7 @@ List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listP"); //Deve
   </div>
    <div class="row">
     <div class="col-25">
-      <label for="idproject">IdProject</label>
+      <label for="idproject">Idproject</label>
     </div>
    		 <div class="col-75">
  			<select id="idproject" name="idproject">

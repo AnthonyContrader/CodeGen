@@ -75,11 +75,4 @@ public class LogDTO {
 		return  id + "\t"  + action +"\t\t" +   iduser + "\t\t" + date;
 	}
 
-	
-
-
-
-
-
-
 }

@@ -74,7 +74,7 @@
       <label for="type">Select Entity1</label>
     </div>
    		 <div class="col-75">
- 			<select id="selectentity1" name="selectentity1" required> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 			<select id="selectentity1" name="selectentity1" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity1</option>
  				<% 			
 					for (EntityDTO e : listE) {
@@ -90,7 +90,7 @@
       	<label for="type">Select Entity2</label>
     	</div>
     	<div class="col-75">
- 			<select id="selectentity2" name="selectentity2" required> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 			<select id="selectentity2" name="selectentity2" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity2</option>
  				<% 			
 					for (EntityDTO e : listE) {
@@ -110,4 +110,18 @@
 <br>
 <%@ include file="../css/footer.jsp" %>
 </body>
+<script>
+function Check(oggetto){
+	var ent1=document.getElementById("selectentity1").value;
+	var ent2=document.getElementById("selectentity2").value;
+	if(ent1==ent2 || ent1.equals(ent2)){
+		alert("Non puoi associare la stessa entita'.\nSi prega di riprovare");
+		oggetto.selectedIndex =0; 
+	}
+		
+}
+
+
+</script>
+
 </html>

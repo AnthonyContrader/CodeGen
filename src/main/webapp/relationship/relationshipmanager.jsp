@@ -34,7 +34,6 @@
 			<th>Entity1</th>
 			<th>Entity2</th>
 			<th>Edit Row</th>
-			<th>Delete Row</th>
 		</tr>
 		<%
 			for (RelationshipDTO r : list) {
@@ -44,9 +43,7 @@
 					<%=r.getEntity1()%>
 			</a></td>
 			<td><%=r.getEntity2()%></td>
-			<td><a class="edit" href=RelationshipServlet?mode=read&update=true&id=<%=r.getId()%>></a>
-			</td>
-			<td><a class="delete" href=RelationshipServlet?mode=delete&id=<%=r.getId()%>></a>
+			<td><a class="edit" href=RelationshipServlet?mode=read&update=true&id=<%=r.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=RelationshipServlet?mode=delete&id=<%=r.getId()%>></a>
 			</td>
 
 		</tr>

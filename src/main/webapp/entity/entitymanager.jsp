@@ -77,29 +77,15 @@
    </div>
   <div class="row">
     <div class="col-25">
-<<<<<<< HEAD
       <label for="type">Select Project</label>
     </div>
    		 <div class="col-75">
  			<select id="idproject" name="idproject" required> <!-- il name della select combina il name con la richiesta del post nella servlest -->
  				<option value="" disabled selected>Select Project</option>
  				<% 			
-=======
-      <label for="type">Select Idproject</label>
-    </div>
-   		 <div class="col-75">
- 			<select id="entity" name="entity" required>
- 				<option>Select Entities</option>
- 			
- 				<% 		
- 				
- 				
- 				
->>>>>>> ec58cdcfc76a705abc6acf8d3b5048fc1e04a2c3
 					for (ProjectDTO p : listP) {
 				%>
 				<option value="<%=p.getId()%>"><%=p.getName()%></option>
-			
 				<%
 					}
 				%>

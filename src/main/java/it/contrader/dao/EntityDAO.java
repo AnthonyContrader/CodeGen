@@ -15,7 +15,13 @@ import it.contrader.model.Entity;
  */
 public class EntityDAO implements DAO<Entity> {
 
-	private final String QUERY_ALL = "SELECT * FROM entity";
+	private final String QUERY_ALL = "SELECT e.id as 'id',"
+			+ "e.name as 'name', "
+			+ "e.idproject as 'idproject' "
+			
+			+ "FROM entity e JOIN project p ON p.id=e.idproject;"
+			+ ""
+			+ "  ";
 	private final String QUERY_CREATE = "INSERT INTO entity (name, idproject) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM entity WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE entity SET name=?,idproject=? WHERE id=?";

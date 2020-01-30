@@ -42,7 +42,7 @@ List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listP"); //Deve
   </div>
    <div class="row">
     <div class="col-25">
-      <label for="idproject">Idproject</label>
+      <label for="idproject">Project</label>
     </div>
    		 <div class="col-75">
  			<select id="idproject" name="idproject">

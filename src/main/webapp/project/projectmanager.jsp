@@ -34,21 +34,18 @@
 			<th>Name</th>
 			<th>Description</th>
 			<th>Shipping Date</th>
-			<th>Edit Row</th>
-			<th>Delete Row</th>
+			<th>Action</th>
 		</tr>
 		<%
-			for (ProjectDTO u : list) {
+			for (ProjectDTO p : list) {
 		%>
 		<tr>
-			<td><a href=ProjectServlet?mode=read&id=<%=u.getId()%>>
-					<%=u.getName()%>
+			<td><a href=ProjectServlet?mode=read&id=<%=p.getId()%>>
+					<%=p.getName()%>
 			</a></td>
-			<td><%=u.getDescription()%></td>
-			<td><%=u.getShippingdate()%></td>
-			<td><a class="edit" href=ProjectServlet?mode=read&update=true&id=<%=u.getId()%>></a>
-			</td>
-			<td><a class="delete" href=ProjectServlet?mode=delete&id=<%=u.getId()%>></a>
+			<td><%=p.getDescription()%></td>
+			<td><%=p.getShippingdate()%></td>
+			<td><a class="edit" href=ProjectServlet?mode=read&update=true&id=<%=p.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=ProjectServlet?mode=delete&id=<%=p.getId()%>></a>
 			</td>
 
 		</tr>

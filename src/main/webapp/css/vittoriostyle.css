@@ -415,17 +415,16 @@ div.navbar a.active {
 .edit {
 	
   content:url("../images/edit.png");
-  width: 27px; 
-  height: 27px;
-  
+  width: 30px; 
+  height: 30px;
 }
 
 .delete {
 	
   content:url("../images/delete.png");
-  width: 27px; 
-  height: 27px;
-  
+  width: 30px; 
+  height: 30px;
+
 }
 .imgheader {
 	position: center; z-index : -1;

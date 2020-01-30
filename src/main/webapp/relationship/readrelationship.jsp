@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.RelationshipDTO"%>
+    pageEncoding="ISO-8859-1" 
+    import="it.contrader.dto.RelationshipDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +18,7 @@
   <a href="RelationshipServlet?mode=relationshiplist"class="active">Relationships</a>
   <a href="ProjectServlet?mode=projectlist">Projects</a>
   <a href="LogoutServlet" id="logout">Logout</a>
+  <a href="LogServlet?mode=loglist" id ="log">Logs</a>
 </div>
 <br>
 

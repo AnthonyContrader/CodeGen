@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" 
     import="java.util.List"
-    import="it.contrader.dto.RelationshipDTO"%>
+    import="it.contrader.dto.RelationshipDTO"
+    import="it.contrader.dto.EntityDTO"%>
     
 <!DOCTYPE html>
 <html>
@@ -26,25 +27,43 @@
 <div class="main">
 <%
 	RelationshipDTO r = (RelationshipDTO) request.getAttribute("dto");
-	List<RelationshipDTO> list = (List<RelationshipDTO>) request.getAttribute("list");
+	List<EntityDTO> listE = (List<EntityDTO>)request.getAttribute("listP");
 %>
 
 <form id="floatleft" action="RelationshipServlet?mode=update&id=<%=r.getId()%>" method="post">
-  <div class="row">
+      <div class="row">
     <div class="col-25">
-      <label for="entity1">Entity1</label>
+      <label for="type">Select Entity1</label>
     </div>
-    <div class="col-75">
-      <input type="text" id="entity1" name="entity1" value=<%=r.getEntity1()%>>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
-     <label for="entity2">Entity2</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="entity2" name="entity2" value=<%=r.getEntity2()%>> 
-    </div>
+   		 <div class="col-75">
+ 			<select id="selectentity1" name="selectentity1" required> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 				<option value="" disabled selected>Select Entity1</option>
+ 				<% 			
+					for (EntityDTO e : listE) {
+				%>
+				<option value="<%=e.getId()%>"><%=e.getName()%></option>
+				<%
+					}
+				%>
+ 
+			</select>
+    	</div>
+    	<div class="col-25">
+      	<label for="type">Select Entity2</label>
+    	</div>
+    	<div class="col-75">
+ 			<select id="selectentity2" name="selectentity2" required> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 				<option value="" disabled selected>Select Entity2</option>
+ 				<% 			
+					for (EntityDTO e : listE) {
+				%>
+				<option value="<%=e.getId()%>"><%=e.getName()%></option>
+				<%
+					}
+				%>
+ 
+			</select>
+    	</div>
   </div>
       <button type="submit" >Edit</button>
 </form>

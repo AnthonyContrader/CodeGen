@@ -9,7 +9,7 @@
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Project Manager</title>
 </head>
-<body>
+<body><body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="ProjectServlet?mode=projectlist";' <% }  %>>
 <%@ include file="../css/header.jsp" %>
 
 <div class="navbar">

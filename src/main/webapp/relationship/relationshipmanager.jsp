@@ -10,7 +10,7 @@
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Relationship Manager</title>
 </head>
-<body>
+<body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="RelationshipServlet?mode=relationshiplist";' <% }  %>>
 <%@ include file="../css/header.jsp" %>
 
 <div class="navbar">

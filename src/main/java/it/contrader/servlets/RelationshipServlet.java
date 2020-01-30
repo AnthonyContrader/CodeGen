@@ -69,8 +69,8 @@ public class RelationshipServlet extends HttpServlet {
 			break;
 
 		case "INSERT":
-			int entity1 = Integer.parseInt(request.getParameter("entity1").toString());
-			int entity2 = Integer.parseInt(request.getParameter("entity2").toString());
+			int entity1 = Integer.parseInt(request.getParameter("selectentity1").toString());
+			int entity2 = Integer.parseInt(request.getParameter("selectentity1").toString());
 			dto = new RelationshipDTO (entity1,entity2);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);

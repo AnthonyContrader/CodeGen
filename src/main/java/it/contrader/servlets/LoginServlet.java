@@ -26,6 +26,7 @@ public class LoginServlet extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		final HttpSession session = request.getSession();
 		session.setAttribute("utente", null);
+		session.setMaxInactiveInterval(600);
 
 		LoginService service = new LoginService();
 

@@ -43,7 +43,6 @@ public class ProjectServlet extends HttpServlet {
 		boolean ans;
 
 		HttpSession session = request.getSession();
-		session.setMaxInactiveInterval(600);
 		UserDTO dtoUser = (UserDTO) session.getAttribute("user");
 		dtoLog = new LogDTO(mode.replaceAll("project", "").concat(" - PROJECT"),dtoUser.getUsername(), "");	
 		ans = servicelog.insert(dtoLog);

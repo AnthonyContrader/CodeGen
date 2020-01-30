@@ -16,9 +16,11 @@
 <a href="FieldServlet?mode=fieldlist">Fields</a>
   <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
    <a href="ProjectServlet?mode=projectlist">Projects</a>
+ 
   
 
   <a href="LogoutServlet" id="logout">Logout</a>
+ <a href="LogServlet?mode=loglist" id = "log">Logs</a>
 </div>
 <br>
 <div class="main">
@@ -40,7 +42,7 @@ List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listP"); //Deve
   </div>
    <div class="row">
     <div class="col-25">
-      <label for="idproject">Idproject</label>
+      <label for="idproject">Project</label>
     </div>
    		 <div class="col-75">
  			<select id="idproject" name="idproject">

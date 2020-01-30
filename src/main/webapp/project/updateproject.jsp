@@ -32,7 +32,7 @@
 <form id="floatleft" action="ProjectServlet?mode=update&id=<%=u.getId()%>" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="name">Projectname</label>
+      <label for="name">Project name</label>
     </div>
     <div class="col-75">
       <input type="text" id="name" name="name" value=<%=u.getName()%>>
@@ -51,7 +51,7 @@
      <label for="shippingdate">Shipping date</label>
     </div>
     <div class="col-75">
-      <input type="text" id="shippingdate" name="shippingdate" value=<%=u.getShippingdate()%>> 
+      <input type="date" id="shippingdate" name="shippingdate" value=<%=u.getShippingdate()%>> 
     </div>
   </div>
       <button type="submit" >Edit</button>

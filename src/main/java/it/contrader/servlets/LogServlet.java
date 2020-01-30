@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.UserDTO;
 import it.contrader.dto.LogDTO;
@@ -37,6 +38,14 @@ public class LogServlet extends HttpServlet {
 		List<UserDTO>listDTO = serviceEntity.getAll();
 		request.setAttribute("listUser", listDTO);
 	}
+	public void getLogUser(HttpServletRequest request) {
+		HttpSession session = request.getSession(); 
+		UserDTO dtoUser = (UserDTO) session.getAttribute("user");
+		
+		Service<LogDTO> serviceLog = new LogService();		
+		List<LogDTO>listDTO = ((LogService) serviceLog).readByUsername(dtoUser.getUsername());
+		request.setAttribute("listLogUser", listDTO);
+	}
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -44,6 +53,9 @@ public class LogServlet extends HttpServlet {
 		String mode = request.getParameter("mode");
 		LogDTO dto;
 		boolean ans;
+	
+		getLogUser(request);
+		
 		
 		switch (mode.toUpperCase()) {
 
@@ -62,6 +74,8 @@ public class LogServlet extends HttpServlet {
 				request.setAttribute("ans", ans);
 				updateList(request);
 				break;
+				
+
 
 		}
 	}

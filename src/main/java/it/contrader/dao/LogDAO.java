@@ -19,6 +19,8 @@ public class LogDAO implements DAO<Log> {
 	private final String QUERY_READ = "SELECT * FROM log WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE log SET action=?, user LIKE ? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM log WHERE id=?";
+	
+	private final String QUERY_READ_LOG = "SELECT * FROM log WHERE user  LIKE ?";
 
 	public LogDAO() {
 
@@ -82,6 +84,33 @@ public class LogDAO implements DAO<Log> {
 			return null;
 		}
 
+	}
+	
+	public List<Log> readByUsername(String Username) {
+		
+		
+		List<Log> logList = new ArrayList<>();
+		Connection connection = ConnectionSingleton.getInstance();
+		try {
+			
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ_LOG);
+			preparedStatement.setString(1, Username);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			Log log;
+			while (resultSet.next()) {
+				int id = resultSet.getInt("id");
+				String action = resultSet.getString("action");
+				String user = resultSet.getString("user");
+				String date = resultSet.getString("date");
+				log = new Log(action, user,date);
+				log.setId(id);
+				logList.add(log);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return logList;
 	}
 
 	public boolean update(Log logToUpdate) {

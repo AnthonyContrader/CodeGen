@@ -42,10 +42,10 @@ public class ProjectServlet extends HttpServlet {
 		int id;
 		boolean ans;
 
-		HttpSession session = request.getSession(); 
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(600);
 		UserDTO dtoUser = (UserDTO) session.getAttribute("user");
-		dtoLog = new LogDTO(mode.replaceAll("project", "").concat(" - PROJECT"),dtoUser.getUsername(), "");
-		
+		dtoLog = new LogDTO(mode.replaceAll("project", "").concat(" - PROJECT"),dtoUser.getUsername(), "");	
 		ans = servicelog.insert(dtoLog);
 		request.setAttribute("ans", ans);
 		

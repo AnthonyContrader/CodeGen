@@ -23,7 +23,7 @@
 </div>
 <div class="main">
 	<%
-		List<LogDTO> list = (List<LogDTO>) request.getAttribute("list");
+		List<LogDTO> list = (List<LogDTO>) request.getAttribute("listLogUser");
 
 	%>
 

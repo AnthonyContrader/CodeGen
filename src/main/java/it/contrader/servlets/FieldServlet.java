@@ -19,7 +19,6 @@ import it.contrader.service.EntityService;
 import it.contrader.service.FieldService;
 import it.contrader.service.LogService;
 
-
 /**
  * 
  * @author Depy

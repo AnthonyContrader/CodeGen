@@ -20,7 +20,7 @@ public class LogDAO implements DAO<Log> {
 	private final String QUERY_UPDATE = "UPDATE log SET action=?, user LIKE ? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM log WHERE id=?";
 	
-	private final String QUERY_READ_LOG = "SELECT * FROM log WHERE user  LIKE ?";
+	private final String QUERY_READ_LOG = "SELECT id, action, user, DATE_FORMAT(date, '%d/%m/%Y %H:%i') as 'date' FROM log WHERE user  LIKE ? ORDER BY id DESC";
 
 	public LogDAO() {
 

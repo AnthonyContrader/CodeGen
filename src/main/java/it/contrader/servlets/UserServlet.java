@@ -9,6 +9,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import it.contrader.dto.LogDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.service.Service;
 import it.contrader.service.UserService;
@@ -36,6 +39,10 @@ public class UserServlet extends HttpServlet {
 		int id;
 		boolean ans;
 
+		HttpSession session = request.getSession(); 
+		UserDTO dtoUser = (UserDTO) session.getAttribute("user");
+		LogDTO dtoLog = new LogDTO(mode.replaceAll("user", "").concat(" - USER"),dtoUser.getUsername(), ""); 
+		
 		switch (mode.toUpperCase()) {
 
 		case "USERLIST":

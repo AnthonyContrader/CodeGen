@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="header">CodeGen
+<div class="header">
 </div>
 
 

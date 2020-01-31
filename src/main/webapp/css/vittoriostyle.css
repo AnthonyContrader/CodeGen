@@ -389,9 +389,12 @@ div.navbar {
 	position: sticky;
 	width: 100%;
 	top: 0;
-	padding: 1px;
+	padding-top: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-bottom: 0px;
 	z-index: 2;
-	border-radius: 7px;
+	border-radius: 7px 7px  0px 0px;
 	position: -webkit-sticky; /* Safari */
 }
 
@@ -413,8 +416,9 @@ div.navbar a:hover {
 }
 
 div.navbar a.active {
-	background: #39A8E8;
+	background: white;
 	color: #000000;
+	border-radius: 10px 10px 0px   0px;
 }
 
 /*Images*/

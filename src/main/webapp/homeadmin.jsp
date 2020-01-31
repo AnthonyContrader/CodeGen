@@ -34,7 +34,7 @@
 <div class="main" >
 <h1>Welcome ${user.getUsername()}</h1>
 </div>
-<div style="text-align:center"> 
+<div style="text-align:center; margin-bottom: -45px;margin-top: -5px;"> 
 	<video style="margin-top:-3%;width:50%; height:auto;" align="center"  autoplay loop>
 	  <source src="images/intro.mp4" type="video/mp4">
 	  Your browser does not support HTML5 video.

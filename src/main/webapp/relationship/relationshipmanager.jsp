@@ -68,7 +68,7 @@
 
 
 
-<form id="floatright" action="RelationshipServlet?mode=insert" method="post">
+<form id="floatright" action="RelationshipServlet?mode=insert" method="post" >
     <div class="row">
     <div class="col-25">
       <label for="type">Select Entity1</label>

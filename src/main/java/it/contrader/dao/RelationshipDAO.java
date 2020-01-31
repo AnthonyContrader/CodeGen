@@ -17,7 +17,7 @@ public class RelationshipDAO {
 	private final String QUERY_ALL = "SELECT r.id as 'id',"
 	+ "r.entity1 as 'entity1', "
 	+ "r.entity2 as 'entity2' "
-	+ "FROM relationship r \r\n" + 
+	+ "FROM relationship r " + 
 	"	 JOIN entity e1 ON e1.id = r.entity1" + 
 	"     JOIN entity e2 ON e2.id = r.entity2" + 
 	"     JOIN project p ON p.id = e1.idproject AND p.id = e2.idproject";

@@ -43,7 +43,7 @@
      <label for="description">Description</label>
     </div>
     <div class="col-75">
-      <input type="text" id="description" name="description" value=<%=u.getDescription()%>> 
+      <input type="text" id="description" name="description" value=<% out.print(u.getDescription().replaceAll(" ","#")); %>> 
     </div>
   </div>
   <div class="row">
@@ -57,7 +57,12 @@
       <button type="submit" >Edit</button>
 </form>
 
+	<script>
+	for (i = 0; i < document.getElementById("description").value.length; i++) {
+		document.getElementById("description").value=document.getElementById("description").value.replace("#", " ");
+	}		
 	
+	</script>
 </div>
 <br>
 <%@ include file="../css/footer.jsp" %>	

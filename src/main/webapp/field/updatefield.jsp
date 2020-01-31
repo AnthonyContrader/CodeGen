@@ -31,7 +31,7 @@ List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); /
       <label for="name">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="name" name="name" value=<%=u.getName()%>>
+      <input type="text" id="name" name="name" value=<%  out.print(u.getName().replaceAll(" ","#"));%>>
     </div>
   </div>
   <div class="row">
@@ -76,7 +76,12 @@ List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); /
   </div>
       <button type="submit" >Edit</button>
 </form>
-
+	<script>
+	for (i = 0; i < document.getElementById("name").value.length; i++) {
+		document.getElementById("name").value=document.getElementById("name").value.replace("#", " ");
+	}		
+	
+	</script>
 	
 </div>
 <br>

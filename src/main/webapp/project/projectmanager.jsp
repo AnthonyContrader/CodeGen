@@ -56,7 +56,8 @@
 
 
 
-<form id="floatright" action="ProjectServlet?mode=insert" method="post">
+<form id="floatright" action="ProjectServlet?mode=insert" method="post" 
+onsubmit="document.getElementById('description').value=document.getElementById('description').value.replaceAll(' ','-');">
   <div class="row">
     <div class="col-25">
       <label for="name">Name</label>

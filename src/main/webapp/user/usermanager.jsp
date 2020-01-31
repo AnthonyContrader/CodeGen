@@ -63,7 +63,7 @@
       <label for="user">Username</label>
     </div>
     <div class="col-75">
-      <input type="text" id="user" name="username" placeholder="Insert username" required>
+      <input type="text" id="user" name="username" placeholder="Insert username" required style="width: 90%;">
     </div>
   </div>
   <div class="row">
@@ -71,7 +71,7 @@
      <label for="pass">Password</label>
     </div>
     <div class="col-75">
-      <input type="text" id="pass" name="password" placeholder="Insert password" required> 
+      <input type="text" id="pass" name="password" placeholder="Insert password" required style="width: 90%;"> 
     </div>
   </div>
   <div class="row">

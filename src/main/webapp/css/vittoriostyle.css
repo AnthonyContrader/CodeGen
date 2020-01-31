@@ -436,6 +436,12 @@ div.navbar a.active {
   height: 30px;
 
 }
+
+::placeholder {
+	
+	color: #000000;
+}
+
 .imgheader {
 	position: center; z-index : -1;
 	opacity: .9;

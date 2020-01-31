@@ -36,28 +36,28 @@
       <label for="type">Select Entity1</label>
     </div>
    		 <div class="col-75">
- 			<select id="selectentity1" name="selectentity1" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
- 				<option value="" disabled selected>Select Entity1</option>
+ 			<select id="selectentity1" name="selectentity1"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+
  				<% 			
 					for (EntityDTO e : listE) {
 				%>
-				<option value="<%=e.getId()%>"><%=e.getName()%></option>
+					<option value="<%=e.getId()%>"<%if(e.getId()==r.getEntity1()) {%>selected<%} %>><%=e.getName()%></option>
 				<%
 					}
 				%>
  
 			</select>
     	</div>
-    	<div class="col-25">
-      	<label for="type">Select Entity2</label>
-    	</div>
+    <div class="col-25">
+      <label for="type">Select Entity2</label>
+    </div>
     	<div class="col-75">
- 			<select id="selectentity2" name="selectentity2" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
- 				<option value="" disabled selected>Select Entity2</option>
+ 			<select id="selectentity2" name="selectentity2"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 
  				<% 			
 					for (EntityDTO e : listE) {
 				%>
-				<option value="<%=e.getId()%>"><%=e.getName()%></option>
+					<option value="<%=e.getId()%>"<%if(e.getId()==r.getEntity2()) {%>selected<%} %>><%=e.getName()%></option>
 				<%
 					}
 				%>

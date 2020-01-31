@@ -406,12 +406,12 @@ div.navbar a {
 	padding: 1% 2%;
 	text-decoration: none;
 	font-size: 17px;
-	border-radius: 7px;
+	border-radius: 7px 7px  0px 0px;
 	background: #000000;
 }
 
 div.navbar a:hover {
-	background: #1461e5;
+	background: #39A8E8;
 	color: #ffffff;
 }
 

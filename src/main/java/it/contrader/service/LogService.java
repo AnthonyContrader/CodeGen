@@ -4,7 +4,6 @@ import java.util.List;
 
 import it.contrader.converter.LogConverter;
 import it.contrader.dao.LogDAO;
-import it.contrader.dto.DTO;
 import it.contrader.dto.LogDTO;
 import it.contrader.model.Log;
 

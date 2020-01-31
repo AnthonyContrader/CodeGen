@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="footer">
- 	Project CodeGen - Copyright &copy; 2020
+ 	Project CodeGen - Credits to : Salvatore Petrianni, Giuseppe de Palma, Selenia Brunco Copyright &copy; 2020
 </div>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
 <link href="css/vittoriostyle.css" rel="stylesheet">
 
-<title>Login SAMPLE</title>
+<title>Login Codegen</title>
 </head>
 <body <% if( request.getParameterMap().containsKey("cred") && request.getParameter("cred").equals( "1") ){ %>onload='alert("Credenziali Errate.\nSi prega di riprovare.");' <% }  %>>
 

@@ -90,6 +90,7 @@ input[type=range]:focus::-ms-fill-upper {
 html {
   scroll-behavior: smooth;
 }
+
 * {
 	font-family: sans-serif;
 }
@@ -103,7 +104,7 @@ div.text{
 	text-align: center;
 	font-size: 600%;
 	font-family: sans-serif;
-	color: #00a990;
+	color: #1461e5;
 }
 
 .main {
@@ -118,7 +119,7 @@ div.text{
 .footer {
 	text-align: center;
 	font-size: 70%;
-	background-color: #00a990;
+	background-color: #1461e5;
 	color: #ffffff;
 	width: 100%;
 	border-radius: 7px;
@@ -226,7 +227,7 @@ tr:nth-child(even) {
 }
 
 th {
-	background-color: #00a990;
+	background-color: #1461e5;
 	color: #ffffff;
 	
 }
@@ -243,11 +244,11 @@ select {
   padding: 14px 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #f2f2f2;
+  background-color: #00a990;
   margin: 8px 0;
 }
 select:hover {
-  background-color:  #00ccad;
+  background-color:  #1461e5;
 }
 
 option{
@@ -267,8 +268,8 @@ width: 100%;
 
 input {
   width: 80%;
-  background-color: #ffff;
-  color: #000000;
+  background-color: #00a990;
+  color: black;
   padding: 14px 20px;
   margin: 8px 0;
   border: 1px solid #ccc;
@@ -278,7 +279,7 @@ input {
 }
 
 input:hover {
-  background-color:  #00ccad;
+  background-color:  #1461e5;
 }
 input[type=range]:hover {
   background-color: white;
@@ -331,7 +332,6 @@ button {
   transition-duration: 0.1s;
   background-color:  #00a990;
   border: none;
-  color: white;
   padding: 3% 3%;
   text-align: center;
   text-decoration: none;
@@ -347,8 +347,7 @@ button {
 }
 
 button:hover {
-  background-color:  #00ccad; 
-  color: white;
+  background-color:  #1461e5; 
 }
 
 
@@ -378,7 +377,7 @@ button:hover {
 
 /*Navigation bar*/
 div.navbar {
-	background: #00a990;
+	background: #1461e5;
 	overflow: hidden;
 	position: sticky;
 	width: 100%;
@@ -398,16 +397,16 @@ div.navbar a {
 	text-decoration: none;
 	font-size: 17px;
 	border-radius: 7px;
-	background: #00a990;
+	background: #1461e5;
 }
 
 div.navbar a:hover {
-	background: #00ccad;
+	background: #1461e5;
 	color: #ffffff;
 }
 
 div.navbar a.active {
-	background: #00ccad;
+	background: #1461e5;
 	color: #ffffff;
 }
 

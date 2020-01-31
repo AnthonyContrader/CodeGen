@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" session="true" %>
 <html>
-<head>
+<head> <link rel="icon" href="/images/fav.png" type="image/png" />
 <link href="css/vittoriostyle.css" rel="stylesheet">
 
 <title>Login Codegen</title>

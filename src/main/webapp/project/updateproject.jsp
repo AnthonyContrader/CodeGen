@@ -5,7 +5,7 @@
     
 <!DOCTYPE html>
 <html>
-<head>
+<head> <link rel="icon" href="/images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Edit Project</title>

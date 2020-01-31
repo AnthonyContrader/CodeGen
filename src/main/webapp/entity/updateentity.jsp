@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1" import="java.util.List" import="it.contrader.dto.EntityDTO" import="it.contrader.dto.ProjectDTO"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head> <link rel="icon" href="/images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Edit Entity</title>

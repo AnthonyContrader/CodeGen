@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1" import="it.contrader.dto.UserDTO"%>
 <!DOCTYPE html>
 <html>
-<head> <link rel="icon" href="/images/fav.png" type="image/png" />
+<head> <link rel="icon" href="images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Read User</title>

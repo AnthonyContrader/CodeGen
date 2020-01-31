@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1" import="java.util.List" import="it.contrader.dto.FieldDTO" import="it.contrader.dto.EntityDTO"%>
 <!DOCTYPE html>
 <html>
-<head> <link rel="icon" href="/images/fav.png" type="image/png" />
+<head> <link rel="icon" href="images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Edit Field</title>

@@ -68,7 +68,7 @@
       <label for="name">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="name" name="name" placeholder="Insert Name" required maxlength="20" style="width:90%;" oninput="" >
+      <input type="text" id="name" name="name" placeholder="Insert Name" required maxlength="20"  oninput="" >
     </div>
   </div>
   <div class="row">
@@ -90,7 +90,7 @@
      <label for="lenght">Lenght (<span id="v_len">50</span>)</label>
     </div>
     <div class="col-75">
-      	  <input type="range" min="1" max="255" value="50" class="slider-color" id="lenght" name="lenght" step="1" style="width:90%;"
+      	  <input type="range" min="1" max="255" value="50" class="slider-color" id="lenght" name="lenght" step="1" 
       	  oninput="document.getElementById('v_len').innerHTML=this.value;" 
       	  >
     </div>

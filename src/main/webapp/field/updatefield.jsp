@@ -39,8 +39,13 @@ List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); /
      <label for="type">Type</label>
     </div>
     <div class="col-75">
-      <input
-			type="text" id="type" name="type" value=<%=u.getType()%>> 
+    	<select id="type" name="type" required>
+ 				<option value="string"  <%if (u.getType().toLowerCase().equals("string")) {%>selected<%} %> >String</option>
+ 				<option value="int" <%if (u.getType().toLowerCase().equals("int")) {%>selected<%} %> >Int</option>
+ 				<option value="double" <%if (u.getType().toLowerCase().equals("double")) {%>selected<%} %> >Double</option>
+ 				<option value="date" <%if (u.getType().toLowerCase().equals("date")) {%>selected<%} %> >Date</option>
+		</select>
+
     </div>
   </div>
   <div class="row">

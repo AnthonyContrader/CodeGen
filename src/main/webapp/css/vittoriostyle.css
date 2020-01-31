@@ -101,10 +101,17 @@ div.text{
 }
 
 .header {
+	background-color: #000000;
+	content: url("../images/logo.png");
 	text-align: center;
 	font-size: 600%;
 	font-family: sans-serif;
 	color: #1461e5;
+	border-radius: 10px 10px 10px 10px;
+	content-align: center;
+	margin: auto;
+	width: 30%;
+	height: auto;
 }
 
 .main {
@@ -119,7 +126,7 @@ div.text{
 .footer {
 	text-align: center;
 	font-size: 70%;
-	background-color: #1461e5;
+	background-color: #000000;
 	color: #ffffff;
 	width: 100%;
 	border-radius: 7px;
@@ -227,7 +234,7 @@ tr:nth-child(even) {
 }
 
 th {
-	background-color: #1461e5;
+	background-color: #39A8E8;
 	color: #ffffff;
 	
 }
@@ -244,7 +251,7 @@ select {
   padding: 14px 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #00a990;
+  background-color: #39A8E8;
   margin: 8px 0;
 }
 select:hover {
@@ -268,7 +275,7 @@ width: 100%;
 
 input {
   width: 80%;
-  background-color: #00a990;
+  background-color: #39A8E8;
   color: black;
   padding: 14px 20px;
   margin: 8px 0;
@@ -330,7 +337,7 @@ label {
 button {
   -webkit-transition-duration: 0.1s; /* Safari */
   transition-duration: 0.1s;
-  background-color:  #00a990;
+  background-color:  #39A8E8;
   border: none;
   padding: 3% 3%;
   text-align: center;
@@ -377,7 +384,7 @@ button:hover {
 
 /*Navigation bar*/
 div.navbar {
-	background: #1461e5;
+	background: #000000;
 	overflow: hidden;
 	position: sticky;
 	width: 100%;
@@ -397,7 +404,7 @@ div.navbar a {
 	text-decoration: none;
 	font-size: 17px;
 	border-radius: 7px;
-	background: #1461e5;
+	background: #000000;
 }
 
 div.navbar a:hover {
@@ -406,8 +413,8 @@ div.navbar a:hover {
 }
 
 div.navbar a.active {
-	background: #1461e5;
-	color: #ffffff;
+	background: #39A8E8;
+	color: #000000;
 }
 
 /*Images*/

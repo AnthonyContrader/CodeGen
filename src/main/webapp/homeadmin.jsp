@@ -32,7 +32,7 @@
 </div>
 
 <div class="main" >
-<h1>Welcome ${user.getUsername()}</h1>
+<h1 style="color: #39A8E8;" >Welcome <b><u>${user.getUsername()}</u></b></h1>
 </div>
 <div style="text-align:center; margin-bottom: -45px;margin-top: -5px;"> 
 	<video style="margin-top:-3%;width:50%; height:auto;" align="center"  autoplay loop>

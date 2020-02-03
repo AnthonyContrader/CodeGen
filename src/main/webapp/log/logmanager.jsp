@@ -19,7 +19,7 @@
   <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
   <a href="ProjectServlet?mode=projectlist">Projects</a>
   <a href="LogoutServlet" id="logout" >Logout</a>
-  <a href="LogServlet?mode=loglist" id="log" class="active">Logs</a>
+  <a href="LogServlet?mode=loglist" id="log" class="active" style="color:black;">Logs</a>
 </div>
 <div class="main">
 	<%

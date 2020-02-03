@@ -1,10 +1,6 @@
 package it.contrader.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -24,7 +20,8 @@ public class Entita {
 
 	@Column (unique = true) 
 	@NotNull
-	//@JoinColumn(name = ‘nome campo(foreignKey)’) ; 
+	/*@ManyToMany
+	@JoinColumn(name = ‘idproject(foreignKey)’) ; */
 	
 	private String name;
 	@NotNull

@@ -16,11 +16,15 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Field {
 	
-	
+	@ManyToOne
+	 @JoinColumn(name = "id", referencedColumnName="identity")
+	 private EntityOwner entityowner;//Viene richiamato da tutte le parti
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+
 	
 	@NotNull
 	@Column(length = 255)
@@ -34,8 +38,6 @@ public class Field {
 	@Column( length = 255)	
 	private Long lenght;
 	
-	 @ManyToOne
-	 @JoinColumn(name = "id", referencedColumnName="identity")
-	 private EntityOwner entityowner;//Viene richiamato da tutte le parti
+	 
 	
 }

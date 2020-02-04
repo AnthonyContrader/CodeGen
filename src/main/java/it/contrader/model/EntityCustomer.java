@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class EntityCostumer {
+public class EntityCustomer {
 
 	
 	@Id

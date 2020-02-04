@@ -27,7 +27,7 @@ public class EntityOwner {
 	@NotNull
 	private Long idproject;
 	@NotNull
-	private Long idcostumer;
+	private Long idcustomer;
 
 	
 

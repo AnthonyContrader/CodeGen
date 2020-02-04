@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class Field {
 	
 	@ManyToOne
-	 @JoinColumn(name = "id", referencedColumnName="identity")
+	 @JoinColumn(name = "identity", referencedColumnName="id")
 	 private EntityOwner entityowner;//Viene richiamato da tutte le parti
 	
 	@Id

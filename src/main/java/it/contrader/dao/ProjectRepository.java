@@ -11,6 +11,6 @@ import it.contrader.model.Project;
 @Transactional
 public interface ProjectRepository extends CrudRepository<Project, Long> {
 
-	Project findByUsernameAndPassword(String username, String password);
+	Project findByNameAndDescriptionAndShippingdate(String name, String description, String shippingdate);
 
 }

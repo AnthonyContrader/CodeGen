@@ -7,7 +7,7 @@ import it.contrader.converter.EntityOwnerConverter;
 import it.contrader.dao.EntityOwnerRepository;
 import it.contrader.dto.EntityOwnerDTO;
 import it.contrader.model.EntityOwner;
-
+import it.contrader.model.Project;
 @Service
 public class EntityOwnerService extends AbstractService<EntityOwner, EntityOwnerDTO> {
 
@@ -16,7 +16,7 @@ public class EntityOwnerService extends AbstractService<EntityOwner, EntityOwner
 	@Autowired
 	private EntityOwnerRepository repository;
 
-	public EntityOwnerDTO findByNameAndIdproject(String name, Long idproject) {
+	public EntityOwnerDTO findByNameAndIdproject(String name, Project idproject) {
 		return converter.toDTO(repository.findByNameAndIdproject(name, idproject));
 	}
 

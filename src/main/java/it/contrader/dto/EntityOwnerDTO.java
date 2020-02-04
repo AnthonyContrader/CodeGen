@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 	@AllArgsConstructor
 @NoArgsConstructor
 
-	public class EntitaDTO {
+	public class EntityOwnerDTO {
 
 		private Long id;
 

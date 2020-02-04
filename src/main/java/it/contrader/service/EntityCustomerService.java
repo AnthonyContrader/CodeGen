@@ -1,0 +1,24 @@
+package it.contrader.service;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
+import it.contrader.converter.EntityCustomerConverter;
+
+import it.contrader.dao.EntityCustomerRepository;
+import it.contrader.dto.EntityCustomerDTO;
+import it.contrader.model.EntityCustomer;
+
+@Service
+public class EntityCustomerService extends AbstractService<EntityCustomer, EntityCustomerDTO> {
+
+	@Autowired
+	private EntityCustomerConverter converter;
+	@Autowired
+	private EntityCustomerRepository repository;
+
+	public EntityCustomerDTO findByNameAndIdproject(String name, Long idproject) {
+		return converter.toDTO(repository.findByNameAndIdproject(name, idproject));
+	}
+
+
+}

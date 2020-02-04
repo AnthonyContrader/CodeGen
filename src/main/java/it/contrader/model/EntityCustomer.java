@@ -27,7 +27,7 @@ public class EntityCustomer {
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name="idproject",referencedColumnName="id")
-	private Project idproject;
+	private Long idproject;
 	
 	
 

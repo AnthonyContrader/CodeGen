@@ -9,65 +9,65 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.contrader.dto.EntitaDTO;
-import it.contrader.service.EntitaService;
+import it.contrader.dto.EntityOwnerDTO;
+import it.contrader.service.EntityOwnerService;
 
 @Controller
-@RequestMapping("/entita")
-public class EntitaController {
+@RequestMapping("/entityOwner")
+public class EntityOwnerController {
 
 	@Autowired
-	private EntitaService service;
+	private EntityOwnerService service;
 
 
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "entitae";
+		return "entityOwners";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "entitae";
+		return "entityOwners";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updatentita";
+		return "updatentityOwner";
 	}
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
 			 @RequestParam("idproject") Long idproject ) {
 
-		EntitaDTO dto = new EntitaDTO();
+		EntityOwnerDTO dto = new EntityOwnerDTO();
 		dto.setId(id);
 		dto.setName(name);
 		dto.setIdproject(idproject);
 		service.update(dto);
 		setAll(request);
-		return "entitae";
+		return "entityOwners";
 
 	}
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
 			@RequestParam("idproject") Long idproject ) {
-		EntitaDTO dto = new EntitaDTO();
+		EntityOwnerDTO dto = new EntityOwnerDTO();
 		dto.setName(name);
 		dto.setIdproject(idproject);
 		service.insert(dto);
 		setAll(request);
-		return "entitae";
+		return "entityOwners";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readentita";
+		return "readentityOwner";
 	}
 
 	@GetMapping("/logout")
@@ -80,3 +80,4 @@ public class EntitaController {
 		request.getSession().setAttribute("list", service.getAll());
 	}
 }
+

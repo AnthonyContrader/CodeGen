@@ -25,9 +25,11 @@ public class EntityCustomer {
 	
 	private String name;
 	@NotNull
-	private Long idproject;
-	@NotNull
-	private Long idowner;
+	@ManyToOne
+	@JoinColumn(name="idproject",referencedColumnName="id")
+	private Project idproject;
+	
+	
 
 	
 

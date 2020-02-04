@@ -25,9 +25,10 @@ public class EntityOwner {
 	
 	private String name;
 	@NotNull
-	private Long idproject;
-	@NotNull
-	private Long idcustomer;
+	@ManyToOne
+	@JoinColumn(name="idproject",referencedColumnName="id")
+	private Project idproject;
+	
 
 	
 

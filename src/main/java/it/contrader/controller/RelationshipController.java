@@ -9,11 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.contrader.dto.EntityOwnerDTO;
-import it.contrader.dto.EntityCustomerDTO;
-import it.contrader.dto.EntityOwnerService;
-import it.contrader.dto.EntityCustomerService;
 import it.contrader.dto.RelationshipDTO;
+import it.contrader.model.EntityCustomer;
+import it.contrader.model.EntityOwner;
 import it.contrader.service.RelationshipService;
 
 @Controller

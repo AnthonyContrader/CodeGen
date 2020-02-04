@@ -2,7 +2,7 @@ package it.contrader.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
+import it.contrader.model.Project;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +27,7 @@ public class EntityOwner {
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name="idproject",referencedColumnName="id")
-	private Long idproject;
+	private Project idproject;
 	
 
 	

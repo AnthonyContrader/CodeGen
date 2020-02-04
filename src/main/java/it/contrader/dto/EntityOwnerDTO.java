@@ -1,5 +1,5 @@
 package it.contrader.dto;
-
+import it.contrader.model.Project;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 		private String name;
 
-		private Long idproject;
+		private Project idproject;
 
 
 

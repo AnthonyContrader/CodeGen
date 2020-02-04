@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import it.contrader.model.Project;
 
 import it.contrader.dto.EntityCustomerDTO;
 import it.contrader.service.EntityCustomerService;
@@ -41,7 +42,7 @@ public class EntityCustomerController {
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			 @RequestParam("idproject") Long idproject ) {
+			 @RequestParam("idproject")Project idproject ) {
 
 		EntityCustomerDTO dto = new EntityCustomerDTO();
 		dto.setId(id);
@@ -55,7 +56,7 @@ public class EntityCustomerController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			@RequestParam("idproject") Long idproject ) {
+			@RequestParam("idproject") Project idproject ) {
 		EntityCustomerDTO dto = new EntityCustomerDTO();
 		dto.setName(name);
 		dto.setIdproject(idproject);

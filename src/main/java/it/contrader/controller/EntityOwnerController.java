@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.dto.EntityOwnerDTO;
+import it.contrader.model.Project;
 import it.contrader.service.EntityOwnerService;
 
 @Controller
@@ -41,7 +42,7 @@ public class EntityOwnerController {
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			 @RequestParam("idproject") Long idproject ) {
+			 @RequestParam("idproject") Project idproject ) {
 
 		EntityOwnerDTO dto = new EntityOwnerDTO();
 		dto.setId(id);
@@ -55,7 +56,7 @@ public class EntityOwnerController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			@RequestParam("idproject") Long idproject ) {
+			@RequestParam("idproject") Project idproject ) {
 		EntityOwnerDTO dto = new EntityOwnerDTO();
 		dto.setName(name);
 		dto.setIdproject(idproject);

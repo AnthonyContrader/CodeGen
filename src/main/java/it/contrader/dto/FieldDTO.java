@@ -1,5 +1,7 @@
 package it.contrader.dto;
 
+
+import it.contrader.model.EntityOwner;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,12 +15,11 @@ public class FieldDTO {
 
 	private String name;
 
-	private String type;
-
-	private Long identity;
+	private String type;	
 		
 	private Long lenght;
 	
+	private EntityOwner entityowner;
 	
 
 }

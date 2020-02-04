@@ -41,13 +41,12 @@ public class FieldController {
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			@RequestParam("type") String type, @RequestParam("identity") Long identity, @RequestParam("lenght") Long lenght ) {
+			@RequestParam("type") String type,  @RequestParam("lenght") Long lenght ) {
 
 		FieldDTO dto = new FieldDTO();
 		dto.setId(id);
 		dto.setName(name);
 		dto.setType(type);
-		dto.setIdentity(identity);
 		dto.setLenght(lenght);
 		service.update(dto);
 		setAll(request);
@@ -57,28 +56,16 @@ public class FieldController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			@RequestParam("type") String type, @RequestParam("identity") Long identity, @RequestParam("lenght") Long lenght ) {
+			@RequestParam("type") String type,  @RequestParam("lenght") Long lenght ) {
 		FieldDTO dto = new FieldDTO();
 		dto.setName(name);
 		dto.setType(type);
-		dto.setIdentity(identity);
 		dto.setLenght(lenght);
 		service.insert(dto);
 		setAll(request);
 		return "fields";
 	}
 
-	@GetMapping("/read")
-	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
-		request.getSession().setAttribute("dto", service.read(id));
-		return "readfield";
-	}
-
-	@GetMapping("/logout")
-	public String logout(HttpServletRequest request) {
-		request.getSession().invalidate();
-		return "index";
-	}
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());

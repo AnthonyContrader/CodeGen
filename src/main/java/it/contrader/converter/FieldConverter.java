@@ -13,7 +13,7 @@ public class FieldConverter extends AbstractConverter<Field, FieldDTO> {
 	public Field toEntity(FieldDTO fieldDTO) {
 		Field field = null;
 		if (fieldDTO != null) {
-			field = new Field(fieldDTO.getId(), fieldDTO.getName(), fieldDTO.getType(), fieldDTO.getIdentity(),fieldDTO.getLenght());
+			field = new Field(fieldDTO.getEntityowner(), fieldDTO.getId(), fieldDTO.getName(), fieldDTO.getType(), fieldDTO.getLenght());
 		}
 		return field;
 	}
@@ -22,9 +22,7 @@ public class FieldConverter extends AbstractConverter<Field, FieldDTO> {
 	public FieldDTO toDTO(Field field) {
 		FieldDTO fieldDTO = null;
 		if (field != null) {
-			fieldDTO = new FieldDTO(field.getId(), field.getName(), field.getType(), field.getIdentity(),field.getLenght());
-			
-
+			field = new Field(field.getEntityowner(), field.getId(), field.getName(), field.getType(), field.getLenght() );
 		}
 		return fieldDTO;
 	}

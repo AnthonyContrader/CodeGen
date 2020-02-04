@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Entita {
+public class EntityCostumer {
 
 	
 	@Id
@@ -26,6 +26,8 @@ public class Entita {
 	private String name;
 	@NotNull
 	private Long idproject;
+	@NotNull
+	private Long idowner;
 
 	
 

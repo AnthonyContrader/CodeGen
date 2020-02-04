@@ -3,9 +3,6 @@ package it.contrader.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import it.contrader.model.EntityOwner;
-import it.contrader.model.EntityCustomer;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,21 +11,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Relationship {
+public class Project {
 
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotNull
-	@ManyToOne
-	@JoinColumn(name = "idowner",referencedColumnName="id")
-	private EntityOwner entityowner;
+	@Column
+	private String name;
 	
+	private String description;
 	@NotNull
-	@ManyToOne
-	@JoinColumn(name = "idcustomer", referencedColumnName="id")
-	private EntityCustomer entitycustomer;
+	private String shippingdate;
 
 }

@@ -31,7 +31,7 @@
 				for (EntityOwnerDTO e : list) {
 			%>
 			<tr>
-				<td><a href="/user/read?id=<%=e.getId()%>"> <%=e.getName()%>
+				<td><a href="/entityowner/read?id=<%=e.getId()%>"> <%=e.getName()%>
 				</a></td>
 				<td><%=e.getIdproject()%></td>
 			
@@ -46,11 +46,11 @@
 
 
 
-<form id="floatright" action="/project/insert" method="post" 
+<form id="floatright" action="/entityowner/insert" method="post" 
 onsubmit="document.getElementById('description').value=document.getElementById('description').value.replaceAll(' ','-');">
   <div class="row">
     <div class="col-25">
-      <label for="user">Name</label>
+      <label for="entityowner">Name</label>
     </div>
     <div class="col-75">
       <input type="text" id="name" name="name" placeholder="Insert Name" required>
@@ -58,7 +58,7 @@ onsubmit="document.getElementById('description').value=document.getElementById('
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="pass">Idproject</label>
+     <label for="idproject">Idproject</label>
     </div>
     <div class="col-75">
       <input

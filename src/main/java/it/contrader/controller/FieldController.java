@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.dto.FieldDTO;
+import it.contrader.model.EntityOwner;
 import it.contrader.service.FieldService;
 
 
@@ -41,12 +42,13 @@ public class FieldController {
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("name") String name,
-			@RequestParam("type") String type,  @RequestParam("lenght") Long lenght ) {
+			@RequestParam("type") String type,  @RequestParam("lenght") Long lenght ,  @RequestParam("entityowner") EntityOwner entityowner ) {
 
 		FieldDTO dto = new FieldDTO();
 		dto.setName(name);
 		dto.setType(type);
 		dto.setLenght(lenght);
+		dto.setEntityowner(entityowner);
 		service.update(dto);
 		setAll(request);
 		return "fields";
@@ -55,11 +57,12 @@ public class FieldController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("name") String name,
-			@RequestParam("type") String type,  @RequestParam("lenght") Long lenght ) {
+			@RequestParam("type") String type,  @RequestParam("lenght") Long lenght, @RequestParam("entityowner") EntityOwner entityowner ) {
 		FieldDTO dto = new FieldDTO();
 		dto.setName(name);
 		dto.setType(type);
 		dto.setLenght(lenght);
+		dto.setEntityowner(entityowner);
 		service.insert(dto);
 		setAll(request);
 		return "fields";
@@ -74,6 +77,7 @@ public class FieldController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
+		request.getSession().setAttribute("listEntity", service.getAll());
 	}
 	
 }

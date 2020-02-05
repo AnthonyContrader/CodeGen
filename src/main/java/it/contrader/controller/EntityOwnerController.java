@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.contrader.dto.EntityOwnerDTO;
 import it.contrader.model.Project;
 import it.contrader.service.EntityOwnerService;
+//import it.contrader.service.ProjectService;
 
 @Controller
 @RequestMapping("/entityowner")
@@ -79,6 +80,10 @@ public class EntityOwnerController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
+		/*if(!serviceProject.getAll().isEmpty()) {
+			System.out.println("\n\n\n\n\n"+serviceProject.getAll().isEmpty()+"\n\n\n\n\n");
+			request.getSession().setAttribute("listProject", serviceProject.getAll());*/
+		}
 	}
-}
+
 

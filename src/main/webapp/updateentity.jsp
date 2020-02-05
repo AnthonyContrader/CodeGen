@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.List" import="it.contrader.dto.EntityDTO" import="it.contrader.dto.ProjectDTO"%>
+    pageEncoding="ISO-8859-1" import="java.util.List" import="it.contrader.dto.EntityOwnerDTO" import="it.contrader.dto.ProjectDTO"%>
 <!DOCTYPE html>
 <html>
 <head> <link rel="icon" href="images/fav.png" type="image/png" />
@@ -16,12 +16,12 @@
 <div class="main">
 
 
-<%EntityDTO e = (EntityDTO) request.getAttribute("dto"); //Assicurati che nella servelet 
+<%EntityOwnerDTO e = (EntityOwnerDTO) request.getAttribute("dto"); //Assicurati che nella servelet 
 
 List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listP"); //Deve coincidere con l'attributo all'interno della servlet%>
 
 
-<form id="floatleft" action="EntityServlet?mode=update&id=<%=e.getId()%>" method="post">
+<form id="floatleft" action="Entityownerupdate&id=<%=e.getId()%>" method="post">
    <div class="row">
     <div class="col-25">
       <label for="name">Name</label>
@@ -32,19 +32,11 @@ List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listP"); //Deve
   </div>
    <div class="row">
     <div class="col-25">
-      <label for="idproject">Project</label>
+      <label for="idproject">Idproject</label>
     </div>
    		 <div class="col-75">
- 			<select id="idproject" name="idproject">
- 				<%
-					for (ProjectDTO p : listP) {
-				%>
-					<option value="<%=p.getId()%>"  <%if(p.getId()==e.getIdproject()) {%>selected<%} %>  ><%=p.getName()%></option>
-				<%
-					}
-				%>
-			</select>
-    	</div>
+ 		 <input type="text" id="idproject" name="idproject" value=<%=e.getIdproject()%>>
+    </div>
   </div>
  	
   

@@ -55,7 +55,7 @@ public class ProjectController {
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
+	public String insert(HttpServletRequest request, @RequestParam("name") String name,
 			@RequestParam("description") String description, @RequestParam("shippingdate") String shippingdate) {
 		ProjectDTO dto = new ProjectDTO();
 		dto.setName(name);

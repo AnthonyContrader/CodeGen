@@ -5,13 +5,13 @@
     
 <!DOCTYPE html>
 <html>
-<head> <link rel="icon" href="images/fav.png" type="image/png" />
+<head> <link rel="icon" href="/images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
-<link href="../css/vittoriostyle.css" rel="stylesheet">
+<link href="/css/vittoriostyle.css" rel="stylesheet">
 <title>Edit Project</title>
 </head>
 <body>
-<%@ include file="../css/header.jsp" %>
+<%@ include file="/css/header.jsp" %>
 
 
 <br>

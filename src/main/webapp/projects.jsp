@@ -9,8 +9,8 @@
 <link href="/css/vittoriostyle.css" rel="stylesheet">
 <title>Project Manager</title>
 </head>
-<body><body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="ProjectServlet?mode=projectlist";' <% }  %>>
-<%@ include file="/css/header.jsp" %>
+<body>
+<%@ include file="./css/header.jsp" %>
 
 <div class="main">
 	<%
@@ -77,6 +77,6 @@ onsubmit="document.getElementById('description').value=document.getElementById('
 
 </div>
 <br>
-<%@ include file="../css/footer.jsp" %>
+<%@ include file="./css/footer.jsp" %>
 </body>
 </html>

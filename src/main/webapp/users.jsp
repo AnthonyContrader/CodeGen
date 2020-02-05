@@ -13,12 +13,18 @@
 <body>
 	<%@ include file="./css/header.jsp"%>
 
+<<<<<<< HEAD
+
+	
+	
+=======
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> 
 		<a class="active" href="/user/getall">Users</a>
 		<a href="/project/getall">Project</a> 
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
+>>>>>>> 65c8f752446f112365e18fcb9fee9949058b9db1
 	<div class="main">
 		<%
 			List<UserDTO> list = (List<UserDTO>) request.getSession().getAttribute("list");

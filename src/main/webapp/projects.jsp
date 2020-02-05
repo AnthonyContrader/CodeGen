@@ -12,10 +12,6 @@
 <body><body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="ProjectServlet?mode=projectlist";' <% }  %>>
 <%@ include file="/css/header.jsp" %>
 
-		<a href="/homeadmin.jsp">Home</a> 
-		<a href="/user/getall">Users</a>
-		<a class="active" href="/project/getall">Project</a> 
-		<a href="/user/logout" id="logout">Logout</a>
 <div class="main">
 	<%
 		List<ProjectDTO> list = (List<ProjectDTO>) request.getSession().getAttribute("list");

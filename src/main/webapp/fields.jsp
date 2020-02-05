@@ -1,24 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List"
+	pageEncoding="ISO-8859-1" import="java.util.*"
 	import="it.contrader.dto.FieldDTO"
 	import="it.contrader.dto.EntityOwnerDTO"%>
 <!DOCTYPE html>
 <html>
-<head> <link rel="icon" href="images/fav.png" type="image/png" />
+<head> <link rel="icon" href="/images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
-<link href="../css/vittoriostyle.css" rel="stylesheet">
+<link href="/css/vittoriostyle.css" rel="stylesheet">
 <title>Field Manager</title>
 </head>
-<body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="FieldServlet?mode=fieldlist";' <% }  %>>
-<%@ include file="../css/header.jsp" %>
+<body >
+<%@ include file="./css/header.jsp" %>
 
 
 <div class="main">
 
 	<%
-		List<FieldDTO> list = (List<FieldDTO>) request.getAttribute("list");	
-	
-		List<EntityOwnerDTO> list_E = (List<EntityOwnerDTO>)request.getAttribute("listEntity");		 
+
+		List<FieldDTO> list = (List<FieldDTO>) request.getAttribute("list");
+		
+		List<EntityOwnerDTO> list_E = (List<EntityOwnerDTO>)request.getAttribute("listEntity");	
+
 	%>
 	
 
@@ -32,17 +34,16 @@
 			<th>Action</th>
 		</tr>
 		<%
-			for (FieldDTO u : list) {
+			for (FieldDTO u : list) { System.out.println(u.getEntityowner().getName());
 		%>
 		<tr>
-			<td><a href=FieldServlet?mode=read&id=<%=u.getId()%>>
-					<%=u.getName()%>
-			</a></td>
+			<td><%=u.getName()%></td>
 			<td><%=u.getType()%>&nbsp;(<%=u.getLenght()%>)</td>
-			<td><%	out.print(u.getEntityowner().getName()); %></td>
-			<td><a class="edit" href=FieldServlet?mode=read&update=true&id=<%=u.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=FieldServlet?mode=delete&id=<%=u.getId()%>></a>
+			<td><%	
+					out.print(u.getEntityowner().getName()); %></td>
+			<td><a class="edit" href=/field/preupdate?id=<%=u.getId()%>></a>&nbsp;&nbsp;
+			<a class="delete" href=field/delete?id=<%=u.getId()%>></a>
 			</td>
-
 		</tr>
 		<%
 			}
@@ -51,7 +52,7 @@
 
 
 
-<form id="floatright" action="FieldServlet?mode=insert" method="post">
+<form id="floatright" action="/field/insert" method="post">
   <div class="row">
     <div class="col-25">
       <label for="name">Name</label>
@@ -94,9 +95,7 @@
  				<% 			
 					for (EntityOwnerDTO e : list_E) {
 						%> <option value="<%=e.getId()%>"><%=e.getName()%></option> <%
-					}
-				%>
- 
+					}%> 
 			</select>
     	</div>
   </div>

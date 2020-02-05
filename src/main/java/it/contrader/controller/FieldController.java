@@ -39,15 +39,14 @@ public class FieldController {
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updatfield";
+		return "updatefield";
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
+	public String update(HttpServletRequest request, @RequestParam("name") String name,
 			@RequestParam("type") String type,  @RequestParam("lenght") Long lenght ) {
 
 		FieldDTO dto = new FieldDTO();
-		dto.setId(id);
 		dto.setName(name);
 		dto.setType(type);
 		dto.setLenght(lenght);
@@ -58,7 +57,7 @@ public class FieldController {
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
+	public String insert(HttpServletRequest request, @RequestParam("name") String name,
 			@RequestParam("type") String type,  @RequestParam("lenght") Long lenght ) {
 		FieldDTO dto = new FieldDTO();
 		dto.setName(name);
@@ -68,14 +67,17 @@ public class FieldController {
 		setAll(request);
 		return "fields";
 	}
-
+	
+	
+	@GetMapping("/read")
+	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
+		request.getSession().setAttribute("dto", service.read(id));
+		return "readfield";
+	}
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
-		if(!serviceEntity.getAll().isEmpty()) {
-			System.out.println("\n\n\n\n\n"+serviceEntity.getAll().isEmpty()+"\n\n\n\n\n");
-			request.getSession().setAttribute("listEntity", serviceEntity.getAll());
-		}
+		request.getSession().setAttribute("listEntity", serviceEntity.getAll());
 	}
 	
 }

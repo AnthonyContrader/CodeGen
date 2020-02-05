@@ -27,12 +27,12 @@ public class UserController {
 		UserDTO userDTO = service.findByUsernameAndPassword(username, password);
 		request.getSession().setAttribute("user", userDTO);
 
-		switch (userDTO.getUsertype()) {
+		switch (userDTO.getUsertype().toString().toUpperCase()) {
 
-		case ADMIN:
+		case "ADMIN":
 			return "homeadmin";
 
-		case USER:
+		case "USER":
 			return "index";
 
 		default:

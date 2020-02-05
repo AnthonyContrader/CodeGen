@@ -19,9 +19,9 @@
 
 		List<FieldDTO> list = (List<FieldDTO>) request.getAttribute("list");
 		
-//	System.out.println("\n\n"+list);
+
 		List<EntityOwnerDTO> list_E = (List<EntityOwnerDTO>)request.getAttribute("listEntity");	
-		//System.out.println("\n\n"+list_E);
+
 	%>
 	
 
@@ -105,6 +105,6 @@
 
 </div>
 <br>
-<%@ include file="../css/footer.jsp" %>
+<%@ include file="./css/footer.jsp" %>
 </body>
 </html>

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import it.contrader.converter.FieldConverter;
 import it.contrader.dao.FieldRepository;
 import it.contrader.dto.FieldDTO;
-import it.contrader.dto.ProjectDTO;
 import it.contrader.model.EntityOwner;
 import it.contrader.model.Field;
 

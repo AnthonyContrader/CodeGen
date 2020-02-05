@@ -16,4 +16,6 @@ public interface FieldRepository extends CrudRepository<Field, Long> {
 	
 	Field findByEntityowner(EntityOwner  entityowner) ;
 
+	Field findByLenghtAndNameAndTypeAndEntityowner(Long lenght, String name, String type, EntityOwner entityowner);
+
 }

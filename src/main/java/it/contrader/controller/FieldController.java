@@ -72,7 +72,10 @@ public class FieldController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
-		request.getSession().setAttribute("listEntity", serviceEntity.getAll());
+		if(!serviceEntity.getAll().isEmpty()) {
+			System.out.println("\n\n\n\n\n"+serviceEntity.getAll().isEmpty()+"\n\n\n\n\n");
+			request.getSession().setAttribute("listEntity", serviceEntity.getAll());
+		}
 	}
 	
 }

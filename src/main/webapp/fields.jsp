@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
 	import="it.contrader.dto.FieldDTO"
-	import="it.contrader.dto.EntityDTO"%>
+	import="it.contrader.dto.EntityOwnerDTO"%>
 <!DOCTYPE html>
 <html>
 <head> <link rel="icon" href="images/fav.png" type="image/png" />
@@ -17,7 +17,8 @@
 
 	<%
 		List<FieldDTO> list = (List<FieldDTO>) request.getAttribute("list");	
-		List<EntityDTO> list_E = (List<EntityDTO>)request.getAttribute("listEntity");		 
+	
+		List<EntityOwnerDTO> list_E = (List<EntityOwnerDTO>)request.getAttribute("listEntity");		 
 	%>
 	
 
@@ -38,10 +39,7 @@
 					<%=u.getName()%>
 			</a></td>
 			<td><%=u.getType()%>&nbsp;(<%=u.getLenght()%>)</td>
-			<td><%for (EntityDTO e : list_E){ 
-					if(u.getEntity()==e.getId())
-						out.print(e.getName());
-				}%></td>
+			<td><%	out.print(u.getEntityowner().getName()); %></td>
 			<td><a class="edit" href=FieldServlet?mode=read&update=true&id=<%=u.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=FieldServlet?mode=delete&id=<%=u.getId()%>></a>
 			</td>
 
@@ -94,7 +92,7 @@
  			<select id="entity" name="entity" required>
  				<option value="" disabled selected>Select Entities</option>
  				<% 			
-					for (EntityDTO e : list_E) {
+					for (EntityOwnerDTO e : list_E) {
 				%>
 				<option value="<%=e.getId()%>"><%=e.getName()%></option>
 				<%

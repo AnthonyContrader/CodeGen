@@ -14,18 +14,7 @@
 <body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="EntityServlet?mode=entitylist";' <% }  %>>
 <%@ include file="../css/header.jsp" %>
 
-<div class="navbar">
-  <a  href="homeadmin.jsp">Home</a>
-   <a href="UserServlet?mode=userlist">Users</a>
-      <a href="ProjectServlet?mode=projectlist">Projects</a>
-  <a class="active" href="EntityServlet?mode=entitylist">Entities</a>
-  <a href="FieldServlet?mode=fieldlist">Fields</a>
-  <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
 
-  
-  <a href="LogoutServlet" id="logout">Logout</a>
-  <a href="LogServlet?mode=loglist" id = "log">Logs</a>
-</div>
 <div class="main">
 	<%
 		List<EntityDTO> list = (List<EntityDTO>) request.getAttribute("list");

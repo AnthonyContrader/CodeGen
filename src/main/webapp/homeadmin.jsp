@@ -20,10 +20,9 @@
 	<%@include file="css/header.jsp"%>
 
 
-	<div class="navbar">
-		<a class="active" href="/homeadmin.jsp">Home</a> <a href=/user/getall>Users</a>
-		<a href="/user/logout" id="logout">Logout</a>
-	</div>
+
+
+	
 
 <div class="main" >
 <h1 style="color: #39A8E8;" >Welcome <b><u>${user.getUsername()}</u></b></h1>

@@ -11,17 +11,7 @@
 <body>
 <%@ include file="../css/header.jsp" %>
 
-<div class="navbar">
-  <a class="" href="homeadmin.jsp">Home</a>
-  <a href="UserServlet?mode=userlist" >Users</a>
-    <a href="ProjectServlet?mode=projectlist">Projects</a>
-  <a href="EntityServlet?mode=entitylist">Entities</a>
-  <a href="FieldServlet?mode=fieldlist">Fields</a>
-  <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
 
-  <a href="LogoutServlet" id="logout" >Logout</a>
-  <a href="LogServlet?mode=loglist" id="log" class="active" style="color:black;">Logs</a>
-</div>
 <div class="main">
 	<%
 		List<LogDTO> list = (List<LogDTO>) request.getAttribute("listLogUser");

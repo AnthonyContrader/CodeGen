@@ -93,9 +93,7 @@
  				<option value="" disabled selected>Select Entities</option>
  				<% 			
 					for (EntityOwnerDTO e : list_E) {
-				%>
-				<option value="<%=e.getId()%>"><%=e.getName()%></option>
-				<%
+						%> <option value="<%=e.getId()%>"><%=e.getName()%></option> <%
 					}
 				%>
  

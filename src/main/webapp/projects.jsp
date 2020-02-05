@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List"
+	pageEncoding="ISO-8859-1" import="java.util.*"
 	import="it.contrader.dto.ProjectDTO"%>
 	
 <!DOCTYPE html>
@@ -12,7 +12,16 @@
 <body><body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="ProjectServlet?mode=projectlist";' <% }  %>>
 <%@ include file="../css/header.jsp" %>
 
+<<<<<<< HEAD
 
+=======
+<div class="navbar">
+		<a href="/homeadmin.jsp">Home</a> 
+		<a href="/user/getall">Users</a>
+		<a class="active" href="/project/getall">Project</a> 
+		<a href="/user/logout" id="logout">Logout</a>
+</div>
+>>>>>>> 65c8f752446f112365e18fcb9fee9949058b9db1
 <div class="main">
 	<%
 		List<ProjectDTO> list = (List<ProjectDTO>) request.getAttribute("list");
@@ -31,12 +40,12 @@
 			for (ProjectDTO p : list) {
 		%>
 		<tr>
-			<td><a href=ProjectServlet?mode=read&id=<%=p.getId()%>>
+			<td><a href="/project/read?id=<%=p.getId()%>">
 					<%=p.getName()%>
 			</a></td>
 			<td><%=p.getDescription()%></td>
 			<td><%=p.getShippingdate()%></td>
-			<td><a class="edit" href=ProjectServlet?mode=read&update=true&id=<%=p.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=ProjectServlet?mode=delete&id=<%=p.getId()%>></a>
+			<td><a class="edit" href="/project/preupdate?id=<%=p.getId()%>">&nbsp;&nbsp;</a><a class="delete" href="/project/delete?id=<%=p.getId()%>"></a>
 			</td>
 
 		</tr>
@@ -47,7 +56,7 @@
 
 
 
-<form id="floatright" action="ProjectServlet?mode=insert" method="post" 
+<form id="floatright" action="/project/insert" method="post" 
 onsubmit="document.getElementById('description').value=document.getElementById('description').value.replaceAll(' ','-');">
   <div class="row">
     <div class="col-25">

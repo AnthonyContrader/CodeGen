@@ -424,14 +424,14 @@ div.navbar a.active {
 /*Images*/
 .edit {
 	
-  content:url("../images/edit.png");
+  content:url("/images/edit.png");
   width: 30px; 
   height: 30px;
 }
 
 .delete {
 	
-  content:url("../images/delete.png");
+  content:url("/images/delete.png");
   width: 30px; 
   height: 30px;
 

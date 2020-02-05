@@ -40,11 +40,10 @@ public class ProjectController {
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
+	public String update(HttpServletRequest request, @RequestParam("name") String name,
 			@RequestParam("description") String description, @RequestParam("shippingdate") String shippingdate) {
 
 		ProjectDTO dto = new ProjectDTO();
-		dto.setId(id);
 		dto.setName(name);
 		dto.setDescription(description);
 		dto.setShippingdate(shippingdate);

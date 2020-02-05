@@ -9,7 +9,7 @@
 </div>
 <div class="navbar">
 	
-	<a  href="/homeadmin.jsp">Home</a> 
+	<a  href="/homeadmin.jsp" <% if(  request.getRequestURL().toString().toLowerCase().contains("homeadmin".toLowerCase()) )	out.print( " class='active' " ); %>>Home</a> 
 	<a href=/user/getall <% if(  request.getRequestURL().toString().toLowerCase().contains("user".toLowerCase()) )	out.print( " class='active' " ); %> >Users</a>
     <a href="/project/getall"  <% if(  request.getRequestURL().toString().toLowerCase().contains("prject".toLowerCase()) )	out.print( " class='active' " ); %> >Projects</a>
   	<a href="/entity/getall" <% if(  request.getRequestURL().toString().toLowerCase().contains("entit".toLowerCase()) )	out.print( " class='active' " ); %> >Entities</a>

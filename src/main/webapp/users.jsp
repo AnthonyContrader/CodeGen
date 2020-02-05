@@ -15,7 +15,8 @@
 
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> 
-		<a class="active" href="/user/getall">Users</a> 
+		<a class="active" href="/user/getall">Users</a>
+		<a href="/project/getall">Project</a> 
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
@@ -30,8 +31,7 @@
 				<th>Username</th>
 				<th>Password</th>
 				<th>Usertype</th>
-				<th></th>
-				<th></th>
+				<th>Action</th>
 			</tr>
 			<%
 				for (UserDTO u : list) {
@@ -41,10 +41,8 @@
 				</a></td>
 				<td><%=u.getPassword()%></td>
 				<td><%=u.getUsertype()%></td>
-				<td><a href="/user/preupdate?id=<%=u.getId()%>">Edit</a></td>
-
-
-				<td><a href="/user/delete?id=<%=u.getId()%>">Delete</a></td>
+				<td><a class="edit" href="/user/preupdate?id=<%=u.getId()%>">&nbsp;&nbsp;</a><a class="delete" href="/user/delete?id=<%=u.getId()%>"></a>
+				</td>
 
 			</tr>
 			<%

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List"
+	pageEncoding="ISO-8859-1" import="java.util.*"
 	import="it.contrader.dto.ProjectDTO"%>
 	
 <!DOCTYPE html>
@@ -13,15 +13,10 @@
 <%@ include file="../css/header.jsp" %>
 
 <div class="navbar">
-<a href="homeadmin.jsp">Home</a>
-  <a href="UserServlet?mode=userlist">Users</a>
-    <a href="ProjectServlet?mode=projectlist" class="active">Projects</a>
-  <a href="EntityServlet?mode=entitylist">Entities</a>
-  <a href="FieldServlet?mode=fieldlist">Fields</a>
-  <a href="RelationshipServlet?mode=relationshiplist">Relationships</a>
-
-  <a href="LogoutServlet" id="logout">Logout</a>
-  <a href="LogServlet?mode=loglist" id="log">Logs</a>
+		<a href="/homeadmin.jsp">Home</a> 
+		<a href="/user/getall">Users</a>
+		<a class="active" href="/project/getall">Project</a> 
+		<a href="/user/logout" id="logout">Logout</a>
 </div>
 <div class="main">
 	<%
@@ -41,12 +36,12 @@
 			for (ProjectDTO p : list) {
 		%>
 		<tr>
-			<td><a href=ProjectServlet?mode=read&id=<%=p.getId()%>>
+			<td><a href="/project/read?id=<%=p.getId()%>">
 					<%=p.getName()%>
 			</a></td>
 			<td><%=p.getDescription()%></td>
 			<td><%=p.getShippingdate()%></td>
-			<td><a class="edit" href=ProjectServlet?mode=read&update=true&id=<%=p.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=ProjectServlet?mode=delete&id=<%=p.getId()%>></a>
+			<td><a class="edit" href="/project/preupdate?id=<%=p.getId()%>">&nbsp;&nbsp;</a><a class="delete" href="/project/delete?id=<%=p.getId()%>"></a>
 			</td>
 
 		</tr>
@@ -57,7 +52,7 @@
 
 
 
-<form id="floatright" action="ProjectServlet?mode=insert" method="post" 
+<form id="floatright" action="/project/insert" method="post" 
 onsubmit="document.getElementById('description').value=document.getElementById('description').value.replaceAll(' ','-');">
   <div class="row">
     <div class="col-25">

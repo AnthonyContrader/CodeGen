@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.EntityDTO"%>
+    pageEncoding="ISO-8859-1" import="it.contrader.dto.EntityOwnerDTO"%>
 <!DOCTYPE html>
 <html>
 <head> <link rel="icon" href="images/fav.png" type="image/png" />
@@ -14,7 +14,7 @@
 <br>
 
 <div class="main">
-<%EntityDTO e = (EntityDTO) request.getAttribute("dto");%>
+<%EntityOwnerDTO e = (EntityOwnerDTO) request.getAttribute("dto");%>
 
 
 <table>

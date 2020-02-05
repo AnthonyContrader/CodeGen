@@ -14,7 +14,7 @@ import it.contrader.model.Project;
 import it.contrader.service.EntityOwnerService;
 
 @Controller
-@RequestMapping("/entityOwner")
+@RequestMapping("/entityowner")
 public class EntityOwnerController {
 
 	@Autowired
@@ -24,20 +24,20 @@ public class EntityOwnerController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "entityOwners";
+		return "entityowners";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "entityOwners";
+		return "entityowners";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updatentityOwner";
+		return "updatentityowner";
 	}
 
 	@PostMapping("/update")
@@ -50,7 +50,7 @@ public class EntityOwnerController {
 		dto.setIdproject(idproject);
 		service.update(dto);
 		setAll(request);
-		return "entityOwners";
+		return "entityowners";
 
 	}
 
@@ -62,13 +62,13 @@ public class EntityOwnerController {
 		dto.setIdproject(idproject);
 		service.insert(dto);
 		setAll(request);
-		return "entityOwners";
+		return "entityowners";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readentityOwner";
+		return "readentityowner";
 	}
 
 	@GetMapping("/logout")

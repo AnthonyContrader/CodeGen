@@ -1,93 +1,80 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.List"
-    import="it.contrader.dto.EntityDTO"
-     import="it.contrader.dto.ProjectDTO"
-     
-    %>
-<!DOCTYPE html>
+<%@ page import="it.contrader.dto.EntityOwnerDTO" import="java.util.*"%>
 <html>
-<head> <link rel="icon" href="images/fav.png" type="image/png" />
-<meta charset="ISO-8859-1">
-<link href="../css/vittoriostyle.css" rel="stylesheet">
-<title>Entity </title>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Entity Management">
+<meta name="author" content="Vittorio Valent">
+<link href="/css/vittoriostyle.css" rel="stylesheet">
+<title>Entity</title>
+
 </head>
-<body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="EntityServlet?mode=entitylist";' <% }  %>>
-<%@ include file="../css/header.jsp" %>
+<body>
+	<%@ include file="./css/header.jsp"%>
+
+	<div class="navbar">
+		<a href="/homeadmin.jsp">Home</a> <a class="active"
+			href="/user/getall">Users</a> <a href="/user/logout" id="logout">Logout</a>
+			<a href="/entityowner/getall" class = "active">Entities</a> <a href="/entityowner/logout" id="logout">Logout</a>
+	</div>
+	<div class="main">
+		<%
+			List<EntityOwnerDTO> list = (List<EntityOwnerDTO>) request.getSession().getAttribute("list");
+		%>
+
+		<br>
+
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Idproject</th>
+			
+			</tr>
+			<%
+				for (EntityOwnerDTO eo : list) {
+			%>
+			<tr>
+				<td><a href="/entityowner/read?id=<%=eo.getId()%>"> <%=eo.getName()%>
+				</a></td>
+				<td><%=eo.getName()%></td>
+				<td><%=eo.getIdproject()%></td>
+				<td><a href="/entityowner/preupdate?id=<%=eo.getId()%>">Edit</a></td>
 
 
-<div class="main">
-	<%
-		List<EntityDTO> list = (List<EntityDTO>) request.getAttribute("list");
-		List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listP");	
-	%>
+				<td><a href="/entityowner/delete?id=<%=eo.getId()%>">Delete</a></td>
+
+			</tr>
+			<%
+				}
+			%>
+		</table>
 	
-
-<br>
-
-	<table>
-		<tr>
-			<th>Name</th>
-			<th>Project</th>
-			<th>Action</th>
-		</tr>
-		<%
-			for (EntityDTO e : list) {
-		%>
-		<tr>
-			<td><a href=EntityServlet?mode=read&id=<%=e.getId()%>>
-					<%=e.getName()%>
-			</a></td>
-			<td><%		
+		<form id="floatright" action="/entityowner/insert" method="post">
+			<div class="row">
+				<div class="col-25">
+					<label for="user">Name</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="entityowner" name="name"
+						placeholder="inserisci name">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="pass">Idproject</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="idproject" name="idproject"
+						placeholder="inserisci idproject">
+				</div>
+			</div>
 			
-				for (ProjectDTO p : listP){ 
-					if( p.getId()==e.getIdproject() )
-						out.print(p.getName());
-				}%>
-			</td>
-			
-			<td><a class="edit" href=EntityServlet?mode=read&update=true&id=<%=e.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=EntityServlet?mode=delete&id=<%=e.getId()%>></a>
-			</td>
+			<button type="submit">Insert</button>
+		</form>
 
-		</tr>
-		<%
-			}
-		%>
-	</table>
-
-
-
-<form id="floatright" action="EntityServlet?mode=insert" method="post">
-  <div class="row">
-    <div class="col-25">
-      <label for="name">Name</label>
-    </div>
-  <div class="col-75">
-      <input type="text" id="name" name="name" required placeholder="Insert name" style="width: 90%;">
-    </div>
-   </div>
-  <div class="row">
-    <div class="col-25">
-      <label for="type">Select Project</label>
-    </div>
-   		 <div class="col-75">
- 			<select id="idproject" name="idproject" required> <!-- il name della select combina il name con la richiesta del post nella servlest -->
- 				<option value="" disabled selected>Select Project</option>
- 				<% 			
-					for (ProjectDTO p : listP) {
-				%>
-				<option value="<%=p.getId()%>"><%=p.getName()%></option>
-				<%
-					}
-				%>
- 
-			</select>
-    	</div>
-  </div>
-      <button type="submit" >Insert</button>
-</form>
-
-</div>
-<br>
-<%@ include file="../css/footer.jsp" %>
+	</div>
+	<br>
+	<%@ include file="./css/footer.jsp"%>
 </body>
 </html>

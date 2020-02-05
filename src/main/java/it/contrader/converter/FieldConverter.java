@@ -22,7 +22,7 @@ public class FieldConverter extends AbstractConverter<Field, FieldDTO> {
 	public FieldDTO toDTO(Field field) {
 		FieldDTO fieldDTO = null;
 		if (field != null) {
-			field = new Field(field.getEntityowner(), field.getId(), field.getName(), field.getType(), field.getLenght() );
+			fieldDTO = new FieldDTO(field.getEntityowner(), field.getId(), field.getName(), field.getType(), field.getLenght() );
 		}
 		return fieldDTO;
 	}

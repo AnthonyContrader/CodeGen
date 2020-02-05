@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.List" import="it.contrader.dto.EntityOwnerDTO" import="it.contrader.dto.ProjectDTO"%>
+    pageEncoding="ISO-8859-1" 
+    import="java.util.List"
+    import="it.contrader.dto.EntityOwnerDTO"
+    import="it.contrader.dto.ProjectDTO"%>
+    
 <!DOCTYPE html>
 <html>
-<head> <link rel="icon" href="images/fav.png" type="image/png" />
+<head> <link rel="icon" href="/images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
-<link href="../css/vittoriostyle.css" rel="stylesheet">
+<link href="/css/vittoriostyle.css" rel="stylesheet">
 <title>Edit Entity</title>
 </head>
 <body>
@@ -16,12 +20,12 @@
 <div class="main">
 
 
-<%EntityOwnerDTO e = (EntityOwnerDTO) request.getAttribute("dto"); //Assicurati che nella servelet 
+<%
+EntityOwnerDTO e = (EntityOwnerDTO) request.getAttribute("dto");
+	List<EntityOwnerDTO> list = (List<EntityOwnerDTO>) request.getAttribute("list");
+%>
 
-List<ProjectDTO> listP = (List<ProjectDTO>)request.getAttribute("listP"); //Deve coincidere con l'attributo all'interno della servlet%>
-
-
-<form id="floatleft" action="Entityownerupdate&id=<%=e.getId()%>" method="post">
+<form id="floatleft" action="/entityowner/update" method="post">
    <div class="row">
     <div class="col-25">
       <label for="name">Name</label>

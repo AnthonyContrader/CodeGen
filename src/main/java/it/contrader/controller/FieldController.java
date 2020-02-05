@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.dto.FieldDTO;
 import it.contrader.model.EntityOwner;
+import it.contrader.service.EntityOwnerService;
 import it.contrader.service.FieldService;
 
 
@@ -20,6 +21,9 @@ public class FieldController {
 
 	@Autowired
 	private FieldService service;
+	
+	@Autowired
+	private EntityOwnerService serviceEntity;
 
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
@@ -77,7 +81,7 @@ public class FieldController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
-		request.getSession().setAttribute("listEntity", service.getAll());
+		request.getSession().setAttribute("listEntity", serviceEntity.getAll());
 	}
 	
 }

@@ -1,6 +1,6 @@
 <%@ page import="it.contrader.dto.UserDTO" import="java.util.*"%>
 <html>
-<head>
+<head><link rel="icon" href="/images/fav.png" type="image/png" />
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,8 +14,9 @@
 	<%@ include file="./css/header.jsp"%>
 
 	<div class="navbar">
-		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/user/getall">Users</a> <a href="/user/logout" id="logout">Logout</a>
+		<a href="/homeadmin.jsp">Home</a> 
+		<a class="active" href="/user/getall">Users</a> 
+		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%

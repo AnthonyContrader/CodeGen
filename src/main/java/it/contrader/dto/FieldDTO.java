@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FieldDTO {
 
+	private EntityOwner entityowner;
 	private Long id;
 
 	private String name;
@@ -19,7 +20,7 @@ public class FieldDTO {
 		
 	private Long lenght;
 	
-	private EntityOwner entityowner;
+	
 	
 
 }

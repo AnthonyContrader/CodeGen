@@ -25,46 +25,15 @@
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 
-	<div class="main">
-		<h1>Welcome ${user.getUsername()}</h1>
-
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-		eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-		minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-		aliquip ex ea commodo consequat. Duis aute irure dolor in
-		reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-		culpa qui officia deserunt mollit anim id est laborum." "Lorem ipsum
-		dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-		incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-		commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-		velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-		occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-		mollit anim id est laborum." "Lorem ipsum dolor sit amet, consectetur
-		adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-		magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-		ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-		irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-		fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-		sunt in culpa qui officia deserunt mollit anim id est laborum." "Lorem
-		ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-		veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-		ea commodo consequat. Duis aute irure dolor in reprehenderit in
-		voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-		sint occaecat cupidatat non proident, sunt in culpa qui officia
-		deserunt mollit anim id est laborum." "Lorem ipsum dolor sit amet,
-		consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-		exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-		dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est
-		laborum."
-
-
-	</div>
+<div class="main" >
+<h1 style="color: #39A8E8;" >Welcome <b><u>${user.getUsername()}</u></b></h1>
+</div>
+<div style="text-align:center; margin-bottom: -45px;margin-top: -5px;"> 
+	<video style="margin-top:-3%;width:50%; height:auto;" align="center"  autoplay loop>
+	  <source src="images/intro.mp4" type="video/mp4">
+	  Your browser does not support HTML5 video.
+	</video>
+</div>
 
 
 	<%@ include file="css/footer.jsp"%>

@@ -6,11 +6,11 @@
 <html>
 <head> <link rel="icon" href="/images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
-<link href="../css/vittoriostyle.css" rel="stylesheet">
+<link href="/css/vittoriostyle.css" rel="stylesheet">
 <title>Project Manager</title>
 </head>
 <body><body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="ProjectServlet?mode=projectlist";' <% }  %>>
-<%@ include file="../css/header.jsp" %>
+<%@ include file="/css/header.jsp" %>
 
 		<a href="/homeadmin.jsp">Home</a> 
 		<a href="/user/getall">Users</a>
@@ -18,7 +18,7 @@
 		<a href="/user/logout" id="logout">Logout</a>
 <div class="main">
 	<%
-		List<ProjectDTO> list = (List<ProjectDTO>) request.getAttribute("list");
+		List<ProjectDTO> list = (List<ProjectDTO>) request.getSession().getAttribute("list");
 	%>
 
 <br>

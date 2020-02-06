@@ -41,19 +41,20 @@ public class FieldController {
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
+		setAll( request);
 		return "updatefield";
 	}
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("entityowner") EntityOwner entityowner,
-			@RequestParam("name") String name,  @RequestParam("type") String type ,  @RequestParam("lenght") Long lenght ,  @RequestParam("id") Long id ) {
+			@RequestParam("name") String name,  @RequestParam("type") String type ,  @RequestParam("lenght") Long lenght,@RequestParam("id") Long id  ) {
 
 		FieldDTO dto = new FieldDTO();
+		dto.setId(id);
 		dto.setName(name);
 		dto.setType(type);
 		dto.setLenght(lenght);
 		dto.setEntityowner(entityowner);
-		System.out.print("\n\n\n"+entityowner+"\n\n\n");
 		service.update(dto);
 		setAll(request);
 		return "fields";

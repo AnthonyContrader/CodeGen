@@ -16,7 +16,7 @@
 <br>
 <div class="main">
 
-<%FieldDTO u = (FieldDTO) request.getAttribute("dto");
+<%FieldDTO u = (FieldDTO) request.getSession().getAttribute("dto");
 
 List<EntityOwnerDTO> list_E = (List<EntityOwnerDTO>) request.getSession().getAttribute("listEntity"); //Assicurati che nella servelet c'è l'attributo
 
@@ -63,6 +63,7 @@ System.out.print(list_E);
 			</select>
     	</div>
   </div>
+  <input type="hidden" id="id" name="id" value=<%  out.print(u.getId());%>>
 <div class="row">
     <div class="col-25">
      <label for="lenght">Lenght (<span id="v_len"><%=u.getLenght()%></span>)</label>
@@ -73,7 +74,6 @@ System.out.print(list_E);
       	  >
     </div>
   </div>
-  <input value="<%=u.getId()%>" name="id" hidden="hidden">
       <button type="submit" >Edit</button>
 </form>
 	<script>

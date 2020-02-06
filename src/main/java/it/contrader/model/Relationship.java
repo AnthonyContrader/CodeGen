@@ -23,12 +23,10 @@ public class Relationship {
 
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "idowner",referencedColumnName="id")
 	private EntityOwner entityowner;
 	
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "idcustomer", referencedColumnName="id")
 	private EntityCustomer entitycustomer;
 
 }

@@ -1,6 +1,5 @@
 package it.contrader.dto;
 
-
 import it.contrader.model.EntityOwner;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +8,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class FieldDTO {
 
 	private EntityOwner entityowner;
+	
 	private Long id;
 
 	private String name;
@@ -19,8 +20,4 @@ public class FieldDTO {
 	private String type;	
 		
 	private Long lenght;
-	
-	
-	
-
 }

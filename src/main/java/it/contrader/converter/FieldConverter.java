@@ -3,7 +3,6 @@ package it.contrader.converter;
 import org.springframework.stereotype.Component;
 
 import it.contrader.dto.FieldDTO;
-
 import it.contrader.model.Field;
 
 @Component

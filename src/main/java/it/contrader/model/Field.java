@@ -2,6 +2,7 @@ package it.contrader.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import it.contrader.model.EntityOwner;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,8 +18,7 @@ import lombok.NoArgsConstructor;
 public class Field {
 	
 	@ManyToOne
-	 @JoinColumn(name = "identity", referencedColumnName="id")
-	 private EntityOwner entityowner;//Viene richiamato da tutte le parti
+	private EntityOwner entityowner;//Viene richiamato da tutte le parti
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

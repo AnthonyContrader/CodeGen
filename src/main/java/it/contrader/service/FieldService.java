@@ -18,9 +18,8 @@ public class FieldService extends AbstractService<Field, FieldDTO> {
 	@Autowired
 	private FieldRepository repository;
 
-	public FieldDTO findByLenghtAndNameAndTypeAndEntityowner(Long lenght, String name, String type, EntityOwner entityowner) {
-		return converter.toDTO(repository.findByLenghtAndNameAndTypeAndEntityowner( lenght,  name,  type,  entityowner));
-	
+	public FieldDTO findByEntityownerAndNameAndTypeAndLenght( EntityOwner entityowner, String name, String type, Long lenght) {
+		return converter.toDTO(repository.findByEntityownerAndNameAndTypeAndLenght(entityowner,  name,  type, lenght ));
 	
 	}
 

@@ -45,8 +45,8 @@ public class FieldController {
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("name") String name,
-			@RequestParam("type") String type,  @RequestParam("lenght") Long lenght ,  @RequestParam("entityowner") EntityOwner entityowner ) {
+	public String update(HttpServletRequest request, @RequestParam("entityowner") EntityOwner entityowner,
+			@RequestParam("name") String name,  @RequestParam("type") String type ,  @RequestParam("lenght") Long lenght ) {
 
 		FieldDTO dto = new FieldDTO();
 		dto.setName(name);
@@ -60,8 +60,8 @@ public class FieldController {
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("name") String name,
-			@RequestParam("type") String type,  @RequestParam("lenght") Long lenght, @RequestParam("entityowner") EntityOwner entityowner ) {
+	public String insert(HttpServletRequest request, @RequestParam("entityowner") EntityOwner entityowner,
+			@RequestParam("name") String name,  @RequestParam("type") String type ,  @RequestParam("lenght") Long lenght ) {
 		FieldDTO dto = new FieldDTO();
 		dto.setName(name);
 		dto.setType(type);

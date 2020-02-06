@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.contrader.dto.RelationshipDTO;
 import it.contrader.model.EntityCustomer;
 import it.contrader.model.EntityOwner;
+import it.contrader.service.EntityOwnerService;
 import it.contrader.service.RelationshipService;
 
 @Controller
@@ -20,6 +21,10 @@ public class RelationshipController {
 
 	@Autowired
 	private RelationshipService service;
+	
+	@Autowired
+	private EntityOwnerService serviceEntity;
+	
 
 	
 	@GetMapping("/getall")
@@ -80,5 +85,6 @@ public class RelationshipController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
+		request.getSession().setAttribute("listEntity", serviceEntity.getAll());
 	}
 }

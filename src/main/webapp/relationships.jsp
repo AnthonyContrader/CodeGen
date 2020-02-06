@@ -5,20 +5,20 @@
 	
 <!DOCTYPE html>
 <html>
-<head> <link rel="icon" href="images/fav.png" type="image/png" />
+<head> <link rel="icon" href="/images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Relationship Manager</title>
 </head>
 <body>
-<%@ include file="../css/header.jsp" %>
+<%@ include file="./css/header.jsp" %>
 
 
 
 <div class="main">
 	<%
 		List<RelationshipDTO> list = (List<RelationshipDTO>) request.getAttribute("list");
-		List<EntityOwnerDTO> listE = (List<EntityOwnerDTO>)request.getAttribute("listP");
+		List<EntityOwnerDTO> listE = (List<EntityOwnerDTO>)request.getAttribute("listEntity");
 	%>
 
 <br>
@@ -33,7 +33,7 @@
 			for (RelationshipDTO r : list) {
 		%>
 		<tr>
-			<td><a href="/project/read?id=<%=r.getId()%>">
+			<td><a href="/relationship/read?id=<%=r.getId()%>">
 				
 				<%		
 			
@@ -69,7 +69,7 @@
  			<select id="selectentity1" name="selectentity1" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity1</option>
  				<% 			
-					for (EntityDTO e : listE) {
+					for (EntityOwnerDTO e : listE) {
 				%>
 				<option value="<%=e.getId()%>"><%=e.getName()%></option>
 				<%
@@ -85,7 +85,7 @@
  			<select id="selectentity2" name="selectentity2" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity2</option>
  				<% 			
-					for (EntityDTO e : listE) {
+					for (EntityOwnerDTO e : listE) {
 				%>
 				<option value="<%=e.getId()%>"><%=e.getName()%></option>
 				<%
@@ -100,7 +100,7 @@
 
 </div>
 <br>
-<%@ include file="../css/footer.jsp" %>
+<%@ include file="./css/footer.jsp" %>
 </body>
 <script>
 function Check(oggetto){

@@ -26,17 +26,18 @@
 		<table>
 			<tr>
 				<th>Name</th>
-				<th>Idproject</th>
+				<th>Project</th>
+				<th>Action</th>
 				
 			</tr>
 			<%
-				for (EntityOwnerDTO e : list) { System.out.println(e.getProject().getId());
+				for (EntityOwnerDTO e : list) { System.out.println(e.getProject().getName());
 			%>
 			<tr>
-				<td><a href="/entityowner/read?id=<%=e.getId()%>"> <%=e.getName()%>
+				<td><a href="/entityowner/read?id=<%=e.getId()%>"> <%=e.getName()%> 
 				</a></td>
 				<td><%	
-					out.print(e.getProject().getId()); %></td>
+					out.print(e.getProject().getName()); %></td>
 			<td><a class="edit" href=/entityowner/preupdate?id=<%=e.getId()%>></a>&nbsp;&nbsp;
 			<a class="delete" href=entityowner/delete?id=<%=e.getId()%>></a>
 			</td>
@@ -52,6 +53,7 @@
 
 
 <form id="floatright" action="/entityowner/insert" method="post">
+
   <div class="row">
     <div class="col-25">
       <label for="entityowner">Name</label>
@@ -62,19 +64,19 @@
   </div>
   <div class="row">
     <div class="col-25">
-      <label for="type">Select IdProject</label>
+      <label for="type">Select Project</label>
     </div>
    		 <div class="col-75">
- 			<select id="idproject" name="idproject" required>
- 				<option value="" disabled selected>Select Idproject</option>
+ 			<select id="project" name="project" required>
+ 				<option value="" disabled selected>Select Project</option>
  				<% 			
 					for (ProjectDTO p : listP) {
 						%> <option value="<%=p.getId()%>"><%=p.getName()%></option> <%
-					}%> 
+				}%> 
 			</select>
     	</div>
   </div>
-       <button type="submit" >insert</button>
+       <button type="submit" >Insert</button>
 </form>
 
 	

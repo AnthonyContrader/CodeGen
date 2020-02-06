@@ -33,23 +33,23 @@
 			for (RelationshipDTO r : list) {
 		%>
 		<tr>
-			<td><a href=RelationshipServlet?mode=read&id=<%=r.getId()%>>
+			<td><a href="/project/read?id=<%=r.getId()%>">
 				
 				<%		
 			
-				for (EntityDTO e : listE){ 
-					if( e.getId()==r.getEntity1() )
+				for (EntityOwnerDTO e : listE){ 
+					if( e.getId()==r.getEntityowner().getId() )
 						out.print(e.getName());
 				}%>
 			</a></td>
 			<td><%		
 			
-				for (EntityDTO e : listE){ 
-					if( e.getId()==r.getEntity2() )
+				for (EntityOwnerDTO e : listE){ 
+					if( e.getId()==r.getEntityowner().getId() )
 						out.print(e.getName());
 				}%>
 			</td>
-			<td><a class="edit" href=RelationshipServlet?mode=read&update=true&id=<%=r.getId()%>></a>&nbsp;&nbsp;<a class="delete" href=RelationshipServlet?mode=delete&id=<%=r.getId()%>></a>
+			<td><a class="edit" href="/relationship/preupdate?id=<%=r.getId()%>"></a>&nbsp;&nbsp;<a class="delete" href="/relationship/delete?id=<%=r.getId()%>"></a>
 			</td>
 
 		</tr>
@@ -60,7 +60,7 @@
 
 
 
-<form id="floatright" action="RelationshipServlet?mode=insert" method="post" >
+<form id="floatright" action="/relationship/insert" method="post" >
     <div class="row">
     <div class="col-25">
       <label for="type">Select Entity1</label>

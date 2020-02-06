@@ -21,6 +21,7 @@
 		List<RelationshipDTO> list = (List<RelationshipDTO>) request.getSession().getAttribute("list");
 		List<EntityOwnerDTO> listEo = (List<EntityOwnerDTO>) request.getSession().getAttribute("listEntityo");
 		List<EntityCustomerDTO> listEc = (List<EntityCustomerDTO>) request.getSession().getAttribute("listEntityc");
+		
 	%>
 
 <br>

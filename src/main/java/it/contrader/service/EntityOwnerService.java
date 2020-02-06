@@ -16,7 +16,7 @@ public class EntityOwnerService extends AbstractService<EntityOwner, EntityOwner
 	@Autowired
 	private EntityOwnerRepository repository;
 
-	public EntityOwnerDTO findByNameAndIdproject(String name, Project project) {
+	public EntityOwnerDTO findByNameAndProject(String name, Project project) {
 		return converter.toDTO(repository.findByNameAndProject(name, project));
 	}
 

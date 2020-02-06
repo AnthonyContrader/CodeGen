@@ -40,10 +40,12 @@
 			<td><%	
 					out.print(u.getEntityowner().getName()); %></td>
 			<td><a class="edit" href=/field/preupdate?id=<%=u.getId()%>></a>&nbsp;&nbsp;
-			<a class="delete" href=field/delete?id=<%=u.getId()%>></a>
+			<a class="delete" href=/field/delete?id=<%=u.getId()%>></a>
 			</td>
 		</tr>
 		<%
+		
+		
 			}
 		%>
 	</table>
@@ -88,7 +90,7 @@
       <label for="type">Select Entity</label>
     </div>
    		 <div class="col-75">
- 			<select id="entity" name="entity" required>
+ 			<select id="entityowner" name="entityowner" required>
  				<option value="" disabled selected>Select Entities</option>
  				<% 			
 					for (EntityOwnerDTO e : list_E) {

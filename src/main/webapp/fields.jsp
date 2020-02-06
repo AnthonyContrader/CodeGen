@@ -19,10 +19,10 @@
 	
 	
 
-		List<FieldDTO> list = (List<FieldDTO>) request.getAttribute("list");
+		List<FieldDTO> list = (List<FieldDTO>) request.getSession().getAttribute("list");
 		
 	System.out.println("\n\n"+list);
-		List<EntityOwnerDTO> list_E = (List<EntityOwnerDTO>)request.getAttribute("listEntity");	
+		List<EntityOwnerDTO> list_E = (List<EntityOwnerDTO>) request.getSession().getAttribute("listEntity");	
 		//System.out.println("\n\n"+list_E);
 	%>
 	

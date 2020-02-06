@@ -14,6 +14,7 @@ import it.contrader.model.EntityCustomer;
 import it.contrader.model.EntityOwner;
 import it.contrader.service.EntityOwnerService;
 import it.contrader.service.RelationshipService;
+import it.contrader.service.EntityCustomerService;
 
 @Controller
 @RequestMapping("/relationship")
@@ -23,8 +24,10 @@ public class RelationshipController {
 	private RelationshipService service;
 	
 	@Autowired
-	private EntityOwnerService serviceEntity;
+	private EntityOwnerService serviceEntityo;
 	
+	@Autowired
+	private EntityCustomerService serviceEntityc;
 
 	
 	@GetMapping("/getall")
@@ -61,7 +64,7 @@ public class RelationshipController {
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("entityowner") EntityOwner entityowner,
+	public String insert(HttpServletRequest request, @RequestParam("entityowner") EntityOwner entityowner,
 			@RequestParam("entitycustomer") EntityCustomer entitycustomer) {
 		RelationshipDTO dto = new RelationshipDTO();
 		dto.setEntityowner(entityowner);
@@ -85,6 +88,7 @@ public class RelationshipController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
-		request.getSession().setAttribute("listEntity", serviceEntity.getAll());
+		request.getSession().setAttribute("listEntityo", serviceEntityo.getAll());
+		request.getSession().setAttribute("listEntityc", serviceEntityc.getAll());
 	}
 }

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
 	import="it.contrader.dto.RelationshipDTO"
-	import="it.contrader.dto.EntityOwnerDTO"%>
+	import="it.contrader.dto.EntityOwnerDTO"
+	import="it.contrader.dto.EntityCustomerDTO"%>
 	
 <!DOCTYPE html>
 <html>
@@ -17,8 +18,9 @@
 
 <div class="main">
 	<%
-		List<RelationshipDTO> list = (List<RelationshipDTO>) request.getAttribute("list");
-		List<EntityOwnerDTO> listE = (List<EntityOwnerDTO>)request.getAttribute("listEntity");
+		List<RelationshipDTO> list = (List<RelationshipDTO>) request.getSession().getAttribute("list");
+		List<EntityOwnerDTO> listEo = (List<EntityOwnerDTO>) request.getSession().getAttribute("listEntityo");
+		List<EntityCustomerDTO> listEc = (List<EntityCustomerDTO>) request.getSession().getAttribute("listEntityc");
 	%>
 
 <br>
@@ -37,14 +39,14 @@
 				
 				<%		
 			
-				for (EntityOwnerDTO e : listE){ 
+				for (EntityOwnerDTO e : listEo){ 
 					if( e.getId()==r.getEntityowner().getId() )
 						out.print(e.getName());
 				}%>
 			</a></td>
 			<td><%		
 			
-				for (EntityOwnerDTO e : listE){ 
+				for (EntityCustomerDTO e : listEc){ 
 					if( e.getId()==r.getEntityowner().getId() )
 						out.print(e.getName());
 				}%>
@@ -69,7 +71,7 @@
  			<select id="selectentity1" name="selectentity1" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity1</option>
  				<% 			
-					for (EntityOwnerDTO e : listE) {
+					for (EntityOwnerDTO e : listEo) {
 				%>
 				<option value="<%=e.getId()%>"><%=e.getName()%></option>
 				<%
@@ -85,7 +87,7 @@
  			<select id="selectentity2" name="selectentity2" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity2</option>
  				<% 			
-					for (EntityOwnerDTO e : listE) {
+					for (EntityCustomerDTO e : listEc) {
 				%>
 				<option value="<%=e.getId()%>"><%=e.getName()%></option>
 				<%

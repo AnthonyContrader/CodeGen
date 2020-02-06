@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.EntityOwnerDTO" import="java.util.*"%>
+    pageEncoding="ISO-8859-1" import="it.contrader.dto.EntityOwnerDTO" import="java.util.*" import="it.contrader.dto.ProjectDTO" %>
 <!DOCTYPE html>
 <html>
 <head> <link rel="icon" href="/images/fav.png" type="image/png" />
@@ -17,6 +17,7 @@
 
 <%
 			List<EntityOwnerDTO> list = (List<EntityOwnerDTO>) request.getSession().getAttribute("list");
+            List<ProjectDTO> listP = (List<ProjectDTO>) request.getSession().getAttribute("listP");
 		%>
 
 		<br>

@@ -25,7 +25,7 @@
 	</tr>
 	<tr>
 		<td><%=e.getName()%></td>
-		<td><%=e.getIdproject()%></td>
+		<td><%=e.getProject()%></td>
 	</tr>	
 </table>
 

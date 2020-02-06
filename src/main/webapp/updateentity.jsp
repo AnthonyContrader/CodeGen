@@ -23,6 +23,7 @@
 <%
 EntityOwnerDTO e = (EntityOwnerDTO) request.getAttribute("dto");
 	List<EntityOwnerDTO> list = (List<EntityOwnerDTO>) request.getAttribute("list");
+	 List<ProjectDTO> listP = (List<ProjectDTO>) request.getSession().getAttribute("listP");
 %>
 
 <form id="floatleft" action="/entityowner/update" method="post">
@@ -34,13 +35,19 @@ EntityOwnerDTO e = (EntityOwnerDTO) request.getAttribute("dto");
       <input type="text" id="name" name="name" value=<%=e.getName()%>>
     </div>
   </div>
-   <div class="row">
+  <div class="row">
     <div class="col-25">
-      <label for="idproject">Idproject</label>
+      <label for="type">Select IdProject</label>
     </div>
    		 <div class="col-75">
- 		 <input type="text" id="idproject" name="idproject" value=<%=e.getIdproject()%>>
-    </div>
+ 			<select id="idproject" name="idproject" required>
+ 				<option value="" disabled selected>Select Idproject</option>
+ 				<% 			
+					for (ProjectDTO p : listP) {
+						%> <option value="<%=p.getId()%>"><%=p.getName()%></option> <%
+					}%> 
+			</select>
+    	</div>
   </div>
  	
   

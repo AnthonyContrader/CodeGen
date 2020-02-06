@@ -17,6 +17,7 @@
 
 <%
 			List<EntityOwnerDTO> list = (List<EntityOwnerDTO>) request.getSession().getAttribute("list");
+			System.out.println("\n\n"+list);
             List<ProjectDTO> listP = (List<ProjectDTO>) request.getSession().getAttribute("listP");
 		%>
 
@@ -34,16 +35,13 @@
 			<tr>
 				<td><a href="/entityowner/read?id=<%=e.getId()%>"> <%=e.getName()%>
 				</a></td>
-				<td><%		
+				<td><%	
+					out.print(e.getProject().getId()); %></td>
+			<td><a class="edit" href=/entityowner/preupdate?id=<%=e.getId()%>></a>&nbsp;&nbsp;
+			<a class="delete" href=entityowner/delete?id=<%=e.getId()%>></a>
+			</td>
 			
-				for (ProjectDTO p : listP){ 
-					if( p.get()==e.get() )
-						out.print(p.getName());
-				}%>
-				</td>
 			
-				<td><a class="edit" href="/entityowner/preupdate?id=<%=e.getId()%>">&nbsp;&nbsp;</a><a class="delete" href="/entityowner/delete?id=<%=e.getId()%>"></a>
-				</td>
 
 			</tr>
 			<%
@@ -65,14 +63,19 @@ onsubmit="document.getElementById('description').value=document.getElementById('
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="idproject">Idproject</label>
+      <label for="type">Select IdProject</label>
     </div>
-    <div class="col-75">
-     <select id="idproject" name="idproject">
-     </select>
-    </div>
+   		 <div class="col-75">
+ 			<select id="idproject" name="idproject" required>
+ 				<option value="" disabled selected>Select Idproject</option>
+ 				<% 			
+					for (ProjectDTO p : listP) {
+						%> <option value="<%=p.getId()%>"><%=p.getName()%></option> <%
+					}%> 
+			</select>
+    	</div>
   </div>
-       <button type="submit" >Edit</button>
+       <button type="submit" >insert</button>
 </form>
 
 	

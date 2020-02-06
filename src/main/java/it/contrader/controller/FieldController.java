@@ -68,7 +68,6 @@ public class FieldController {
 		dto.setName(name);
 		dto.setType(type);
 		dto.setLenght(lenght);
-		System.out.print("\n\n\n"+entityowner+"\n\n\n");
 		dto.setEntityowner(entityowner);
 		service.insert(dto);
 		setAll(request);

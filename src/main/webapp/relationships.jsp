@@ -47,7 +47,7 @@
 			<td><%		
 			
 				for (EntityCustomerDTO e : listEc){ 
-					if( e.getId()==r.getEntityowner().getId() )
+					if( e.getId()==r.getEntitycustomer().getId() )
 						out.print(e.getName());
 				}%>
 			</td>
@@ -86,7 +86,7 @@
     	<div class="col-75">
  			<select id="selectentity2" name="selectentity2" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity2</option>
- 				<% 			
+ 				<% 		
 					for (EntityCustomerDTO e : listEc) {
 				%>
 				<option value="<%=e.getId()%>"><%=e.getName()%></option>

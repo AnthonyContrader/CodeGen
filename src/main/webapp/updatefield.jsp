@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.List" import="it.contrader.dto.FieldDTO" import="it.contrader.dto.EntityDTO"%>
+    pageEncoding="ISO-8859-1" import="java.util.List" 
+    import="it.contrader.dto.FieldDTO"
+    import="it.contrader.dto.EntityOwnerDTO"%>
 <!DOCTYPE html>
 <html>
 <head> <link rel="icon" href="images/fav.png" type="image/png" />
@@ -16,9 +18,9 @@
 
 <%FieldDTO u = (FieldDTO) request.getAttribute("dto");
 
-List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); //Assicurati che nella servelet c'è l'attributo %>
+List<EntityOwnerDTO> list_E = (List<EntityOwnerDTO>) request.getAttribute("listEntity"); //Assicurati che nella servelet c'è l'attributo %>
 
-<form id="floatleft" action="FieldServlet?mode=update&id=<%=u.getId()%>" method="post">
+<form id="floatleft" action="/field/update" method="post">
   <div class="row">
     <div class="col-25">
       <label for="name">Name</label>
@@ -48,9 +50,9 @@ List<EntityDTO> list_E = (List<EntityDTO>) request.getAttribute("listEntity"); /
    		 <div class="col-75">
  			<select id="entity" name="entity">
  				<%
-					for (EntityDTO e : list_E) {
+					for (EntityOwnerDTO e : list_E) {
 				%>
-					<option value="<%=e.getId()%>"  <%if(e.getId()==u.getEntity()) {%>selected<%} %>  ><%=e.getName()%></option>
+					<option value="<%=e.getId()%>"  <%if(e.getId()==u.getEntityowner()) {%>selected<%} %>  ><%=e.getName()%></option>
 				<%
 					}
 				%>

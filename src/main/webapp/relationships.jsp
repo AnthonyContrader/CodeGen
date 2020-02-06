@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
 	import="it.contrader.dto.RelationshipDTO"
-	import="it.contrader.dto.EntityDTO"%>
+	import="it.contrader.dto.EntityOwnerDTO"%>
 	
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Relationship Manager</title>
 </head>
-<body <% if(request.getParameter("mode").toLowerCase().equals( "insert")){ %>onload='window.location="RelationshipServlet?mode=relationshiplist";' <% }  %>>
+<body>
 <%@ include file="../css/header.jsp" %>
 
 
@@ -18,7 +18,7 @@
 <div class="main">
 	<%
 		List<RelationshipDTO> list = (List<RelationshipDTO>) request.getAttribute("list");
-		List<EntityDTO> listE = (List<EntityDTO>)request.getAttribute("listP");
+		List<EntityOwnerDTO> listE = (List<EntityOwnerDTO>)request.getAttribute("listP");
 	%>
 
 <br>

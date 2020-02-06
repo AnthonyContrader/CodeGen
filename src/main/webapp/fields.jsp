@@ -9,21 +9,16 @@
 <link href="/css/vittoriostyle.css" rel="stylesheet">
 <title>Field Manager</title>
 </head>
-<body >
+<body>
 <%@ include file="./css/header.jsp" %>
 
 
 <div class="main">
 
 	<%
-	
-	
 
 		List<FieldDTO> list = (List<FieldDTO>) request.getSession().getAttribute("list");
-		
-	System.out.println("\n\n"+list);
 		List<EntityOwnerDTO> list_E = (List<EntityOwnerDTO>) request.getSession().getAttribute("listEntity");	
-		//System.out.println("\n\n"+list_E);
 	%>
 	
 

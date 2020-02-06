@@ -5,7 +5,7 @@
 <head> <link rel="icon" href="/images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
 <link href="/css/vittoriostyle.css" rel="stylesheet">
-<title> Entity</title>
+<title>Entity</title>
 
 </head>
 <body>
@@ -30,7 +30,7 @@
 				
 			</tr>
 			<%
-				for (EntityOwnerDTO e : list) {
+				for (EntityOwnerDTO e : list) { System.out.println(e.getProject().getId());
 			%>
 			<tr>
 				<td><a href="/entityowner/read?id=<%=e.getId()%>"> <%=e.getName()%>
@@ -51,8 +51,7 @@
 
 
 
-<form id="floatright" action="/entityowner/insert" method="post" 
-onsubmit="document.getElementById('description').value=document.getElementById('description').value.replaceAll(' ','-');">
+<form id="floatright" action="/entityowner/insert" method="post">
   <div class="row">
     <div class="col-25">
       <label for="entityowner">Name</label>

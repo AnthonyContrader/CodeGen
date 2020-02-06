@@ -11,7 +11,7 @@ public class EntityOwnerConverter extends AbstractConverter<EntityOwner, EntityO
 	public EntityOwner toEntity(EntityOwnerDTO entityOwnerDTO) {
 		EntityOwner entityOwner = null;
 		if (entityOwnerDTO != null) {
-			entityOwner = new EntityOwner(entityOwnerDTO.getId(), entityOwnerDTO.getName(), entityOwnerDTO.getIdproject());
+			entityOwner = new EntityOwner(entityOwnerDTO.getId(), entityOwnerDTO.getName(), entityOwnerDTO.getProject());
 		}
 		return entityOwner;
 	}
@@ -20,13 +20,12 @@ public class EntityOwnerConverter extends AbstractConverter<EntityOwner, EntityO
 	public EntityOwnerDTO toDTO(EntityOwner entityOwner) {
 		EntityOwnerDTO entityOwnerDTO = null;
 		if (entityOwner != null) {
-			entityOwnerDTO = new EntityOwnerDTO(entityOwner.getId(), entityOwner.getName(), entityOwner.getIdproject());
+			entityOwnerDTO = new EntityOwnerDTO(entityOwner.getId(), entityOwner.getName(),entityOwner.getProject());
 
 		}
 		return entityOwnerDTO;
 	}
 }
-
 
 
 

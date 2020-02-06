@@ -9,6 +9,6 @@ import it.contrader.model.EntityOwner;
 @Transactional
 public interface EntityOwnerRepository extends CrudRepository<EntityOwner, Long>{
 	
-	EntityOwner findByNameAndIdproject(String name, Project idproject);
+	EntityOwner findByNameAndProject(String name, Project project);
 }
  

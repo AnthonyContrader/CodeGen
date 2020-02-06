@@ -34,7 +34,13 @@
 			<tr>
 				<td><a href="/entityowner/read?id=<%=e.getId()%>"> <%=e.getName()%>
 				</a></td>
-				<td><%=e.getIdproject()%></td>
+				<td><%		
+			
+				for (ProjectDTO p : listP){ 
+					if( p.get()==e.get() )
+						out.print(p.getName());
+				}%>
+				</td>
 			
 				<td><a class="edit" href="/entityowner/preupdate?id=<%=e.getId()%>">&nbsp;&nbsp;</a><a class="delete" href="/entityowner/delete?id=<%=e.getId()%>"></a>
 				</td>
@@ -62,8 +68,8 @@ onsubmit="document.getElementById('description').value=document.getElementById('
      <label for="idproject">Idproject</label>
     </div>
     <div class="col-75">
-      <input
-			type="text" id="idproject" name="idproject" placeholder="Insert Idproject" required> 
+     <select id="idproject" name="idproject">
+     </select>
     </div>
   </div>
        <button type="submit" >Edit</button>

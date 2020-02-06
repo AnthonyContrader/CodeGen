@@ -9,6 +9,6 @@ import it.contrader.model.EntityCustomer;
 @Transactional
 public interface EntityCustomerRepository extends CrudRepository<EntityCustomer, Long>{
 	
-	EntityCustomer findByNameAndIdproject(String name, Project idproject);
+	EntityCustomer findByNameAndProject(String name, Project project);
 }
  

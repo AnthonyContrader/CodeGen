@@ -11,7 +11,7 @@ public class EntityCustomerConverter extends AbstractConverter<EntityCustomer, E
 	public EntityCustomer toEntity(EntityCustomerDTO entityCustomerDTO) {
 		EntityCustomer entityCustomer = null;
 		if (entityCustomerDTO != null) {
-			entityCustomer = new EntityCustomer(entityCustomerDTO.getId(), entityCustomerDTO.getName(), entityCustomerDTO.getIdproject());
+			entityCustomer = new EntityCustomer(entityCustomerDTO.getId(), entityCustomerDTO.getName(), entityCustomerDTO.getProject());
 		}
 		return entityCustomer;
 	}
@@ -20,7 +20,7 @@ public class EntityCustomerConverter extends AbstractConverter<EntityCustomer, E
 	public EntityCustomerDTO toDTO(EntityCustomer entityCustomer) {
 		EntityCustomerDTO entityCustomerDTO = null;
 		if (entityCustomer != null) {
-			entityCustomerDTO = new EntityCustomerDTO(entityCustomer.getId(), entityCustomer.getName(), entityCustomer.getIdproject());
+			entityCustomerDTO = new EntityCustomerDTO(entityCustomer.getId(), entityCustomer.getName(),entityCustomer.getProject());
 
 		}
 		return entityCustomerDTO;

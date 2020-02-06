@@ -16,8 +16,8 @@ public class EntityCustomerService extends AbstractService<EntityCustomer, Entit
 	@Autowired
 	private EntityCustomerRepository repository;
 
-	public EntityCustomerDTO findByNameAndIdproject(String name, Project idproject) {
-		return converter.toDTO(repository.findByNameAndIdproject(name, idproject));
+	public EntityCustomerDTO findByNameAndIdproject(String name, Project project) {
+		return converter.toDTO(repository.findByNameAndProject(name, project));
 	}
 
 

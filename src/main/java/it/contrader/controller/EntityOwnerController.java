@@ -43,12 +43,12 @@ public class EntityOwnerController {
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			 @RequestParam("idproject") Project idproject ) {
+			 @RequestParam("project") Project project ) {
 
 		EntityOwnerDTO dto = new EntityOwnerDTO();
 		dto.setId(id);
 		dto.setName(name);
-		dto.setIdproject(idproject);
+		dto.setProject(project);
 		service.update(dto);
 		setAll(request);
 		return "entityowners";
@@ -57,10 +57,10 @@ public class EntityOwnerController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			@RequestParam("idproject") Project idproject ) {
+			@RequestParam("project") Project project ) {
 		EntityOwnerDTO dto = new EntityOwnerDTO();
 		dto.setName(name);
-		dto.setIdproject(idproject);
+		dto.setProject(project);
 		service.insert(dto);
 		setAll(request);
 		return "entityowners";

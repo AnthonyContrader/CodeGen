@@ -42,12 +42,12 @@ public class EntityCustomerController {
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			 @RequestParam("idproject")Project idproject ) {
+			 @RequestParam("project")Project project ) {
 
 		EntityCustomerDTO dto = new EntityCustomerDTO();
 		dto.setId(id);
 		dto.setName(name);
-		dto.setIdproject(idproject);
+		dto.setProject(project);
 		service.update(dto);
 		setAll(request);
 		return "entityCustomers";
@@ -56,10 +56,10 @@ public class EntityCustomerController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			@RequestParam("idproject") Project idproject ) {
+			@RequestParam("project") Project project ) {
 		EntityCustomerDTO dto = new EntityCustomerDTO();
 		dto.setName(name);
-		dto.setIdproject(idproject);
+		dto.setProject(project);
 		service.insert(dto);
 		setAll(request);
 		return "entityCustomers";

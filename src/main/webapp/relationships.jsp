@@ -1,24 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
 	import="it.contrader.dto.RelationshipDTO"
-	import="it.contrader.dto.EntityOwnerDTO"%>
+	import="it.contrader.dto.EntityOwnerDTO"
+	import="it.contrader.dto.EntityCustomerDTO"%>
 	
 <!DOCTYPE html>
 <html>
-<head> <link rel="icon" href="images/fav.png" type="image/png" />
+<head> <link rel="icon" href="/images/fav.png" type="image/png" />
 <meta charset="ISO-8859-1">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
 <title>Relationship Manager</title>
 </head>
 <body>
-<%@ include file="../css/header.jsp" %>
+<%@ include file="./css/header.jsp" %>
 
 
 
 <div class="main">
 	<%
-		List<RelationshipDTO> list = (List<RelationshipDTO>) request.getAttribute("list");
-		List<EntityOwnerDTO> listE = (List<EntityOwnerDTO>)request.getAttribute("listP");
+		List<RelationshipDTO> list = (List<RelationshipDTO>) request.getSession().getAttribute("list");
+		List<EntityOwnerDTO> listEo = (List<EntityOwnerDTO>) request.getSession().getAttribute("listEntityo");
+		List<EntityCustomerDTO> listEc = (List<EntityCustomerDTO>) request.getSession().getAttribute("listEntityc");
+		
 	%>
 
 <br>
@@ -33,19 +36,19 @@
 			for (RelationshipDTO r : list) {
 		%>
 		<tr>
-			<td><a href="/project/read?id=<%=r.getId()%>">
+			<td><a href="/relationship/read?id=<%=r.getId()%>">
 				
 				<%		
 			
-				for (EntityOwnerDTO e : listE){ 
+				for (EntityOwnerDTO e : listEo){ 
 					if( e.getId()==r.getEntityowner().getId() )
 						out.print(e.getName());
 				}%>
 			</a></td>
 			<td><%		
 			
-				for (EntityOwnerDTO e : listE){ 
-					if( e.getId()==r.getEntityowner().getId() )
+				for (EntityCustomerDTO e : listEc){ 
+					if( e.getId()==r.getEntitycustomer().getId() )
 						out.print(e.getName());
 				}%>
 			</td>
@@ -66,10 +69,10 @@
       <label for="type">Select Entity1</label>
     </div>
    		 <div class="col-75">
- 			<select id="selectentity1" name="selectentity1" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 			<select id="selectentity1" name="entityowner" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity1</option>
  				<% 			
-					for (EntityDTO e : listE) {
+					for (EntityOwnerDTO e : listEo) {
 				%>
 				<option value="<%=e.getId()%>"><%=e.getName()%></option>
 				<%
@@ -82,12 +85,12 @@
       	<label for="type">Select Entity2</label>
     	</div>
     	<div class="col-75">
- 			<select id="selectentity2" name="selectentity2" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 			<select id="selectentity2" name="entitycustomer" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity2</option>
- 				<% 			
-					for (EntityDTO e : listE) {
+ 				<% 		
+					for (EntityCustomerDTO ec : listEc) {
 				%>
-				<option value="<%=e.getId()%>"><%=e.getName()%></option>
+				<option value="<%=ec.getId()%>"><%=ec.getName()%></option>
 				<%
 					}
 				%>
@@ -100,7 +103,7 @@
 
 </div>
 <br>
-<%@ include file="../css/footer.jsp" %>
+<%@ include file="./css/footer.jsp" %>
 </body>
 <script>
 function Check(oggetto){

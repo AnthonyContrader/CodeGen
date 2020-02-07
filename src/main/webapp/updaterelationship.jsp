@@ -2,7 +2,8 @@
     pageEncoding="ISO-8859-1" 
     import="java.util.List"
     import="it.contrader.dto.RelationshipDTO"
-    import="it.contrader.dto.EntityDTO"%>
+    import="it.contrader.dto.EntityOwnerDTO"
+    import="it.contrader.dto.EntityCustomerDTO" %>
     
 <!DOCTYPE html>
 <html>
@@ -18,22 +19,23 @@
 <br>
 <div class="main">
 <%
-	RelationshipDTO r = (RelationshipDTO) request.getAttribute("dto");
-	List<EntityDTO> listE = (List<EntityDTO>)request.getAttribute("listP");
+	RelationshipDTO r = (RelationshipDTO) request.getSession().getAttribute("dto");
+	List<EntityOwnerDTO> listEo = (List<EntityOwnerDTO>)request.getSession().getAttribute("listEntityo");
+	List<EntityCustomerDTO> listEc = (List<EntityCustomerDTO>)request.getSession().getAttribute("listEntityc");
 %>
 
-<form id="floatleft" action="RelationshipServlet?mode=update&id=<%=r.getId()%>" method="post">
+<form id="floatleft" action="/relationship/update?id=<%=r.getId()%>" method="post">
       <div class="row">
     <div class="col-25">
       <label for="type">Select Entity1</label>
     </div>
    		 <div class="col-75">
- 			<select id="selectentity1" name="selectentity1"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 			<select id="selectentity1" name="entityowner"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
 
  				<% 			
-					for (EntityDTO e : listE) {
+					for (EntityOwnerDTO e : listEo) {
 				%>
-					<option value="<%=e.getId()%>"<%if(e.getId()==r.getEntity1()) {%>selected<%} %>><%=e.getName()%></option>
+					<option value="<%=e.getId()%>"<%if(e.getId()==r.getEntityowner().getId()) {%>selected<%} %>><%=e.getName()%></option>
 				<%
 					}
 				%>
@@ -44,12 +46,12 @@
       <label for="type">Select Entity2</label>
     </div>
     	<div class="col-75">
- 			<select id="selectentity2" name="selectentity2"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 			<select id="selectentity2" name="entitycustomer"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  
  				<% 			
-					for (EntityDTO e : listE) {
+					for (EntityCustomerDTO e : listEc) {
 				%>
-					<option value="<%=e.getId()%>"<%if(e.getId()==r.getEntity2()) {%>selected<%} %>><%=e.getName()%></option>
+					<option value="<%=e.getId()%>"<%if(e.getId()==r.getEntitycustomer().getId()) {%>selected<%} %>><%=e.getName()%></option>
 				<%
 					}
 				%>
@@ -67,8 +69,8 @@
 </body>
 <script>
 function Check(oggetto){
-	var ent1=document.getElementById("selectentity1").value;
-	var ent2=document.getElementById("selectentity2").value;
+	var ent1=document.getElementById("entityowner").value;
+	var ent2=document.getElementById("entitycustomer").value;
 	if(ent1==ent2 || ent1.equals(ent2)){
 		alert("Non puoi associare la stessa entita'.\nSi prega di riprovare");
 		oggetto.selectedIndex =0; 

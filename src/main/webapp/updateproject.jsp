@@ -44,6 +44,7 @@
     <div class="col-75">
       <input type="date" id="shippingdate" name="shippingdate" value=<%=u.getShippingdate()%>> 
     </div>
+    	<input type="hidden" name="id" value =<%=u.getId() %>>
   </div>
       <button type="submit" >Edit</button>
 </form>

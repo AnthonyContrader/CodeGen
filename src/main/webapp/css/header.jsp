@@ -17,6 +17,7 @@
   	<a href="/relationship/getall" <% if(  request.getRequestURL().toString().toLowerCase().contains("relationship".toLowerCase()) )	out.print( " class='active' " ); %> >Relationships</a>
   	
   
-		<a href="/user/logout" id="logout">Logout</a>
+	<a href="/user/logout" id="logout">Logout</a>
+	<a href="/log/getall" id="log" <% if(  request.getRequestURL().toString().toLowerCase().contains("log".toLowerCase()) )	out.print( " class='active' " ); %> >Logs</a>
 
 	</div>

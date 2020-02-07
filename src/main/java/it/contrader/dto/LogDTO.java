@@ -1,6 +1,8 @@
 package it.contrader.dto;
 
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +19,6 @@ public class LogDTO {
 
 	private String action;
 	
-	private String moment;
+	private Date moment;
 
 }

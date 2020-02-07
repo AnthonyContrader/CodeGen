@@ -34,7 +34,18 @@
 			<td><%
 			out.print(u.getUser().toUpperCase());
 				%></td>
-			<td><%=u.getMoment()%></td>
+			<td><%
+			 String[] Str = (""+u.getMoment()).split("-"); 
+			String gg = Str[2];
+			String mm = Str[1];
+			String aa = Str[0];
+			
+			
+			out.print(gg+"/"+mm+"/"+aa);
+			
+			
+			//out.print();
+			  %></td>
 
 		</tr>
 		<%

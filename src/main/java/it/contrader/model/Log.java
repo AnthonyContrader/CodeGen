@@ -1,5 +1,7 @@
 package it.contrader.model;
 
+import java.util.Date;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -29,8 +31,9 @@ public class Log {
 	private String action;
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date moment;
-
+	//CURRENT_TIMESTAMP
 	
 	 
 	

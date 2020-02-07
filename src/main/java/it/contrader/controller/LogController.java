@@ -1,5 +1,7 @@
 package it.contrader.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +45,7 @@ public class LogController {
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("user") String user,
-			@RequestParam("action") String action, @RequestParam("moment") String moment) {
+			@RequestParam("action") String action, @RequestParam("moment") Date moment) {
 
 		LogDTO dto = new LogDTO();
 		dto.setId(id);
@@ -58,7 +60,7 @@ public class LogController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("user") String user,
-			@RequestParam("action") String action, @RequestParam("moment") String moment) {
+			@RequestParam("action") String action, @RequestParam("moment") Date moment) {
 		LogDTO dto = new LogDTO();
 		dto.setUser(user);
 		dto.setAction(action);

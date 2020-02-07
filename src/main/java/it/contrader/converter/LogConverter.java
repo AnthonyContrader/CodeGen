@@ -1,5 +1,7 @@
 package it.contrader.converter;
 
+
+
 import org.springframework.stereotype.Component;
 
 import it.contrader.dto.LogDTO;
@@ -13,7 +15,7 @@ public class LogConverter extends AbstractConverter<Log, LogDTO> {
 	public Log toEntity(LogDTO logDTO) {
 		Log log = null;
 		if (logDTO != null) {
-			log = new Log(logDTO.getId(), logDTO.getUser(), logDTO.getAction(), logDTO.getMoment());
+			log = new Log(logDTO.getId(), logDTO.getUser(), logDTO.getAction(),  logDTO.getMoment());
 		}
 		return log;
 	}

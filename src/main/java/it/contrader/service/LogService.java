@@ -1,5 +1,7 @@
 package it.contrader.service;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -17,7 +19,7 @@ public class LogService extends AbstractService<Log, LogDTO> {
 	@Autowired
 	private LogRepository repository;
 
-	public LogDTO findByUserAndActionAndMoment(String user, String action, String moment) {
+	public LogDTO findByUserAndActionAndMoment(String user, String action, Date moment) {
 		return converter.toDTO(repository.findByUserAndActionAndMoment( user,  action,  moment));
 	}
 

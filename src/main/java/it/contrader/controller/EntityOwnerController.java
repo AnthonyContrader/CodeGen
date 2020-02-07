@@ -13,6 +13,9 @@ import it.contrader.dto.EntityOwnerDTO;
 import it.contrader.model.Project;
 import it.contrader.service.EntityOwnerService;
 import it.contrader.service.ProjectService;
+import it.contrader.service.EntityCustomerService;
+import it.contrader.dto.EntityCustomerDTO;
+
 
 @Controller
 @RequestMapping("/entityowner")
@@ -22,6 +25,9 @@ public class EntityOwnerController {
 	private EntityOwnerService service;
 	@Autowired
 	private ProjectService servicep;
+	@Autowired
+	private EntityCustomerService servicec;
+	
 
 
 	@GetMapping("/getall")
@@ -32,6 +38,7 @@ public class EntityOwnerController {
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
+		servicec.delete(id);
 		service.delete(id);
 		setAll(request);
 		return "entityowners";
@@ -48,10 +55,15 @@ public class EntityOwnerController {
 			 @RequestParam("project") Project project ) {
 
 		EntityOwnerDTO dto = new EntityOwnerDTO();
+		EntityCustomerDTO dtoc = new EntityCustomerDTO();
 		dto.setId(id);
 		dto.setName(name);
 		dto.setProject(project);
+		dtoc.setId(id);
+		dtoc.setName(name);
+		dtoc.setProject(project);
 		service.update(dto);
+		servicec.update(dtoc);
 		setAll(request);
 		return "entityowners";
 
@@ -61,9 +73,13 @@ public class EntityOwnerController {
 	public String insert(HttpServletRequest request, @RequestParam("name") String name,
 			@RequestParam("project") Project project ) {
 		EntityOwnerDTO dto = new EntityOwnerDTO();
+		EntityCustomerDTO dtoc = new EntityCustomerDTO();
 		dto.setName(name);
 		dto.setProject(project);
+		dtoc.setName(name);
+		dtoc.setProject(project);
 		service.insert(dto);
+		servicec.insert(dtoc);
 		setAll(request);
 		return "entityowners";
 	}
@@ -83,6 +99,7 @@ public class EntityOwnerController {
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
 		request.getSession().setAttribute("listP", servicep.getAll());
+		
 		
 		}
 	}

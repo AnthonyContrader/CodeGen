@@ -64,7 +64,7 @@ public class LogController {
 		LogDTO dto = new LogDTO();
 		dto.setUser(user);
 		dto.setAction(action);
-		dto.setMoment(moment);
+		//dto.setMoment(moment);
 		service.insert(dto);
 		setAll(request);
 		return "logs";

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List"
-	
+	pageEncoding="ISO-8859-1" import="java.util.List"	
 	import="it.contrader.dto.LogDTO"%>
 <!DOCTYPE html>
 <html>
@@ -28,10 +27,11 @@
 			<th>Date</th>
 		</tr>
 		<%
-		//out.print(request.getParameter("cookieSession"));
+
 		
 			for (LogDTO u : list) {
-				String temp=""+request.getSession().getAttribute("user");				
+				
+				String temp = ""+request.getSession().getAttribute("user");				
 				temp = (""+request.getSession().getAttribute("user")).replace("UserDTO(","").replace(")", "");
 				String[] User_temp = temp.split(",");
 				
@@ -56,8 +56,6 @@
 			
 			out.print(gg+"/"+mm+"/"+aa+" "+H[1].replace(".0", ""));
 			
-			
-			//out.print();
 			  %></td>
 
 		</tr>
@@ -65,10 +63,6 @@
 		
 				}
 				
-				
-				
-				
-				//out.print(request.getSession().getAttribute("user"));
 			}
 		%>
 	</table>

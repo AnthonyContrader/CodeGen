@@ -9,7 +9,7 @@
 <link href="/css/vittoriostyle.css" rel="stylesheet">
 <title>Project Manager</title>
 </head>
-<body>
+<body  >
 <%@ include file="./css/header.jsp" %>
 
 <div class="main">
@@ -27,6 +27,7 @@
 			<th>Action</th>
 		</tr>
 		<%
+		out.print(request.getRequestURL().toString().toLowerCase());
 			for (ProjectDTO p : list) {
 		%>
 		<tr>

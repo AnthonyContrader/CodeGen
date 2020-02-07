@@ -85,5 +85,6 @@ public class LogController {
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
 		request.getSession().setAttribute("listLogUser", serviceUser.getAll());
+		
 	}
 }

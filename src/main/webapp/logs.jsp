@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
+	
 	import="it.contrader.dto.LogDTO"%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,16 @@
 			<th>Date</th>
 		</tr>
 		<%
+		//out.print(request.getParameter("cookieSession"));
+		
 			for (LogDTO u : list) {
+				String temp=""+request.getSession().getAttribute("user");				
+				temp = (""+request.getSession().getAttribute("user")).replace("UserDTO(","").replace(")", "");
+				String[] User_temp = temp.split(",");
+				
+				String USER=User_temp[1].replace("username=","");
+				
+				if(u.getUser().toUpperCase().trim().equals(USER.trim().toUpperCase())){ 
 		%>
 		<tr>
 			<td><% out.print( u.getAction().toUpperCase() ); %></td>
@@ -35,13 +45,16 @@
 			out.print(u.getUser().toUpperCase());
 				%></td>
 			<td><%
-			 String[] Str = (""+u.getMoment()).split("-"); 
-			String gg = Str[2];
+			 	String[] Str = (""+u.getMoment()).split("-"); 
+				String[] H = Str[2].split(" "); 
+			
+			
+			String gg = H[0];
 			String mm = Str[1];
 			String aa = Str[0];
 			
 			
-			out.print(gg+"/"+mm+"/"+aa);
+			out.print(gg+"/"+mm+"/"+aa+" "+H[1].replace(".0", ""));
 			
 			
 			//out.print();
@@ -49,6 +62,13 @@
 
 		</tr>
 		<%
+		
+				}
+				
+				
+				
+				
+				//out.print(request.getSession().getAttribute("user"));
 			}
 		%>
 	</table>

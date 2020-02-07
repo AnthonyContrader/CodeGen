@@ -1,5 +1,6 @@
 package it.contrader.controller;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class UserController {
 
 		UserDTO userDTO = service.findByUsernameAndPassword(username, password);
 		request.getSession().setAttribute("user", userDTO);
+		
+		new Cookie("cookieSession",userDTO.getUsername());
+		 
 
 		switch (userDTO.getUsertype().toString().toUpperCase()) {
 
@@ -44,6 +48,7 @@ public class UserController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
+		
 		return "users";
 	}
 
@@ -101,5 +106,6 @@ public class UserController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
+		
 	}
 }

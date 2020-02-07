@@ -69,7 +69,7 @@
       <label for="type">Select Entity1</label>
     </div>
    		 <div class="col-75">
- 			<select id="selectentity1" name="selectentity1" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 			<select id="selectentity1" name="entityowner" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity1</option>
  				<% 			
 					for (EntityOwnerDTO e : listEo) {
@@ -85,12 +85,12 @@
       	<label for="type">Select Entity2</label>
     	</div>
     	<div class="col-75">
- 			<select id="selectentity2" name="selectentity2" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
+ 			<select id="selectentity2" name="entitycustomer" required onchange="Check(this);"> <!-- il name della select combina il name con la richiesta del post nella servlet -->
  				<option value="" disabled selected>Select Entity2</option>
  				<% 		
-					for (EntityCustomerDTO e : listEc) {
+					for (EntityCustomerDTO ec : listEc) {
 				%>
-				<option value="<%=e.getId()%>"><%=e.getName()%></option>
+				<option value="<%=ec.getId()%>"><%=ec.getName()%></option>
 				<%
 					}
 				%>

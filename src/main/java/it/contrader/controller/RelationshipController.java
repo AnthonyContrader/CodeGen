@@ -46,7 +46,7 @@ public class RelationshipController {
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updaterelationships";
+		return "updaterelationship";
 	}
 
 	@PostMapping("/update")

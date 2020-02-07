@@ -27,7 +27,6 @@
 			<th>Action</th>
 		</tr>
 		<%
-		out.print(request.getRequestURL().toString().toLowerCase());
 			for (ProjectDTO p : list) {
 		%>
 		<tr>

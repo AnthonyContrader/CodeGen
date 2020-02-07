@@ -9,81 +9,79 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.contrader.dto.FieldDTO;
-import it.contrader.model.EntityOwner;
-import it.contrader.service.EntityOwnerService;
-import it.contrader.service.FieldService;
-
+import it.contrader.dto.LogDTO;
+import it.contrader.service.LogService;
+import it.contrader.service.UserService;
 
 @Controller
-@RequestMapping("/field")
-public class FieldController {
+@RequestMapping("/log")
+public class LogController {
 
 	@Autowired
-	private FieldService service;
-	
+	private LogService service;
 	@Autowired
-	private EntityOwnerService serviceEntity;
+	private UserService serviceUser;
 
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "fields";
+		return "logs";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "fields";
+		return "logs";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		setAll( request);
-		return "updatefield";
+		return "updatelog";
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("entityowner") EntityOwner entityowner,
-			@RequestParam("name") String name,  @RequestParam("type") String type ,  @RequestParam("lenght") Long lenght,@RequestParam("id") Long id  ) {
+	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("user") String user,
+			@RequestParam("action") String action, @RequestParam("moment") String moment) {
 
-		FieldDTO dto = new FieldDTO();
+		LogDTO dto = new LogDTO();
 		dto.setId(id);
-		dto.setName(name);
-		dto.setType(type);
-		dto.setLenght(lenght);
-		dto.setEntityowner(entityowner);
+		dto.setUser(user);
+		dto.setAction(action);
+		dto.setMoment(moment);
 		service.update(dto);
 		setAll(request);
-		return "fields";
+		return "logs";
 
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("entityowner") EntityOwner entityowner,
-			@RequestParam("name") String name,  @RequestParam("type") String type ,  @RequestParam("lenght") Long lenght ) {
-		FieldDTO dto = new FieldDTO();
-		dto.setName(name);
-		dto.setType(type);
-		dto.setLenght(lenght);
-		dto.setEntityowner(entityowner);
+	public String insert(HttpServletRequest request, @RequestParam("user") String user,
+			@RequestParam("action") String action, @RequestParam("moment") String moment) {
+		LogDTO dto = new LogDTO();
+		dto.setUser(user);
+		dto.setAction(action);
+		dto.setMoment(moment);
 		service.insert(dto);
 		setAll(request);
-		return "fields";
+		return "logs";
 	}
-	
-	
+
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readfield";
+		return "readlog";
+	}
+
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return "index";
 	}
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
-		request.getSession().setAttribute("listEntity", serviceEntity.getAll());
+		request.getSession().setAttribute("listLogUser", serviceUser.getAll());
 	}
-	
 }

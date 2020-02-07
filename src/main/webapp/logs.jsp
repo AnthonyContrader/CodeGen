@@ -14,7 +14,7 @@
 
 <div class="main">
 	<%
-		List<LogDTO> list = (List<LogDTO>) request.getAttribute("listLogUser");
+		List<LogDTO> list = (List<LogDTO>) request.getSession().getAttribute("list");
 
 	%>
 
@@ -34,7 +34,7 @@
 			<td><%
 			out.print(u.getUser().toUpperCase());
 				%></td>
-			<td><%=u.getDate()%></td>
+			<td><%=u.getMoment()%></td>
 
 		</tr>
 		<%

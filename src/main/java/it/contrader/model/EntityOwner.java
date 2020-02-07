@@ -20,9 +20,6 @@ public class EntityOwner {
 
 	@Column (unique = true) 
 	@NotNull
-	/*@ManyToMany
-	@JoinColumn(name = ‘idproject(foreignKey)’) ; */
-	
 	private String name;
 	@NotNull
 	@ManyToOne

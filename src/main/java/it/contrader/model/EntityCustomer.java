@@ -20,13 +20,9 @@ public class EntityCustomer {
 
 	@Column (unique = true) 
 	@NotNull
-	/*@ManyToMany
-	@JoinColumn(name = ‘idproject(foreignKey)’) ; */
-	
 	private String name;
 	@NotNull
 	@ManyToOne
-	
 	private Project project;
 	
 	

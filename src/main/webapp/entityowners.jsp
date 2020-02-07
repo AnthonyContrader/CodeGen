@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.EntityOwnerDTO" import="java.util.*" import="it.contrader.dto.ProjectDTO" %>
+    pageEncoding="ISO-8859-1" 
+    import="it.contrader.dto.EntityOwnerDTO" 
+    import="java.util.*" 
+    import="it.contrader.dto.ProjectDTO" %>
 <!DOCTYPE html>
 <html>
 <head> <link rel="icon" href="/images/fav.png" type="image/png" />
@@ -39,7 +42,7 @@
 				<td><%	
 					out.print(e.getProject().getName()); %></td>
 			<td><a class="edit" href=/entityowner/preupdate?id=<%=e.getId()%>></a>&nbsp;&nbsp;
-			<a class="delete" href=entityowner/delete?id=<%=e.getId()%>></a>
+			<a class="delete" href=/entityowner/delete?id=<%=e.getId()%>></a>
 			</td>
 			
 			

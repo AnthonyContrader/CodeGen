@@ -21,9 +21,10 @@
 
 
 <%
-EntityOwnerDTO e = (EntityOwnerDTO) request.getAttribute("dto");
-	List<EntityOwnerDTO> list = (List<EntityOwnerDTO>) request.getAttribute("list");
+EntityOwnerDTO e = (EntityOwnerDTO) request.getSession().getAttribute("dto");
+
 	 List<ProjectDTO> listP = (List<ProjectDTO>) request.getSession().getAttribute("listP");
+	 System.out.print(listP);
 %>
 
 <form id="floatleft" action="/entityowner/update" method="post">
@@ -32,28 +33,37 @@ EntityOwnerDTO e = (EntityOwnerDTO) request.getAttribute("dto");
       <label for="name">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="name" name="name" value=<%=e.getName()%>>
+      <input type="text" id="name" name="name" value=<%  out.print(e.getName().replaceAll(" ","#"));%>>
     </div>
   </div>
   <div class="row">
     <div class="col-25">
-      <label for="type">Select IdProject</label>
+      <label for="type">Select Project</label>
     </div>
    		 <div class="col-75">
- 			<select id="idproject" name="idproject" required>
- 				<option value="" disabled selected>Select Idproject</option>
+ 			<select id="project" name="project">
+ 				
  				<% 			
 					for (ProjectDTO p : listP) {
-						%> <option value="<%=p.getId()%>"><%=p.getName()%></option> <%
+						%>
+					<option value="<%=p.getId()%>"  <%if(p.getId()==e.getProject().getId()) {%>selected<%} %>  ><%=p.getName()%></option>
+				<%
 					}%> 
 			</select>
     	</div>
   </div>
- 	
+  <input type="hidden" id="id" name="id" value=<%  out.print(e.getId());%>>	
   
       <button type="submit" >Edit</button>
 	
-</form>		
+</form>	
+<script>
+	for (i = 0; i < document.getElementById("name").value.length; i++) {
+		document.getElementById("name").value=document.getElementById("name").value.replace("#", " ");
+	}		
+	
+	</script>
+		
 </div>
 <br>
 <%@ include file="../css/footer.jsp" %>	

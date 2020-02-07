@@ -40,7 +40,7 @@ public class EntityOwnerController {
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updatentityowner";
+		return "updateentityowner";
 	}
 
 	@PostMapping("/update")

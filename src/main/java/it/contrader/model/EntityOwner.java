@@ -18,7 +18,7 @@ public class EntityOwner {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column (unique = true) 
+	@Column (unique = true  ) 
 	@NotNull
 	private String name;
 	@NotNull

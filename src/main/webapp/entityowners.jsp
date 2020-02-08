@@ -41,8 +41,8 @@
 				</a></td>
 				<td><%	
 					out.print(e.getProject().getName()); %></td>
-			<td><a class="edit" href=/entityowner/preupdate?id=<%=e.getId()%>></a>&nbsp;&nbsp;
-			<a class="delete" href=/entityowner/delete?id=<%=e.getId()%>></a>
+			<td><a class="edit" href="/entityowner/preupdate?id=<%=e.getId()%>"></a>&nbsp;&nbsp;
+			<a class="delete" href="/entityowner/delete?id=<%=e.getId()%>"></a>
 			</td>
 			
 			

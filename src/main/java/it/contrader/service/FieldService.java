@@ -2,7 +2,6 @@ package it.contrader.service;
 
 import org.springframework.stereotype.Service;
 
-import it.contrader.dao.EntityOwnerRepository;
 import it.contrader.dao.FieldRepository;
 import it.contrader.dto.FieldDTO;
 import it.contrader.model.EntityOwner;

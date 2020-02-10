@@ -23,9 +23,7 @@ import { RelationshipsComponent } from './relationships/relationships.component'
  */
 @NgModule({
 
-  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, FieldsComponent, LogsComponent],
-
-  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, ProjectsComponent, RelationshipsComponent],
+  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, FieldsComponent, LogsComponent,ProjectsComponent, RelationshipsComponent],
 
   imports: [
     CommonModule,

@@ -30,6 +30,57 @@
                         </i> Manage Users </a>
                 </button>
             </div>
+
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#projects"
+                (click)="projectscollapse()">
+                <i class="fas fa-users" style="margin-right: 15px"></i>Projects
+            </button>
+            <div class="collapsebtn" id="projects" *ngIf="isProjectCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                    <a [routerLink]="['/admin-dashboard/projects']"> <i class="fas fa-edit" style="margin-right: 10px">
+                        </i> Manage Project </a>
+                </button>
+            </div>
+
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#entitys"
+                (click)="entityscollapse()">
+                <i class="fas fa-users" style="margin-right: 15px"></i>Entity
+            </button>
+            <div class="collapsebtn" id="entitys" *ngIf="isEntityCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                    <a [routerLink]="['/admin-dashboard/entityowners']"> <i class="fas fa-edit" style="margin-right: 10px">
+                        </i> Manage Entity </a>
+                </button>
+            </div>
+
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#fields"
+                (click)="fieldscollapse()">
+                <i class="fas fa-users" style="margin-right: 15px"></i>Field
+            </button>
+            <div class="collapsebtn" id="fields" *ngIf="isFieldCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                    <a [routerLink]="['/admin-dashboard/fields']"> <i class="fas fa-edit" style="margin-right: 10px">
+                        </i> Manage Field </a>
+                </button>
+            </div>
+
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#relationships"
+                (click)="relationshipscollapse()">
+                <i class="fas fa-users" style="margin-right: 15px"></i>Field
+            </button>
+            <div class="collapsebtn" id="relationships" *ngIf="isRelationshipCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                    <a [routerLink]="['/admin-dashboard/relationships']"> <i class="fas fa-edit" style="margin-right: 10px">
+                        </i> Manage Relationship </a>
+                </button>
+            </div>
+
+            <a class="menubtn" [routerLink]="['/admin-dashboard/logs']" >
+                <button class="menubtn" (click)="logout()">
+                    <i class="fas fa-file-alt" style="margin-right: 15px"></i>Log
+                </button>
+            </a>
+
             <button class="menubtn" (click)="logout()">
                 <i class="fas fa-sign-out-alt" style="margin-right: 15px"></i>Logout
             </button>

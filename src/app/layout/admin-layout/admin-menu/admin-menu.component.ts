@@ -29,6 +29,30 @@ export class AdminMenuComponent implements OnInit {
     } else { this.isUserCollapsed = false; }
   }
 
+  projectscollapse() {
+    if (this.isProjectCollapsed === false) {
+      this.isProjectCollapsed = true;
+    } else { this.isProjectCollapsed = false; }
+  }
+
+  entityscollapse() {
+    if (this.isEntityCollapsed === false) {
+      this.isEntityCollapsed = true;
+    } else { this.isEntityCollapsed = false; }
+  }
+
+  fieldscollapse() {
+    if (this.isFieldCollapsed === false) {
+      this.isFieldCollapsed = true;
+    } else { this.isFieldCollapsed = false; }
+  }
+
+  relationshipscollapse() {
+    if (this.isRelationshipCollapsed === false) {
+      this.isRelationshipCollapsed = true;
+    } else { this.isRelationshipCollapsed = false; }
+  }
+
   accountcollapse() {
     if (this.isAccountCollapsed === false) {
       this.isAccountCollapsed = true;

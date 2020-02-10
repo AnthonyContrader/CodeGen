@@ -19,7 +19,6 @@ import { ProjectsComponent } from './admin/projects/projects.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ComponentNameComponent,
     ProjectsComponent
   ],
   imports: [

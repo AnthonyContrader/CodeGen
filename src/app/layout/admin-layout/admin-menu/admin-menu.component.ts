@@ -11,6 +11,10 @@ export class AdminMenuComponent implements OnInit {
   isUserCollapsed = false;
   isClientCollapsed = false;
   isAccountCollapsed = false;
+  isProjectCollapsed: boolean;
+  isEntityCollapsed: boolean;
+  isFieldCollapsed: boolean;
+  isRelationshipCollapsed: boolean;
 
   constructor(private router: Router) {
   }

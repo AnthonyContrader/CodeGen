@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AbstractService } from '../abstractservice';
-import { ProjectDTO } from 'src/dto/projects/projectdto';
+import { AbstractService } from './abstractservice';
+import { ProjectDTO } from 'src/dto/projectdto';
 import { HttpClient } from '@angular/common/http';
 import { LoginDTO } from 'src/dto/logindto';
 import { Observable } from 'rxjs';

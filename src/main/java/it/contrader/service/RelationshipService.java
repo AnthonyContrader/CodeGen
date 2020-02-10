@@ -1,11 +1,7 @@
 package it.contrader.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
-import it.contrader.converter.RelationshipConverter;
-import it.contrader.dao.ProjectRepository;
 import it.contrader.dao.RelationshipRepository;
 import it.contrader.dto.RelationshipDTO;
 import it.contrader.model.EntityCustomer;

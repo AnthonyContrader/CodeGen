@@ -27,7 +27,7 @@ const routes: Routes = [
     { path: 'users', component: UsersComponent},
 
     { path: 'projects', component: ProjectsComponent},
-    { path: 'entity', component: EntityComponent},
+    { path: 'entities', component: EntitiesComponent},
     { path: 'fields', component: FieldsComponent},
     { path: 'relationships', component: RelationshipsComponent},
 

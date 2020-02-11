@@ -1,3 +1,61 @@
-<p>
-  entities works!
-</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Project
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Entity
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="name" [(ngModel)]="entitytoinsert.name">
+          </td>
+          <td>
+            <select placeholder="Project" [(ngModel)]="entitytoinsert.Project">
+              
+            </select>
+          </td>
+          <td>
+            <button (click)="insert(entitytoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>
+            <input [(ngModel)]="entity.name">
+          </td>
+         
+          <td>
+            <select [(ngModel)]="entity.project">
+              
+            </select>
+          </td>
+          <td>
+            <button (click)=update(entity)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(entity)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

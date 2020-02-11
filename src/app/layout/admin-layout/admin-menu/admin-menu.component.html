@@ -66,7 +66,7 @@
 
             <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#relationships"
                 (click)="relationshipscollapse()">
-                <i class="fas fa-users" style="margin-right: 15px"></i>Field
+                <i class="fas fa-users" style="margin-right: 15px"></i>Relationship
             </button>
             <div class="collapsebtn" id="relationships" *ngIf="isRelationshipCollapsed">
                 <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
@@ -75,11 +75,6 @@
                 </button>
             </div>
 
-            <a class="menubtn" [routerLink]="['/admin-dashboard/logs']" ></a>
-                <button class="menubtn" >
-                    <i class="fas fa-file-alt" style="margin-right: 15px"></i>Log
-                </button>
-            </a>
 
             <button class="menubtn" (click)="logout()">
                 <i class="fas fa-sign-out-alt" style="margin-right: 15px"></i>Logout

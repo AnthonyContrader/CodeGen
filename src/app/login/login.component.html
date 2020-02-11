@@ -1,8 +1,6 @@
-<div class="container-fluid">
+
+<div class="container-fluid"  >
   <div class="row">
-    <div class="col-md-7">
-      <img src="../../assets/logo.svg" alt="logo">
-    </div>
     <div class="col-md-5">
       <form #f="ngForm">
         <p>Please insert username and password to Login or Sign Up</p>
@@ -12,9 +10,15 @@
         <div class="form-group">
           <input class="form-control" type="password" id="pass" name="password" placeholder="Password" ngModel>
         </div>
-        <button type="submit" (click)="login(f)">Login</button>
+        <button type="button" (click)="login(f)">Login</button>
         <button type="submit">Sign Up</button>
       </form>
     </div>
   </div>
+  <style>
+      
+  </style>
 </div>
+<script>
+    document.getElementById("body").setAttribute("style","background-image: url('../../assets/login.jpg');  background-repeat: no-repeat; height: 100%; width: auto;");
+</script>

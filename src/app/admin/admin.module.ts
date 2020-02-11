@@ -11,6 +11,7 @@ import { LogsComponent } from './logs/logs.component';
 
 import { ProjectsComponent } from './projects/projects.component';
 import { RelationshipsComponent } from './relationships/relationships.component';
+import { EntitiesComponent } from './entities/entities.component';
 
 
 /**
@@ -23,7 +24,7 @@ import { RelationshipsComponent } from './relationships/relationships.component'
  */
 @NgModule({
 
-  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, FieldsComponent, LogsComponent,ProjectsComponent, RelationshipsComponent],
+  declarations: [AdminDashboardComponent, UsersComponent, WorkInProgressComponent, FieldsComponent, LogsComponent,ProjectsComponent, RelationshipsComponent, EntitiesComponent],
 
   imports: [
     CommonModule,

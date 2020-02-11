@@ -4,7 +4,7 @@ import { AdminLayoutComponent } from '../layout/admin-layout/admin-layout.compon
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { EntitiesComponent } from './entities/Entities.component';
+import { EntitiesComponent } from './entities/entities.component';
 import { FieldsComponent } from './fields/fields.component';
 import { RelationshipsComponent } from './relationships/relationships.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';

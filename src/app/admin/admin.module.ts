@@ -18,7 +18,7 @@ import { EntitiesComponent } from './entities/entities.component';
  * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
  * l'admin. Questo modulo importa AdminRoutingModule.
  * 
- * @author Vittorio Valent
+ * @author Giuseppe De Palma
  * 
  * @see AdminRoutingModule
  */

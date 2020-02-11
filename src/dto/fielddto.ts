@@ -1,11 +1,11 @@
-import { EntityDTO } from './entitydto';
+import { EntityOwnerDTO } from './entityownerdto';
 
 /**
  * @author Giuseppe De Palma
  */
 export class FieldDTO {
 
-   entity: EntityDTO ;
+   entityowner: EntityOwnerDTO ;
 
    id: number;
 

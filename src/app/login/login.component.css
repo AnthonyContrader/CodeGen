@@ -6,7 +6,7 @@
 
 
 .img {
-  background-image: url("../../assets/login.jpg");
+  background-image: url('../../assets/login.jpg');
   width: auto;
   height:  100vh;
   background-repeat:no-repeat;
@@ -14,4 +14,33 @@
   -moz-background-size:cover;
   -o-background-size:cover;
   background-color: #0C6299;
+ }
+ form{
+   margin-top: 20%;
+   background-color: transparent;
+     
+ }
+ input{
+  color: white;  
+  background-color:#1E3756;
+  opacity:0.5;
+  height: 50px;
+  border: 2px solid #2B4065;
+  border-radius: 25px;
+  font-size: medium;
+  max-width: 50%;
+ }
+ input:focus{
+   border: 3px solid white;
+   background-color:#1E3756;
+   color: white;  
+ }
+ button{
+  color: white;  
+  background-color:#3282B3;
+  height: 50px;
+  border: 2px solid #2B4065;
+  border-radius: 25px;
+  font-size: medium;
+  width: 50%;
  }

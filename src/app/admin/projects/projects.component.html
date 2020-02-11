@@ -1,3 +1,65 @@
-<p>
-  projects works!
-</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Description
+          </th>
+          <th>
+            Shipping Date
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            Project
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="name" [(ngModel)]="projecttoinsert.name">
+          </td>
+          <td>
+            <input placeholder="description" [(ngModel)]="projecttoinsert.description">
+          </td>
+          <td>
+            <input type ="date" name="shippingdate" [(ngModel)]="projecttoinsert.shippingdate">
+          </td>
+          <td>
+            <button (click)="insert(projecttoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let project of projects">
+          <td>
+            <input [(ngModel)]="project.name">
+          </td>
+          <td>
+            <input [(ngModel)]="project.description">
+          </td>
+          <td>
+            <input [(ngModel)]="project.shippingdate">
+          </td>
+          <td>
+            <button (click)=update(project)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(project)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

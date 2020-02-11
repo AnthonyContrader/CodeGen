@@ -25,7 +25,7 @@ export class ProjectService extends AbstractService<ProjectDTO>{
   }
 
   login(loginDTO: LoginDTO): Observable<ProjectDTO> {
-    return this.http.post<any>('http://localhost:8080/' + this.type + '/login', loginDTO)
+    return this.http.post<any>('http://localhost:8080/' + this.type + '/project', loginDTO)
   }
 
 }

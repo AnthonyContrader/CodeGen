@@ -3,3 +3,12 @@
   height: 100vh;
   width: 100vh;
 }
+
+
+.img {
+  background-image: url("../../assets/login.jpg");
+  width: 100%;
+  height:  100vh;
+
+  margin: 0 auto;
+ }

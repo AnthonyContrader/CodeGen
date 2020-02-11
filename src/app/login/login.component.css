@@ -7,8 +7,11 @@
 
 .img {
   background-image: url("../../assets/login.jpg");
-  width: 100%;
+  width: auto;
   height:  100vh;
-
-  margin: 0 auto;
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-color: #0C6299;
  }

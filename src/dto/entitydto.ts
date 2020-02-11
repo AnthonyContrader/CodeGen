@@ -1,7 +1,7 @@
 /**
  * @author Selenia Brunco
  */
-export class EntityOwnerDTO {
+export class EntityDTO {
 
     
  

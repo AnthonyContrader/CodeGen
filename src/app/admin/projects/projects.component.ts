@@ -9,9 +9,32 @@ import { ProjectDTO } from 'src/dto/projectdto';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  projects: ProjectDTO[];
+  projecttoinsert: ProjectDTO = new ProjectDTO();
+
+  constructor(private service: ProjectService) { }
 
   ngOnInit() {
+    this.getProjects();
   }
 
+  getProjects() {
+    this.service.getAll().subscribe(projects => this.projects = projects);
+  }
+
+  delete(project: ProjectDTO) {
+    this.service.delete(project.id).subscribe(() => this.getProjects());
+  }
+
+  update(project: ProjectDTO) {
+    this.service.update(project).subscribe(() => this.getProjects());
+  }
+
+  insert(project: ProjectDTO) {
+    this.service.insert(project).subscribe(() => this.getProjects());
+  }
+
+  clear(){
+    this.projecttoinsert = new ProjectDTO();
+  }
 }

@@ -1,6 +1,7 @@
 /**
  * @author Selenia Brunco
  */
+import { ProjectDTO } from 'src/dto/projectdto';
 export class EntityOwnerDTO {
 
     
@@ -9,7 +10,7 @@ export class EntityOwnerDTO {
  
     name: string;
 
-    project: project;
+    project: ProjectDTO;
  
     
      

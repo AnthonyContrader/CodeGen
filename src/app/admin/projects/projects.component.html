@@ -24,13 +24,13 @@
         </tr>
         <tr>
           <td>
-            <input placeholder="name" [(ngModel)]="projecttoinsert.name">
+            <input placeholder="name" [(ngModel)]="projecttoinsert.name" required>
           </td>
           <td>
-            <input placeholder="description" [(ngModel)]="projecttoinsert.description">
+            <input placeholder="description" [(ngModel)]="projecttoinsert.description" required>
           </td>
           <td>
-            <input type ="date" name="shippingdate" [(ngModel)]="projecttoinsert.shippingdate">
+            <input type ="date" name="shippingdate" [(ngModel)]="projecttoinsert.shippingdate" required>
           </td>
           <td>
             <button (click)="insert(projecttoinsert)">Insert</button>

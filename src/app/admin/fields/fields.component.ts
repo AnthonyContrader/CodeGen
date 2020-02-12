@@ -35,7 +35,4 @@ export class FieldsComponent implements OnInit {
   clear(field: FieldDTO){
     this.fieldtoinsert = new FieldDTO();
   }
-  aggiorna(field: FieldDTO){
-    
-  }
 }

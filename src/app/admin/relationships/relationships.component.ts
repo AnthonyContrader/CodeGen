@@ -20,7 +20,6 @@ export class RelationshipsComponent implements OnInit {
 
   ngOnInit() {
     this.getRelationships();
-    this.getEntities();
   }
 
   getRelationships() {

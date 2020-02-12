@@ -11,15 +11,15 @@ import { EntityOwnerService } from 'src/service/entityowner.service';
 })
 export class RelationshipsComponent implements OnInit {
 
-  private servicee : EntityOwnerService;
   entities: EntityOwnerDTO[];
   relationships: RelationshipDTO[];
   relationshiptoinsert: RelationshipDTO = new RelationshipDTO();
 
-  constructor(private service: RelationshipService) { }
+  constructor(private service: RelationshipService, private servicee : EntityOwnerService) { }
 
   ngOnInit() {
     this.getRelationships();
+    this.getEntities();
   }
 
   getRelationships() {
@@ -28,6 +28,7 @@ export class RelationshipsComponent implements OnInit {
 
   getEntities() {
     this.servicee.getAll().subscribe(entities => this.entities = entities);
+    console.log(this.entities[0]);
   }
 
   delete(relationship: RelationshipDTO) {

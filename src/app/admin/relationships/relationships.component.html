@@ -21,14 +21,12 @@
         </tr>
         <tr>
           <td>
-            <select placeholder="entityowner" [(ngModel)]="relationshiptoinsert.entityowner">
-              <div *ngFor="let entity of entities">
-                <option [value]="entity.id">{{entity.name}}</option>
-              </div>
+            <select [(ngModel)]="relationshiptoinsert.entityowner">
+              <option *ngFor="let entity of entities" [ngValue]="entity.id">{{entity.name}}</option>
             </select>
           </td>
           <td>
-            <select placeholder="entitycustomer" [(ngModel)]="relationshiptoinsert.entitycustomer">
+            <select [(ngModel)]="relationshiptoinsert.entitycustomer">
               <option value="ADMIN">ADMIN</option>
               <option value="USER">USER</option>
             </select>

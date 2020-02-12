@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RelationshipService } from 'src/service/relationship.service';
 import { RelationshipDTO } from 'src/dto/relationshipdto';
+import { EntityOwnerDTO } from 'src/dto/entityownerdto';
+import { EntityOwnerService } from 'src/service/entityowner.service';
 
 @Component({
   selector: 'app-relationships',
@@ -9,6 +11,8 @@ import { RelationshipDTO } from 'src/dto/relationshipdto';
 })
 export class RelationshipsComponent implements OnInit {
 
+  private servicee : EntityOwnerService;
+  entities: EntityOwnerDTO[];
   relationships: RelationshipDTO[];
   relationshiptoinsert: RelationshipDTO = new RelationshipDTO();
 
@@ -16,10 +20,15 @@ export class RelationshipsComponent implements OnInit {
 
   ngOnInit() {
     this.getRelationships();
+    this.getEntities();
   }
 
   getRelationships() {
     this.service.getAll().subscribe(relationships => this.relationships = relationships);
+  }
+
+  getEntities() {
+    this.servicee.getAll().subscribe(entities => this.entities = entities);
   }
 
   delete(relationship: RelationshipDTO) {

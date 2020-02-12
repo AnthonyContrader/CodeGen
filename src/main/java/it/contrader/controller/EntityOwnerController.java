@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import it.contrader.dto.EntityOwnerDTO;
-import it.contrader.dto.LoginDTO;
-import it.contrader.dto.UserDTO;
+
 import it.contrader.service.EntityOwnerService;
 
 
 @RestController
-@RequestMapping("/entity")
+@RequestMapping("/entityowner")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EntityOwnerController extends AbstractController<EntityOwnerDTO>{
 

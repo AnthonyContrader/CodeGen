@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Field {
 	
+	@NotNull
 	@ManyToOne
 	private EntityOwner entityowner;//Viene richiamato da tutte le parti
 	

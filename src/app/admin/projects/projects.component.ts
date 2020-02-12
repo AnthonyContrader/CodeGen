@@ -32,6 +32,7 @@ export class ProjectsComponent implements OnInit {
 
   insert(project: ProjectDTO) {
     this.service.insert(project).subscribe(() => this.getProjects());
+    this.clear();
   }
 
   clear(){

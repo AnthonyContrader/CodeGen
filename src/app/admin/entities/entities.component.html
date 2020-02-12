@@ -35,7 +35,7 @@
             <button (click)="clear()">Clear</button>
           </td>
         </tr>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let entity of entities">
           <td>
             <input [(ngModel)]="entity.name">
           </td>
@@ -46,7 +46,7 @@
             </select>
           </td>
           <td>
-            <button (click)=update(entity)>Save</button>
+            <button (click)="update(entity)">Save</button>
           </td>
           <td>
             <button (click)="delete(entity)">Delete</button>

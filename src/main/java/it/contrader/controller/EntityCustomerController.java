@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import it.contrader.dto.EntityCustomerDTO;
 
 @Controller
-@RequestMapping("/entity")
+@RequestMapping("/entitycustomer")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EntityCustomerController extends AbstractController<EntityCustomerDTO>{
 

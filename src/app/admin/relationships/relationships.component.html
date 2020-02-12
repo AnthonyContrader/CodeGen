@@ -22,8 +22,9 @@
         <tr>
           <td>
             <select placeholder="entityowner" [(ngModel)]="relationshiptoinsert.entityowner">
-              <option value="relationshiptoinsert.entitycustomer.getId()">relationshiptoinsert.entityowner.getName()"</option>
-              <option value="relationshiptoinsert.entityowner">USER</option>
+              <div *ngFor="let entity of entities">
+                <option [value]="entity.id">{{entity.name}}</option>
+              </div>
             </select>
           </td>
           <td>

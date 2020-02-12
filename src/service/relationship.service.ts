@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { AbstractService } from './abstractservice';
 import { RelationshipDTO } from 'src/dto/relationshipdto';
 import { HttpClient } from '@angular/common/http';
-import { LoginDTO } from 'src/dto/logindto';
-import { Observable } from 'rxjs';
 
 /**
  * I service sono decorati da @Injectable. 
@@ -17,15 +15,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectService extends AbstractService<RelationshipDTO>{
+export class RelationshipService extends AbstractService<RelationshipDTO>{
 
   constructor(http: HttpClient) {
     super(http);
     this.type = 'relationship';
-  }
-
-  login(loginDTO: LoginDTO): Observable<RelationshipDTO> {
-    return this.http.post<any>('http://localhost:8080/' + this.type + '/login', loginDTO)
   }
 
 }

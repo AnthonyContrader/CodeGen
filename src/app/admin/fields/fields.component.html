@@ -1,3 +1,73 @@
-<p>
-  fields works!
-</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Type(Lenght)
+          </th>
+          <th>
+            Associated entity
+          </th>
+          <th colspan="2">
+            Action
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="Name" [(ngModel)]="fieldtoinsert.name" >
+          </td>
+          <td>
+            <select [(ngModel)]="field.type">
+              <option [selected]="field.type===VARCHAR" value="VARCHAR">String</option>
+              <option [selected]="field.type===LONG" value="LONG">Int</option>
+              <option [selected]="field.type===DOUBLE" value="DOUBLE">Double</option>
+              <option [selected]="field.type===DATE" value="DATE">DATE</option>
+            </select><br>
+            <p>(<input type="range" [(ngModel)]="fieldtoinsert.lenght" min="1" max="255" step="1" value="50">)</p>
+          </td>
+          
+          <td>
+            <button (click)="insert(fieldtoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <!--STAMPO ELEMENTI-->
+        <tr *ngFor="let field of fields">
+          <td>
+            <input [(ngModel)]="field.name">
+          </td>
+          <td>
+            <select [(ngModel)]="field.type">
+              <option [selected]="field.type===VARCHAR" value="VARCHAR">String</option>
+              <option [selected]="field.type===LONG" value="LONG">Int</option>
+              <option [selected]="field.type===DOUBLE" value="DOUBLE">Double</option>
+              <option [selected]="field.type===DATE" value="DATE">DATE</option>
+            </select><br>
+            <p>(<input type="range" [(ngModel)]="field.lenght" min="1" max="255" step="1" value="50">)</p>
+          </td>
+          <td>
+            <input value="">
+          </td>
+          <td>
+            <button (click)=update(field)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(field)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

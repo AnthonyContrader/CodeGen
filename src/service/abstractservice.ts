@@ -1,5 +1,5 @@
 import { Service } from './service';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs'; 
 import { HttpClient } from '@angular/common/http';
 
 /**
@@ -23,7 +23,7 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
         return this.http.get<DTO[]>('http://localhost:' + this.port + '/' + this.type + '/getall');
     }
 
-    read(id: number): Observable<DTO> {
+    read(id: number): Observable<DTO> { //Ritorno del server 
         return this.http.get<DTO>('http://localhost:' + this.port + '/' + this.type + '/read?id=' + id);
     }
 

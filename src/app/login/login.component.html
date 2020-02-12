@@ -5,12 +5,24 @@
       <img src="../../assets/logo.png" alt="logo" style="margin-top: 20%;margin-bottom: -10%;">
       <form #f="ngForm">
         <div class="form-group">
-          <input class="form-control fa fa-eye" type="text" id="user" name="username" placeholder="Username" ngModel>
-        </div>
+          <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
+              
+              <input class="form-control input100 " type="text" id="user" name="username" placeholder="Username" ngModel>
+                <span class="symbol-input100"> 
+                <i class="fa fa-user"></i>
+                </span>
+              
+          </div>
+      </div>
         <div class="form-group">
-          
-          <input class="form-control fa fa-eye" type="password" id="pass" name="password" placeholder="Password" ngModel>
-          
+          <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">
+            <input class="form-control input100" type="password" id="pass" name="password" placeholder="Password" ngModel>
+                <span class="symbol-input100">
+                <i class="fa fa-lock"></i>
+              </span>
+          </div>
+            
+            
         </div>
         <button type="button" (click)="login(f)">LOGIN</button><br>
         <a type="submit" style="color: white;">Sign Up</a>

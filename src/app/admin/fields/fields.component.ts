@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { FieldDTO } from 'src/dto/fielddto';
+import { EntityOwnerDTO } from 'src/dto/entityownerdto';
 import { FieldService } from 'src/service/field.service';
+import { EntityOwnerService } from 'src/service/entityowner.service';
 /**
  * @author Dott. De Palma Giuseppe
  */
@@ -9,8 +11,10 @@ import { FieldService } from 'src/service/field.service';
   templateUrl: './fields.component.html',
   styleUrls: ['./fields.component.css']
 })
-export class FieldsComponent implements OnInit {
 
+export class FieldsComponent implements OnInit {
+  private serviceEntity : EntityOwnerService;
+  entities: EntityOwnerDTO[];
   fields: FieldDTO[];
   fieldtoinsert: FieldDTO = new FieldDTO();
 
@@ -21,6 +25,7 @@ export class FieldsComponent implements OnInit {
   }
   getFields() {
     this.service.getAll().subscribe(fields => this.fields = fields);
+    this.serviceEntity.getAll().subscribe(entities=> this.entities);
   }
   delete(field: FieldDTO){
     this.service.delete(field.id).subscribe(() => this.getFields());

@@ -12,11 +12,9 @@
           <th>
             Project
           </th>
+          
           <th>
             Edit
-          </th>
-          <th>
-            Entity
           </th>
         </tr>
         <tr>
@@ -24,10 +22,10 @@
             <input placeholder="name" [(ngModel)]="entitytoinsert.name">
           </td>
           <td>
-            <select placeholder="Project" [(ngModel)]="entitytoinsert.Project">
-              
-            </select>
+            <select placeholder="project" [(ngModel)]="entitytoinsert.project">
+              </select>
           </td>
+          
           <td>
             <button (click)="insert(entitytoinsert)">Insert</button>
           </td>
@@ -39,14 +37,12 @@
           <td>
             <input [(ngModel)]="entity.name">
           </td>
+          <td>
+            <input [(ngModel)]="entity.project">
+          </td>
          
           <td>
-            <select [(ngModel)]="entity.project">
-              
-            </select>
-          </td>
-          <td>
-            <button (click)="update(entity)">Save</button>
+            <button (click)=update(entity)>Save</button>
           </td>
           <td>
             <button (click)="delete(entity)">Delete</button>
@@ -59,3 +55,4 @@
     </div>
   </div>
 </div>
+

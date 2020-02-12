@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EntityOwnerDTO } from 'src/dto/entityownerdto';
 import { EntityOwnerService } from 'src/service/entityowner.service';
+import { EntityCustomerDTO } from 'src/dto/entitycustomerdto';
+import { EntityCustomerService } from 'src/service/entitycustomer.service';
 
 @Component({
   selector: 'app-entities',
@@ -10,7 +12,9 @@ import { EntityOwnerService } from 'src/service/entityowner.service';
 export class EntitiesComponent implements OnInit {
 
   entities: EntityOwnerDTO[];
+ 
   entitytoinsert: EntityOwnerDTO = new EntityOwnerDTO();
+
 
   constructor(private service: EntityOwnerService) { }
 
@@ -19,7 +23,7 @@ export class EntitiesComponent implements OnInit {
   }
 
   getEntities() {
-    this.service.getAll().subscribe(users => this.entities = this.entities);
+    this.service.getAll().subscribe(entities => this.entities = this.entities);
   }
 
   delete(entity: EntityOwnerDTO) {
@@ -37,4 +41,7 @@ export class EntitiesComponent implements OnInit {
   clear(){
     this.entitytoinsert = new EntityOwnerDTO();
   }
-}
+  
+  }
+
+

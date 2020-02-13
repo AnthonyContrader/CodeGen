@@ -21,7 +21,6 @@ export class RelationshipsComponent implements OnInit {
   constructor(private service: RelationshipService, private serviceeo: EntityOwnerService, private serviceec: EntityCustomerService) { }
 
   ngOnInit() {
-    console.log(this.getRelationships());
     this.getRelationships();
     this.getEntities();
   }

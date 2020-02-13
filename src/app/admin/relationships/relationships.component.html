@@ -22,12 +22,12 @@
         <tr>
           <td>
             <select [(ngModel)]="relationshiptoinsert.entityowner">
-              <option *ngFor="let entity of entities" [ngValue]="entity.id">{{entity.name}}</option>
+              <option *ngFor="let entity of entities" [ngValue]="entity">{{entity.name}}</option>
             </select>
           </td>
           <td>
             <select [(ngModel)]="relationshiptoinsert.entitycustomer">
-              <option *ngFor="let entitysc of entitiesc" [ngValue]="entitysc.id">{{entitysc.name}}</option>
+              <option *ngFor="let entitysc of entitiesc" [ngValue]="entitysc">{{entitysc.name}}</option>
             </select>
           </td>
           <td>
@@ -40,12 +40,12 @@
         <tr *ngFor="let relationship of relationships">
           <td>
             <select [(ngModel)]="relationship.entityowner">
-                <option *ngFor="let relationship of relationships" [ngValue]="relationship.entityowner.id">{{relationship.entityowner.name}}</option>
+                <option *ngFor="let entity of entities " [ngValue]="entity">{{entity.name}}</option>
             </select>
           </td>
           <td>
             <select [(ngModel)]="relationship.entitycustomer">
-              <option *ngFor="let relationship of relationships" [ngValue]="relationship.entitycustomer.id">{{relationship.entitycustomer.name}}</option>
+              <option *ngFor="let entitysc of entitiesc" [ngValue]="entitysc">{{entitysc.name}}</option>
             </select>
           </td>
           <td>

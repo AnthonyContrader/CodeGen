@@ -13,9 +13,6 @@ import { EntityCustomerService } from 'src/service/entitycustomer.service';
 })
 export class RelationshipsComponent implements OnInit {
 
-  alert() {
-    window.alert("Hello! I am an alert box!!");
-  }
   entitiesc: EntityCustomerDTO[];
   entities: EntityOwnerDTO[];
   relationships: RelationshipDTO[];
@@ -47,12 +44,17 @@ export class RelationshipsComponent implements OnInit {
   }
 
   insert(relationship: RelationshipDTO) {
-
+    if (relationship.entityowner.id!=relationship.entitycustomer.id)
     this.service.insert(relationship).subscribe(() => this.getRelationships());
+    else this.alert();
     this.clear();
   }
 
   clear(){
     this.relationshiptoinsert = new RelationshipDTO();
+  }
+
+  alert() {
+    window.alert("Hello! I am an alert box!!");
   }
 }

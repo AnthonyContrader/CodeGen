@@ -39,9 +39,8 @@
         </tr>
         <tr *ngFor="let relationship of relationships">
           <td>
-            <select [(ngModel)]="relationship.entityowner">
-                <option *ngFor="let entity of entities " [ngValue]="entity">{{entity.name}}</option>
-            </select>
+            <input type="text" readonly value="{{relationship.entityowner.name}}" style="cursor: none;">
+         
           </td>
           <td>
             <select [(ngModel)]="relationship.entitycustomer">

@@ -35,6 +35,11 @@
           <td>
             <input type="range" [(ngModel)]="fieldtoinsert.lenght" min="1" max="255" step="1" value="50">
           </td>
+          <td>            
+            <select [(ngModel)]="fieldtoinsert.entityowner" >
+              <option *ngFor="let entity of entities" [ngValue]="entity.id">{{entity.name}}</option>
+            </select>
+          </td>
           <td>
             <button (click)="insert(fieldtoinsert)">Insert</button>
           </td>
@@ -43,12 +48,12 @@
           </td>
         </tr>
         <!--STAMPO ELEMENTI-->
-        <tr *ngFor="let field of fields">
+        <tr *ngFor="let field of fields; let i = index">
           <td>
             <input [(ngModel)]="field.name">
           </td>
           <td>
-            <select [(ngModel)]="field.type">
+            <select [(ngModel)]="field.type" id="select1">
               <option [selected]="field.type===VARCHAR" value="VARCHAR">String</option>
               <option [selected]="field.type===LONG" value="LONG">Int</option>
               <option [selected]="field.type===DOUBLE" value="DOUBLE">Double</option>
@@ -59,7 +64,13 @@
               <input type="range" [(ngModel)]="field.lenght" min="1" max="255" step="1" >
             </td>
           <td>
-            <input [(ngModel)]="field.entityowner.name">
+            <div class="dropdown">
+              <input class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+              value="{{this.field.id }}" id="x-{{i}}">    
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button class="dropdown-item" *ngFor="let x of entities" (click)="setField(x.id, i)">{{x.name}}</button>
+              </div>
+            </div>
           </td>
           <td>
             <button (click)=update(field)>Save</button>

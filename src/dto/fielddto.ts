@@ -5,7 +5,7 @@ import { EntityOwnerDTO } from './entityownerdto';
  */
 export class FieldDTO {
 
-   entityowner: EntityOwnerDTO ;
+   entityowner: EntityOwnerDTO ; //Chiamato nell'HTML
 
    id: number;
 

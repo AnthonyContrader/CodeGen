@@ -1,8 +1,9 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, IterableDiffers } from '@angular/core';
 import { FieldDTO } from 'src/dto/fielddto';
 import { EntityOwnerDTO } from 'src/dto/entityownerdto';
 import { FieldService } from 'src/service/field.service';
 import { EntityOwnerService } from 'src/service/entityowner.service';
+import { ProjectDTO } from 'src/dto/projectdto';
 /**
  * @author Dott. De Palma Giuseppe
  */
@@ -13,15 +14,29 @@ import { EntityOwnerService } from 'src/service/entityowner.service';
 })
 
 export class FieldsComponent implements OnInit {
-  private serviceEntity : EntityOwnerService;
-  entities: EntityOwnerDTO[];
-  fields: FieldDTO[];
+  
+  sample = new ProjectDTO();  
+  entities : EntityOwnerDTO[] ;   //La lista delle entità
+  
+  fields: Array<FieldDTO>;
   fieldtoinsert: FieldDTO = new FieldDTO();
 
-  constructor(private service: FieldService) { }
+  constructor(private service: FieldService, private serviceEntity: EntityOwnerService, private iterableDiffers: IterableDiffers) { 
+    this.entities=[{ id: 0, name: '', project: this.sample }]
+   } //I servicees si inizializzano nel cstruttore
 
   ngOnInit() {
     this.getFields();
+    this.getEntities();
+  }
+
+  setField(id : number, index : number){
+    this.fields[index].id = id;
+  }
+
+  getEntities() {
+    this.serviceEntity.getAll().subscribe(entities => this.entities = entities);
+    console.log(this.entities[0]);
   }
   getFields() {
     this.service.getAll().subscribe(fields => this.fields = fields);

@@ -7,7 +7,6 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
-import { AlertComponent } from './alert/alert.component';
 
 
 /** 
@@ -20,7 +19,6 @@ import { AlertComponent } from './alert/alert.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AlertComponent
   ],
   imports: [
     BrowserModule,

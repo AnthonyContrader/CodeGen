@@ -55,6 +55,6 @@ export class RelationshipsComponent implements OnInit {
   }
 
   alert() {
-    window.alert("Hello! I am an alert box!!");
+    window.alert("You can't link same entities between them! Please retry.");
   }
 }

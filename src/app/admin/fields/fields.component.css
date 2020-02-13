@@ -38,9 +38,11 @@ input, select{
 }
 
 input:hover,  input:active, input:focus{
-    border: 2px solid crimson;
+	border: 2px solid crimson;
+	cursor: pointer;
 }
 
 button:hover{
-    background-color: crimson;
+	background-color: crimson;
+	cursor: pointer;
 }

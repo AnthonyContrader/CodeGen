@@ -1,0 +1,3 @@
+function Mymethod(){
+    alert("Ciao");
+}

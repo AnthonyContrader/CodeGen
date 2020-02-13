@@ -37,7 +37,7 @@
           </td>
           <td>            
             <select [(ngModel)]="fieldtoinsert.entityowner" >
-              <option *ngFor="let entity of entities" [ngValue]="entity.id">{{entity.name}}</option>
+              <option *ngFor="let entity of entities" [ngValue]="entity">{{entity.name}}</option>
             </select>
           </td>
           <td>
@@ -64,25 +64,18 @@
               <input type="range" [(ngModel)]="field.lenght" min="1" max="255" step="1" >
             </td>
           <td>
-            <div class="dropdown">
-              <input class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
-              value="{{this.field.id }}" id="x-{{i}}">    
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <button class="dropdown-item" *ngFor="let x of entities" (click)="setField(x.id, i)">{{x.name}}</button>
-              </div>
-            </div>
+            <input value="{{field.entityowner.name}}" type="text" readonly style="cursor: not-allowed;">
           </td>
-          <td>
-            <button (click)=update(field)>Save</button>
-          </td>
-          <td>
-            <button (click)="delete(field)">Delete</button>
+          <td >
+            <button onclick="Mymethod()">dasdsa</button>
+            <button (click)="update(field)" >Update</button>
+        </td>
+          <td >
+              <button (click)="delete(field)" >Delete</button>
           </td>
         </tr>
       </table>
     </div>
-    <div class="col-md-1">
 
-    </div>
   </div>
 </div>

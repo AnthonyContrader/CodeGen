@@ -4,6 +4,8 @@ import { EntityOwnerDTO } from 'src/dto/entityownerdto';
 import { FieldService } from 'src/service/field.service';
 import { EntityOwnerService } from 'src/service/entityowner.service';
 import { ProjectDTO } from 'src/dto/projectdto';
+declare function Mymethod(): any;
+
 /**
  * @author Dott. De Palma Giuseppe
  */
@@ -28,6 +30,7 @@ export class FieldsComponent implements OnInit {
   ngOnInit() {
     this.getFields();
     this.getEntities();
+    Mymethod();
   }
 
   setField(id : number, index : number){
@@ -48,6 +51,7 @@ export class FieldsComponent implements OnInit {
 
   insert(field: FieldDTO){
     this.service.insert(field).subscribe(() => this.getFields());
+    this.fieldtoinsert = new FieldDTO();
   }
   update(field: FieldDTO){
     this.service.update(field).subscribe(() => this.getFields());

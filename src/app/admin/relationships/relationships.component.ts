@@ -3,6 +3,8 @@ import { RelationshipService } from 'src/service/relationship.service';
 import { RelationshipDTO } from 'src/dto/relationshipdto';
 import { EntityOwnerDTO } from 'src/dto/entityownerdto';
 import { EntityOwnerService } from 'src/service/entityowner.service';
+import { EntityCustomerDTO } from 'src/dto/entitycustomerdto';
+import { EntityCustomerService } from 'src/service/entitycustomer.service';
 
 @Component({
   selector: 'app-relationships',
@@ -11,13 +13,15 @@ import { EntityOwnerService } from 'src/service/entityowner.service';
 })
 export class RelationshipsComponent implements OnInit {
 
+  entitiesc: EntityCustomerDTO[];
   entities: EntityOwnerDTO[];
   relationships: RelationshipDTO[];
   relationshiptoinsert: RelationshipDTO = new RelationshipDTO();
 
-  constructor(private service: RelationshipService, private servicee : EntityOwnerService) { }
+  constructor(private service: RelationshipService, private serviceeo: EntityOwnerService, private serviceec: EntityCustomerService) { }
 
   ngOnInit() {
+    console.log(this.getRelationships());
     this.getRelationships();
     this.getEntities();
   }
@@ -27,8 +31,8 @@ export class RelationshipsComponent implements OnInit {
   }
 
   getEntities() {
-    this.servicee.getAll().subscribe(entities => this.entities = entities);
-    console.log(this.entities[0]);
+    this.serviceeo.getAll().subscribe(entities => this.entities = entities);
+    this.serviceec.getAll().subscribe(entitiesc => this.entitiesc = entitiesc);
   }
 
   delete(relationship: RelationshipDTO) {

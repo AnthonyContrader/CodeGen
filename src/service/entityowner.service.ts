@@ -24,8 +24,4 @@ export class EntityOwnerService extends AbstractService<EntityOwnerDTO>{
     this.type = 'entity';
   }
 
-  login(loginDTO: LoginDTO): Observable<EntityOwnerDTO> {
-    return this.http.post<any>('http://localhost:8080/' + this.type + '/login', loginDTO)
-  }
-
 }

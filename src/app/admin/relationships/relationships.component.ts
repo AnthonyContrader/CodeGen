@@ -13,10 +13,14 @@ import { EntityCustomerService } from 'src/service/entitycustomer.service';
 })
 export class RelationshipsComponent implements OnInit {
 
+  alert() {
+    window.alert("Hello! I am an alert box!!");
+  }
   entitiesc: EntityCustomerDTO[];
   entities: EntityOwnerDTO[];
   relationships: RelationshipDTO[];
   relationshiptoinsert: RelationshipDTO = new RelationshipDTO();
+
 
   constructor(private service: RelationshipService, private serviceeo: EntityOwnerService, private serviceec: EntityCustomerService) { }
 
@@ -43,6 +47,7 @@ export class RelationshipsComponent implements OnInit {
   }
 
   insert(relationship: RelationshipDTO) {
+
     this.service.insert(relationship).subscribe(() => this.getRelationships());
     this.clear();
   }

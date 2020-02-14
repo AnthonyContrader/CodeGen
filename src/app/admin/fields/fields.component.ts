@@ -4,7 +4,6 @@ import { EntityOwnerDTO } from 'src/dto/entityownerdto';
 import { FieldService } from 'src/service/field.service';
 import { EntityOwnerService } from 'src/service/entityowner.service';
 import { ProjectDTO } from 'src/dto/projectdto';
-declare function Mymethod(): any;
 
 /**
  * @author Dott. De Palma Giuseppe
@@ -25,12 +24,17 @@ export class FieldsComponent implements OnInit {
 
   constructor(private service: FieldService, private serviceEntity: EntityOwnerService, private iterableDiffers: IterableDiffers) { 
     this.entities=[{ id: 0, name: '', project: this.sample }]
-   } //I servicees si inizializzano nel cstruttore
+   } //I services si inizializzano nel cstruttore
 
+prova_metodo(stringa1:string, stringa2:string){
+    var a= document.getElementById(stringa1).getAttribute("value");
+    var b= document.getElementById(stringa2).getAttribute("value");
+    alert(a+b);
+}
   ngOnInit() {
     this.getFields();
     this.getEntities();
-    Mymethod();
+    this.prova_metodo("","");
   }
 
   setField(id : number, index : number){

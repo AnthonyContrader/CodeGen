@@ -18,6 +18,7 @@ export class RelationshipsComponent implements OnInit {
   relationships: RelationshipDTO[];
   relationshiptoinsert: RelationshipDTO = new RelationshipDTO();
 
+
   constructor(private service: RelationshipService, private serviceeo: EntityOwnerService, private serviceec: EntityCustomerService) { }
 
   ngOnInit() {
@@ -43,11 +44,17 @@ export class RelationshipsComponent implements OnInit {
   }
 
   insert(relationship: RelationshipDTO) {
+    if (relationship.entityowner.id!=relationship.entitycustomer.id)
     this.service.insert(relationship).subscribe(() => this.getRelationships());
+    else this.alert();
     this.clear();
   }
 
   clear(){
     this.relationshiptoinsert = new RelationshipDTO();
+  }
+
+  alert() {
+    window.alert("You can't link same entities between them! Please retry.");
   }
 }

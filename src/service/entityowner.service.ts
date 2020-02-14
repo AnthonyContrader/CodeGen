@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { AbstractService } from './abstractservice';
 import { EntityOwnerDTO } from 'src/dto/entityownerdto';
 import { HttpClient } from '@angular/common/http';
-import { LoginDTO } from 'src/dto/logindto';
-import { Observable } from 'rxjs';
+
 
 /**
  * I service sono decorati da @Injectable. 

@@ -39,16 +39,10 @@
         </tr>
         <tr *ngFor="let relationship of relationships">
           <td>
-            <input type="text" readonly value="{{relationship.entityowner.name}}" style="cursor: none;">
-         
+            <input type="text" readonly value="{{relationship.entityowner.name}}" style="cursor: not-allowed;">
           </td>
           <td>
-            <select [(ngModel)]="relationship.entitycustomer">
-              <option *ngFor="let entitysc of entitiesc" [ngValue]="entitysc">{{entitysc.name}}</option>
-            </select>
-          </td>
-          <td>
-            <button (click)=update(relationship)>Save</button>
+            <input type="text" readonly value="{{relationship.entitycustomer.name}}" style="cursor: not-allowed;">
           </td>
           <td>
             <button (click)="delete(relationship)">Delete</button>

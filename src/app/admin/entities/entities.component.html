@@ -25,8 +25,9 @@
             <input placeholder="name" [(ngModel)]="entitytoinsert.name">
           </td>
           <td>
-            <select placeholder="project" [(ngModel)]="entitytoinsert.project">
-              </select>
+            <select [(ngModel)]="entitytoinsert.project">
+              <option *ngFor="let project of projects" [ngValue]="project">{{project.name}}</option>
+            </select>
           </td>
           
           <td>
@@ -41,7 +42,7 @@
             <input [(ngModel)]="entity.name">
           </td>
           <td>
-            <input [(ngModel)]="entity.project">
+            <input type="text" readonly value="{{entity.project.name}}" style="cursor: not-allowed;">
           </td>
          
           <td>

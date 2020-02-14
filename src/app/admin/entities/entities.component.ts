@@ -16,6 +16,7 @@ export class EntitiesComponent implements OnInit {
 
   entities: EntityOwnerDTO[];
   entitie2s:EntityCustomerDTO[];
+  
   entitytoinsert: EntityOwnerDTO = new EntityOwnerDTO();
   entity2toinsert : EntityCustomerDTO = new EntityCustomerDTO();
   
@@ -32,9 +33,11 @@ export class EntitiesComponent implements OnInit {
 
   getEntities() {
     this.service.getAll().subscribe(entities => this.entities = entities);
+    
   }
   getEntitie2s() {
     this.servicee.getAll().subscribe(entitie2s => this.entitie2s = entitie2s);
+    
   }
   getProjects() {
     this.servicep.getAll().subscribe(projects => this.projects = projects);

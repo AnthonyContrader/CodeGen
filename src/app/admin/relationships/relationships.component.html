@@ -12,11 +12,8 @@
           <th>
             Entity2
           </th>
-          <th>
-            Edit
-          </th>
-          <th>
-            Relationship
+          <th colspan="2">
+            Action
           </th>
         </tr>
         <tr>
@@ -44,7 +41,7 @@
           <td>
             <input type="text" readonly value="{{relationship.entitycustomer.name}}" style="cursor: not-allowed;">
           </td>
-          <td>
+          <td colspan="2">
             <button (click)="delete(relationship)">Delete</button>
           </td>
         </tr>

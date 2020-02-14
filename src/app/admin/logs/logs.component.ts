@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LogService } from 'src/service/log.service';
+import { LogDTO } from 'src/dto/logdto';
 
 @Component({
   selector: 'app-logs',
@@ -7,20 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : LogService) { }
+  logtoinsert: LogDTO = new LogDTO();
+  logs: LogDTO[];
+  userSession= sessionStorage.getItem("User_session");
 
   ngOnInit() {
+    this.getLogs();
   }
 
   getLogs() {
-    this.service.getAll().subscribe(fields => this.logs = logs);
+    this.service.getAll().subscribe(logs => this.logs = logs);
   }
 
   insert(log: LogDTO){
-    this.service.insert(field).subscribe(() => this.getLogs());
-    this.logtoinsert = new LogDTO();
+    log.user=this.userSession;
+    log.moment="";    
+    this.service.insert(log).subscribe(() => this.getLogs());
   }
   clear(log: LogDTO){
     this.logtoinsert = new LogDTO();
   }
+  
 }

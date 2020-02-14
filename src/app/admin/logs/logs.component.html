@@ -1,3 +1,37 @@
-<p>
-  logs works!
-</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Action
+          </th>
+          <th>
+            User
+          </th>
+          <th>
+            Moment
+          </th>
+        </tr>
+        
+        <tr *ngFor="let log of logs">
+          <td>
+            <input type="text" readonly value="{{log.action}}"  >
+          </td>
+          <td>
+            <input type="text" readonly value="{{log.user}}" >
+          </td>
+          <td>
+            <input type="text" readonly value="{{log.moment}}" >
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { EntitiesComponent } from './entities/entities.component';
 import { FieldsComponent } from './fields/fields.component';
 import { RelationshipsComponent } from './relationships/relationships.component';
+import { LogsComponent } from './logs/logs.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
 /**
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path: 'entities', component: EntitiesComponent},
     { path: 'fields', component: FieldsComponent},
     { path: 'relationships', component: RelationshipsComponent},
+    { path: 'logs', component: LogsComponent},
 
     { path: 'work-in-progress', component: WorkInProgressComponent}
   ]}

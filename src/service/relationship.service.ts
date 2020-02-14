@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
  * Qui trovate, oltre ai metodi ereditati dall'Abstract,
  *  il metodo per il login (in mirror con il backend).
  * 
- * @author Vittorio Valent
+ * @author Salvatore Petrianni
  * 
  * @see AbstractService
  */

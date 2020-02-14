@@ -1,5 +1,3 @@
-import { EntityOwnerDTO } from './entityownerdto';
-
 /**
  * @author Giuseppe De Palma
  */
@@ -11,7 +9,7 @@ export class LogDTO {
 
    action: string;
 
-   moment: string;
+   moment: Date;
 	
 	
 }

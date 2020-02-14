@@ -12,7 +12,6 @@ export class LogsComponent implements OnInit {
   constructor(private service : LogService) { }
   logtoinsert: LogDTO = new LogDTO();
   logs: LogDTO[];
-  userSession= sessionStorage.getItem("User_session");
 
   ngOnInit() {
     this.getLogs();
@@ -23,12 +22,8 @@ export class LogsComponent implements OnInit {
   }
 
   insert(log: LogDTO){
-    log.user=this.userSession;
-    log.moment="";    
+    
     this.service.insert(log).subscribe(() => this.getLogs());
-  }
-  clear(log: LogDTO){
-    this.logtoinsert = new LogDTO();
   }
   
 }

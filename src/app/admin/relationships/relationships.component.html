@@ -34,7 +34,7 @@
             <button (click)="clear()">Clear</button>
           </td>
         </tr>
-        <tr *ngFor="let relationship of relationships">
+        <tr class="trows"*ngFor="let relationship of relationships">
           <td>
             <input type="text" readonly value="{{relationship.entityowner.name}}" style="cursor: not-allowed;">
           </td>

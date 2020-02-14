@@ -46,3 +46,7 @@ input:hover,  input:active, input:focus{
 button:hover{
     background-color: crimson;
 }
+
+.trows{
+    background-color: rgb(12, 136, 238);
+}

@@ -19,13 +19,13 @@
         
         <tr *ngFor="let log of logs">
           <td>
-            <input type="text" readonly value="{{log.action}}"  >
+            <input type="text" readonly value="{{log.action}}" style="cursor: not-allowed;">
           </td>
           <td>
-            <input type="text" readonly value="{{log.user}}" >
+            <input type="text" readonly value="{{log.user}}" style="cursor: not-allowed;">
           </td>
           <td>
-            <input type="text" readonly value="{{log.moment}}" >
+            <input type="text" readonly value="{{log.moment}}" style="cursor: not-allowed;">
           </td>
         </tr>
       </table>

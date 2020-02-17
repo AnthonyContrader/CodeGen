@@ -5,6 +5,8 @@ import { ProjectDTO } from 'src/dto/projectdto';
 import { ProjectService } from 'src/service/project.service';
 import { EntityCustomerDTO } from 'src/dto/entitycustomerdto';
 import { EntityCustomerService } from 'src/service/entitycustomer.service';
+import { LogDTO } from 'src/dto/logdto';
+import { LogService } from 'src/service/log.service';
 
 
 @Component({
@@ -21,8 +23,9 @@ export class EntitiesComponent implements OnInit {
   entity2toinsert : EntityCustomerDTO = new EntityCustomerDTO();
   
   projects: ProjectDTO[];
+  logtoinsert: LogDTO = new LogDTO();
 
-  constructor(private service: EntityOwnerService, private servicep:ProjectService, private servicee:EntityCustomerService) { }
+  constructor(private service: EntityOwnerService, private servicep:ProjectService, private servicee:EntityCustomerService, private servicelog: LogService) { }
 
   ngOnInit() {
     this.getEntities();
@@ -33,6 +36,7 @@ export class EntitiesComponent implements OnInit {
 
   getEntities() {
     this.service.getAll().subscribe(entities => this.entities = entities);
+   
     
   }
   getEntitie2s() {
@@ -41,23 +45,34 @@ export class EntitiesComponent implements OnInit {
   }
   getProjects() {
     this.servicep.getAll().subscribe(projects => this.projects = projects);
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.logtoinsert.action="SHOW ENTITY";
+    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
   }
 
   delete(entity: EntityOwnerDTO,entity2: EntityCustomerDTO) {
     this.service.delete(entity.id).subscribe(() => this.getEntities());
     this.servicee.delete(entity.id).subscribe(()=> this.getEntitie2s());
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.logtoinsert.action="DELETE ENTITY";
+    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
   }
 
   update(entity: EntityOwnerDTO,entity2: EntityCustomerDTO) {
     this.service.update(entity).subscribe(() => this.getEntities());
     this.servicee.update(entity).subscribe(()=> this.getEntitie2s());
-    
-  }
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.logtoinsert.action="UPDATE ENTITY";
+    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    }
 
   insert(entity: EntityOwnerDTO) {
 
     this.service.insert(entity).subscribe(() => this.getEntities());
     this.servicee.insert(entity).subscribe(() => this.getEntitie2s());
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.logtoinsert.action="INSERT ENTITY";
+    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
     this.clear();
   }
 
@@ -66,6 +81,6 @@ export class EntitiesComponent implements OnInit {
     this.entity2toinsert = new EntityCustomerDTO();
   }
   
-  }
+}
 
 

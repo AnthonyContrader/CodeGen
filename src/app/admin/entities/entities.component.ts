@@ -24,7 +24,7 @@ export class EntitiesComponent implements OnInit {
   
   projects: ProjectDTO[];
   logtoinsert: LogDTO = new LogDTO();
-  date: Date = new Date();
+ 
 
   constructor(private service: EntityOwnerService, private servicep:ProjectService, private servicee:EntityCustomerService, private servicelog: LogService) { }
 
@@ -49,6 +49,7 @@ export class EntitiesComponent implements OnInit {
     this.InsertLog();
     this.logtoinsert.action="SHOW ENTITY";
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.OrologioScorrevole();
     
   }
 
@@ -58,6 +59,7 @@ export class EntitiesComponent implements OnInit {
     this.InsertLog();
     this.logtoinsert.action="DELETE ENTITY";
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.OrologioScorrevole();
   }
 
   update(entity: EntityOwnerDTO, entity2: EntityCustomerDTO) {
@@ -66,6 +68,7 @@ export class EntitiesComponent implements OnInit {
     this.InsertLog();
     this.logtoinsert.action="UPDATE ENTITY";
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.OrologioScorrevole();
     }
 
   insert(entity: EntityOwnerDTO) {
@@ -75,6 +78,7 @@ export class EntitiesComponent implements OnInit {
     this.InsertLog();
     this.logtoinsert.action="INSERT ENTITY";
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.OrologioScorrevole();
     this.clear();
   }
 
@@ -84,10 +88,18 @@ export class EntitiesComponent implements OnInit {
   }
   InsertLog(){
     this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;  
-    this.logtoinsert.moment = this.date; 
    
-  }
+   }
+    OrologioScorrevole()
+{
+    var data = new Date();
+    var hh = data.getHours();
+    var mm = data.getMinutes();
+    var ss = data.getSeconds();
+    var ora = hh + ":" + mm + ":" + ss;
+    document.getElementById("orologio").innerText = ora;
+    window.setTimeout("OrologioScorrevole()", 1000);
   
 }
 
-
+}

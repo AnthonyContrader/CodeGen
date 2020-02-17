@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LogService } from 'src/service/log.service';
 import { LogDTO } from 'src/dto/logdto';
-import { PRova} from 'src/assets/js/java.js';
-declare function FormatDate():any ;
+
+declare function FormateDate() : any;
 
 @Component({
   selector: 'app-logs',
@@ -18,7 +18,7 @@ export class LogsComponent implements OnInit {
   ngOnInit() {
 
     this.getLogs();
-     FormatDate();
+     FormateDate();
   }
 
   getLogs() {

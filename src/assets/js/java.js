@@ -1,4 +1,4 @@
-function FormatDate(){
+ function FormatDate(){
     var i=0
     while(document.getElementById(i) != null){
       var temp = document.getElementById(i).value;

@@ -14,6 +14,7 @@ export class ProjectsComponent implements OnInit {
   projects: ProjectDTO[];
   projecttoinsert: ProjectDTO = new ProjectDTO();
   logtoinsert: LogDTO = new LogDTO();
+  date: Date = new Date();
 
   constructor(private service: ProjectService, private servicelog: LogService) { }
 
@@ -25,6 +26,7 @@ export class ProjectsComponent implements OnInit {
     this.service.getAll().subscribe(projects => this.projects = projects);
     this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
     this.logtoinsert.action="SHOW PROJECT";
+    this.logtoinsert.moment = this.date;
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
   }
 
@@ -32,6 +34,7 @@ export class ProjectsComponent implements OnInit {
     this.service.delete(project.id).subscribe(() => this.getProjects());
     this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
     this.logtoinsert.action="DELETE PROJECT";
+    this.logtoinsert.moment = this.date;
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
   }
 
@@ -39,6 +42,7 @@ export class ProjectsComponent implements OnInit {
     this.service.update(project).subscribe(() => this.getProjects());
     this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
     this.logtoinsert.action="UPDATE PROJECT";
+    this.logtoinsert.moment = this.date;
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
   }
 
@@ -46,6 +50,7 @@ export class ProjectsComponent implements OnInit {
     this.service.insert(project).subscribe(() => this.getProjects());
     this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
     this.logtoinsert.action="INSERT PROJECT";
+    this.logtoinsert.moment = this.date;
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
     this.clear();
   }

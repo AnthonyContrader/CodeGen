@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogService } from 'src/service/log.service';
 import { LogDTO } from 'src/dto/logdto';
+import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-logs',
@@ -15,16 +16,17 @@ export class LogsComponent implements OnInit {
 
   ngOnInit() {
     this.getLogs();
-    this.setFormat(this.logs);
+    //this.setFormat();
   }
 
   getLogs() {
-    this.setFormat(this.logs);
+  //  this.setFormat();
     this.service.getAll().subscribe(logs => this.logs = logs);
   }
-  setFormat(log:LogDTO[]){
-    alert(log);
-    return log;
+  setFormat(){
+    var temp="";
+    alert(temp);
+    return temp;
   }
 
   insert(log: LogDTO){

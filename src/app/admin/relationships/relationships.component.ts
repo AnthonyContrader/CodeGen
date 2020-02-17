@@ -38,24 +38,36 @@ export class RelationshipsComponent implements OnInit {
   getEntities() {
     this.serviceeo.getAll().subscribe(entities => this.entities = entities);
     this.serviceec.getAll().subscribe(entitiesc => this.entitiesc = entitiesc);
-    this.InsertLog("SHOW RELATIONSHIP"); 
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.logtoinsert.moment = this.date;
+    this.logtoinsert.action="SHOW RELATIONSHIP";
+    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
   }
 
   delete(relationship: RelationshipDTO) {
     this.service.delete(relationship.id).subscribe(() => this.getRelationships());
-    this.InsertLog("DELETE RELATIONSHIP"); 
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.logtoinsert.action="DELETE RELATIONSHIP";
+   
+    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
   }
 
   update(relationship: RelationshipDTO) {
     this.service.update(relationship).subscribe(() => this.getRelationships());
-    this.InsertLog("UPDATE RELATIONSHIP"); 
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.logtoinsert.action="UPDATE RELATIONSHIP";
+    this.logtoinsert.moment = this.date;
+    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
   }
 
   insert(relationship: RelationshipDTO) {
     if (relationship.entityowner.id!=relationship.entitycustomer.id)
     {
     this.service.insert(relationship).subscribe(() => this.getRelationships());
-    this.InsertLog("INSERT RELATIONSHIP"); 
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;  
+    this.logtoinsert.moment = this.date; 
+    this.logtoinsert.action="INSERT RELATIONSHIP";
+    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
     }
     else this.alert();
     this.clear();
@@ -67,14 +79,5 @@ export class RelationshipsComponent implements OnInit {
 
   alert() {
     window.alert("You can't link same entities between them! Please retry.");
-  }
-
-  InsertLog(op: string){
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.action=op;
-    var inst = new Date();
-    inst.setHours ( inst.getHours( )+ 1);
-    this.logtoinsert.moment =new Date(inst);
-    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll()); 
   }
 }

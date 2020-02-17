@@ -11,3 +11,6 @@
       i++;
     }
   }
+  $(function(){
+    alert("CIAO");
+  } );

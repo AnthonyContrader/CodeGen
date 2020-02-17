@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LogService } from 'src/service/log.service';
 import { LogDTO } from 'src/dto/logdto';
 
-declare function FormateDate() : any;
+declare const FormatDate: any;
+
 
 @Component({
   selector: 'app-logs',
@@ -16,11 +17,13 @@ export class LogsComponent implements OnInit {
   logs: LogDTO[];
 
   ngOnInit() {
-
     this.getLogs();
-     FormateDate();
+    
   }
 
+  onLoad(){
+    FormatDate();
+  }
   getLogs() {
     this.service.getAll().subscribe(logs => this.logs = logs);
   }
@@ -30,19 +33,6 @@ export class LogsComponent implements OnInit {
     this.service.insert(log).subscribe(() => this.getLogs());
   }
   
-  setFormat() {
-    var i=0;
-      while(document.getElementById(""+i) != null){
-        var temp = document.getElementById(""+i).getAttribute("value");
-        var data = temp.substring(0, 10);
-        var ora = temp.substring(11, 19);
-        var date = data.split("-");
-        var data=date[2]+"/"+date[1]+"/"+date[0];
-
-        document.getElementById(""+i).setAttribute("value",data+" "+ora);
-        i++;
-      }
-  }
 
   
 }

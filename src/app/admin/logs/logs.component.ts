@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LogService } from 'src/service/log.service';
 import { LogDTO } from 'src/dto/logdto';
-import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
+import { PRova} from 'src/assets/js/java.js';
+declare function FormatDate():any ;
 
 @Component({
   selector: 'app-logs',
@@ -15,23 +16,34 @@ export class LogsComponent implements OnInit {
   logs: LogDTO[];
 
   ngOnInit() {
+
     this.getLogs();
-    //this.setFormat();
+     FormatDate();
   }
 
   getLogs() {
-  //  this.setFormat();
     this.service.getAll().subscribe(logs => this.logs = logs);
   }
-  setFormat(){
-    var temp="";
-    alert(temp);
-    return temp;
-  }
-
+  
   insert(log: LogDTO){
     
     this.service.insert(log).subscribe(() => this.getLogs());
   }
   
+  setFormat() {
+    var i=0;
+      while(document.getElementById(""+i) != null){
+        var temp = document.getElementById(""+i).getAttribute("value");
+        var data = temp.substring(0, 10);
+        var ora = temp.substring(11, 19);
+        var date = data.split("-");
+        var data=date[2]+"/"+date[1]+"/"+date[0];
+
+        document.getElementById(""+i).setAttribute("value",data+" "+ora);
+        i++;
+      }
+  }
+
+  
 }
+

@@ -13,13 +13,6 @@ import lombok.NoArgsConstructor;
 
 public class LogDTO {
 
-	public LogDTO(String uSER2, String mode, Date date) {
-
-		this.user=uSER2;
-		this.action=mode;
-		this.moment=date;
-	}
-
 	private Long id;
 
 	private String user;

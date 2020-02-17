@@ -24,6 +24,7 @@ export class FieldsComponent implements OnInit {
   logtoinsert: LogDTO = new LogDTO();
   fields: Array<FieldDTO>;
   fieldtoinsert: FieldDTO = new FieldDTO();
+  date: Date = new Date();
 
   constructor(private service: FieldService, private serviceEntity: EntityOwnerService,private ServiceLog: LogService) { 
    } //I services si inizializzano nel cstruttore
@@ -39,32 +40,33 @@ export class FieldsComponent implements OnInit {
   getFields() {
     this.service.getAll().subscribe(fields => this.fields = fields);
     this.serviceEntity.getAll().subscribe(entities=> this.entities);
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.action="SHOW FIELD";
-    //da sistemare this.logtoinsert.moment.setDate;
-    this.ServiceLog.insert(this.logtoinsert).subscribe(() => this.ServiceLog.getAll());
+    this.InsertLog("SHOW ALL FIELD");    
   }
   delete(field: FieldDTO){
     this.service.delete(field.id).subscribe(() => this.getFields());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;  
-    this.logtoinsert.action="DELETE FIELD";
-    this.ServiceLog.insert(this.logtoinsert);
+    this.InsertLog("DELETE FIELD");    
   }
 
   insert(field: FieldDTO){
     this.service.insert(field).subscribe(() => this.getFields());
     this.fieldtoinsert = new FieldDTO();
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.action="INSERT FIELD";
-    this.ServiceLog.insert(this.logtoinsert);
+    this.InsertLog("INSERT FIELD");    
   }
   update(field: FieldDTO){
     this.service.update(field).subscribe(() => this.getFields());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.action="UPDATE FIELD";
-    this.ServiceLog.insert(this.logtoinsert);
+    this.InsertLog("UPDATE FIELD");    
   }
   clear(field: FieldDTO){
     this.fieldtoinsert = new FieldDTO();
+  }
+  InsertLog(op: string){
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.logtoinsert.action=op;
+    var inst = new Date();
+    inst.setHours ( inst.getHours( )+ 1);
+    var inst_ = (inst.getFullYear()+"-"+inst.getMonth()+"-"+inst.getDay( )+" "+inst.getHours( )+":"+inst.getMinutes()+":"+inst.getSeconds());
+    this.logtoinsert.moment =new Date(inst_);
+    this.ServiceLog.insert(this.logtoinsert).subscribe(() => this.ServiceLog.getAll());
+    
   }
 }

@@ -59,13 +59,15 @@ export class FieldsComponent implements OnInit {
   clear(field: FieldDTO){
     this.fieldtoinsert = new FieldDTO();
   }
+ 
   InsertLog(op: string){
     this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
     this.logtoinsert.action=op;
     var inst = new Date();
     inst.setHours ( inst.getHours( )+ 1);
-    var inst_ = (inst.getFullYear()+"-"+inst.getMonth()+"-"+inst.getDay( )+" "+inst.getHours( )+":"+inst.getMinutes()+":"+inst.getSeconds());
-    this.logtoinsert.moment =new Date(inst_);
+    //var inst_ = (inst.getFullYear()+"-"+inst.getMonth()+"-"+inst.getDay( )+" "+inst.getHours( )+":"+inst.getMinutes()+":"+inst.getSeconds());
+
+    this.logtoinsert.moment =new Date(inst);
     this.ServiceLog.insert(this.logtoinsert).subscribe(() => this.ServiceLog.getAll());
     
   }

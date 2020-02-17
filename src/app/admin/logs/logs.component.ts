@@ -18,7 +18,12 @@ export class LogsComponent implements OnInit {
   }
 
   getLogs() {
+    this.getFormat(this.logs);
     this.service.getAll().subscribe(logs => this.logs = logs);
+  }
+  getFormat(dt: Date){
+    alert(log.moment);
+    return dt;
   }
 
   insert(log: LogDTO){

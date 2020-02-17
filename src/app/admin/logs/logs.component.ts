@@ -15,15 +15,16 @@ export class LogsComponent implements OnInit {
 
   ngOnInit() {
     this.getLogs();
+    this.setFormat(this.logs);
   }
 
   getLogs() {
-    this.getFormat(this.logs);
+    this.setFormat(this.logs);
     this.service.getAll().subscribe(logs => this.logs = logs);
   }
-  getFormat(dt: Date){
-    alert(log.moment);
-    return dt;
+  setFormat(log:LogDTO[]){
+    alert(log);
+    return log;
   }
 
   insert(log: LogDTO){

@@ -33,41 +33,29 @@ export class RelationshipsComponent implements OnInit {
 
   getRelationships() {
     this.service.getAll().subscribe(relationships => this.relationships = relationships);
+    this.InsertLog("SHOW RELATIONSHIP");
   }
 
   getEntities() {
     this.serviceeo.getAll().subscribe(entities => this.entities = entities);
     this.serviceec.getAll().subscribe(entitiesc => this.entitiesc = entitiesc);
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.moment = this.date;
-    this.logtoinsert.action="SHOW RELATIONSHIP";
-    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
   }
 
   delete(relationship: RelationshipDTO) {
     this.service.delete(relationship.id).subscribe(() => this.getRelationships());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.action="DELETE RELATIONSHIP";
-   
-    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.InsertLog("DELETE RELATIONSHIP");
   }
 
   update(relationship: RelationshipDTO) {
     this.service.update(relationship).subscribe(() => this.getRelationships());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.action="UPDATE RELATIONSHIP";
-    this.logtoinsert.moment = this.date;
-    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.InsertLog("UPDATE RELATIONSHIP");
   }
 
   insert(relationship: RelationshipDTO) {
     if (relationship.entityowner.id!=relationship.entitycustomer.id)
     {
     this.service.insert(relationship).subscribe(() => this.getRelationships());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;  
-    this.logtoinsert.moment = this.date; 
-    this.logtoinsert.action="INSERT RELATIONSHIP";
-    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.InsertLog("INSERT RELATIONSHIP"); 
     }
     else this.alert();
     this.clear();
@@ -79,5 +67,14 @@ export class RelationshipsComponent implements OnInit {
 
   alert() {
     window.alert("You can't link same entities between them! Please retry.");
+  }
+
+  InsertLog(op: string){
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.logtoinsert.action=op;
+    var inst = new Date();
+    inst.setHours ( inst.getHours( )+ 1);
+    this.logtoinsert.moment =new Date(inst);
+    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll()); 
   }
 }

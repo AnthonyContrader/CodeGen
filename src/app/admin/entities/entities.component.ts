@@ -24,6 +24,7 @@ export class EntitiesComponent implements OnInit {
   
   projects: ProjectDTO[];
   logtoinsert: LogDTO = new LogDTO();
+  date: Date = new Date();
 
   constructor(private service: EntityOwnerService, private servicep:ProjectService, private servicee:EntityCustomerService, private servicelog: LogService) { }
 
@@ -45,23 +46,24 @@ export class EntitiesComponent implements OnInit {
   }
   getProjects() {
     this.servicep.getAll().subscribe(projects => this.projects = projects);
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.InsertLog();
     this.logtoinsert.action="SHOW ENTITY";
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    
   }
 
   delete(entity: EntityOwnerDTO,entity2: EntityCustomerDTO) {
     this.service.delete(entity.id).subscribe(() => this.getEntities());
     this.servicee.delete(entity.id).subscribe(()=> this.getEntitie2s());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.InsertLog();
     this.logtoinsert.action="DELETE ENTITY";
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
   }
 
-  update(entity: EntityOwnerDTO,entity2: EntityCustomerDTO) {
+  update(entity: EntityOwnerDTO, entity2: EntityCustomerDTO) {
     this.service.update(entity).subscribe(() => this.getEntities());
     this.servicee.update(entity).subscribe(()=> this.getEntitie2s());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.InsertLog();
     this.logtoinsert.action="UPDATE ENTITY";
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
     }
@@ -70,7 +72,7 @@ export class EntitiesComponent implements OnInit {
 
     this.service.insert(entity).subscribe(() => this.getEntities());
     this.servicee.insert(entity).subscribe(() => this.getEntitie2s());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.InsertLog();
     this.logtoinsert.action="INSERT ENTITY";
     this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
     this.clear();
@@ -79,6 +81,11 @@ export class EntitiesComponent implements OnInit {
   clear(){
     this.entitytoinsert = new EntityOwnerDTO();
     this.entity2toinsert = new EntityCustomerDTO();
+  }
+  InsertLog(){
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;  
+    this.logtoinsert.moment = this.date; 
+   
   }
   
 }

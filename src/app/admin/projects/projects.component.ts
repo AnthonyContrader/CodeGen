@@ -24,38 +24,35 @@ export class ProjectsComponent implements OnInit {
 
   getProjects() {
     this.service.getAll().subscribe(projects => this.projects = projects);
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.action="SHOW PROJECT";
-    this.logtoinsert.moment = this.date;
-    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.InsertLog("SHOW PROJECT"); 
   }
 
   delete(project: ProjectDTO) {
     this.service.delete(project.id).subscribe(() => this.getProjects());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.action="DELETE PROJECT";
-    this.logtoinsert.moment = this.date;
-    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.InsertLog("DELETE PROJECT"); 
   }
 
   update(project: ProjectDTO) {
     this.service.update(project).subscribe(() => this.getProjects());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.action="UPDATE PROJECT";
-    this.logtoinsert.moment = this.date;
-    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.InsertLog("UPDATE PROJECT"); 
   }
 
   insert(project: ProjectDTO) {
     this.service.insert(project).subscribe(() => this.getProjects());
-    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
-    this.logtoinsert.action="INSERT PROJECT";
-    this.logtoinsert.moment = this.date;
-    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll());
+    this.InsertLog("INSERT PROJECT"); 
     this.clear();
   }
 
   clear(){
     this.projecttoinsert = new ProjectDTO();
+  }
+
+  InsertLog(op: string){
+    this.logtoinsert.user= JSON.parse(localStorage.getItem('currentUser')).username;   
+    this.logtoinsert.action=op;
+    var inst = new Date();
+    inst.setHours ( inst.getHours( )+ 1);
+    this.logtoinsert.moment =new Date(inst);
+    this.servicelog.insert(this.logtoinsert).subscribe(() => this.servicelog.getAll()); 
   }
 }

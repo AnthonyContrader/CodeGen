@@ -45,19 +45,19 @@ export class EntitiesComponent implements OnInit {
 
   delete(entity: EntityOwnerDTO,entity2: EntityCustomerDTO) {
     this.service.delete(entity.id).subscribe(() => this.getEntities());
-    this.servicee.delete(entity2.id).subscribe(()=> this.getEntitie2s());
+    this.servicee.delete(entity.id).subscribe(()=> this.getEntitie2s());
   }
 
   update(entity: EntityOwnerDTO,entity2: EntityCustomerDTO) {
     this.service.update(entity).subscribe(() => this.getEntities());
-    this.servicee.update(entity2).subscribe(()=> this.getEntitie2s());
+    this.servicee.update(entity).subscribe(()=> this.getEntitie2s());
     
   }
 
-  insert(entity: EntityOwnerDTO, entity2: EntityCustomerDTO) {
+  insert(entity: EntityOwnerDTO) {
 
     this.service.insert(entity).subscribe(() => this.getEntities());
-    this.servicee.insert(entity2).subscribe(() => this.getEntitie2s());
+    this.servicee.insert(entity).subscribe(() => this.getEntitie2s());
     this.clear();
   }
 

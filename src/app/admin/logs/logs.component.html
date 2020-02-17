@@ -17,7 +17,7 @@
           </th>
         </tr>
         
-        <tr *ngFor="let log of logs">
+        <tr *ngFor="let log of logs;let i = index">
           <td>
             <input type="text" readonly value="{{log.action}}" style="cursor: not-allowed;">
           </td>
@@ -25,12 +25,12 @@
             <input type="text" readonly value="{{log.user}}" style="cursor: not-allowed;">
           </td>
           <td>
-            <input type="text" readonly value="{{log.moment}}" style="cursor: not-allowed;">
+            <input type="text" readonly value="{{log.moment}}" style="cursor: not-allowed;" id="{{i}}">
           </td>
         </tr>
       </table>
     </div>
-    <div class="col-md-1">
+    <div class="col-md-1" onload="FormatDate()">
 
     </div>
   </div>

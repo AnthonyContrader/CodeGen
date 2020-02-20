@@ -15,7 +15,7 @@ public class LogConverter extends AbstractConverter<Log, LogDTO> {
 	public Log toEntity(LogDTO logDTO) {
 		Log log = null;
 		if (logDTO != null) {
-			log = new Log(logDTO.getId(), logDTO.getUser(), logDTO.getAction(),  logDTO.getMoment());
+			log = new Log(logDTO.getId(), logDTO.getUsers(), logDTO.getAction(),  logDTO.getMoment());
 		}
 		return log;
 	}
@@ -24,7 +24,7 @@ public class LogConverter extends AbstractConverter<Log, LogDTO> {
 	public LogDTO toDTO(Log log) {
 		LogDTO logDTO = null;
 		if (log != null) {
-			logDTO = new LogDTO(log.getId(), log.getUser(), log.getAction(), log.getMoment());
+			logDTO = new LogDTO(log.getId(), log.getUsers(), log.getAction(), log.getMoment());
 
 		}
 		return logDTO;

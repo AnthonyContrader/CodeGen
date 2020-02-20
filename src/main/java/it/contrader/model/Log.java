@@ -8,11 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 @Entity
-@Table (name = "Logs")
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class Log {
 	
@@ -23,7 +22,7 @@ public class Log {
 	
 	@NotNull
 	@Column(length = 255)
-	private String user;
+	private String users;
 	
 	@NotNull
 	@Column(length = 255)

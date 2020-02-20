@@ -19,8 +19,8 @@ public class LogService extends AbstractService<Log, LogDTO> {
 	@Autowired
 	private LogRepository repository;
 
-	public LogDTO findByUserAndActionAndMoment(String user, String action, Date moment) {
-		return converter.toDTO(repository.findByUserAndActionAndMoment( user,  action,  moment));
+	public LogDTO findByUsersAndActionAndMoment(String users, String action, Date moment) {
+		return converter.toDTO(repository.findByUsersAndActionAndMoment( users,  action,  moment));
 	}
 
 }

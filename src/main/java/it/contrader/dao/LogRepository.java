@@ -13,6 +13,6 @@ import it.contrader.model.Log;
 @Transactional
 public interface LogRepository extends CrudRepository<Log, Long> {
 
-	Log findByUserAndActionAndMoment(String user, String action, Date moment);
+	Log findByUsersAndActionAndMoment(String users, String action, Date moment);
 
 }

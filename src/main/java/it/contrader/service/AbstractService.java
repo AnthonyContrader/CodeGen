@@ -38,7 +38,7 @@ public abstract class AbstractService<Entity,DTO> implements ServiceDTO<DTO> {
 
 	@Override
 	public DTO read(long id) {
-		return converter.toDTO(repository.findById(id).get());
+		return converter.toDTO(repository.findOne(id));
 	}
 
 	@Override
@@ -48,6 +48,6 @@ public abstract class AbstractService<Entity,DTO> implements ServiceDTO<DTO> {
 
 	@Override
 	public void delete(long id) {
-		repository.deleteById(id);
+		repository.delete(id);
 	}
 }

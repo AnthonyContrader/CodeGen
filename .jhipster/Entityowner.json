@@ -1,0 +1,20 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20200224135535",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "entityowner",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination",
+    "microserviceName": "codegen"
+}

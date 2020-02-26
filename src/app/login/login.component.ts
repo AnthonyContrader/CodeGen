@@ -3,6 +3,7 @@ import { LoginDTO } from 'src/dto/logindto';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/service/user.service';
 import { Router } from '@angular/router';
+import { UserDTO } from 'src/dto/userdto';
 
 @Component({
   selector: 'app-login',
@@ -21,24 +22,30 @@ export class LoginComponent implements OnInit {
   login(f: NgForm): void {
     this.loginDTO = new LoginDTO(f.value.username, f.value.password);
 
-    this.service.login(this.loginDTO).subscribe((user) => {
+    this.service.login(this.loginDTO).subscribe((token:any) => {
+      localStorage.setItem("AUTOKEN", JSON.stringify({ "authorities": token.id_token }));
+      localStorage.setItem("currentUser", JSON.stringify({ "authorities": token.id_token }));
+      this.service.userLogged(this.loginDTO.username).subscribe((user:UserDTO)=>{
 
-      if (user != null) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-
-        switch (user.usertype.toString()) {
-          case 'ADMIN': {
+        if (user != null) {
+          localStorage.setItem('AUTOKEN', JSON.stringify(user));
+          console.log(user.authorities);
+          if(user.authorities == "ROLE_ADMIN" ) {
             this.router.navigate(['/admin-dashboard']);
-            break;
           }
-          case 'USER': {
-            this.router.navigate(['/user-dashboard']);
-            break;
+          if(user.authorities == "ROLE_TUTOR") {
+            this.router.navigate(['/tutor-dashboard']);
           }
-          default:
-            this.router.navigate(['/login']);
-        }
+          if(user.authorities == "ROLE_DOCTOR") {
+            this.router.navigate(['/doctor-dashboard']);
+          }
+          if(user.authorities == "ROLE_DEVICE") {
+            this.router.navigate(['/device-dashboard']);
+          }
+        }else{
+            alert("Wrong username or password");
+          }
+        });
+      });
       }
-    });
   }
-}

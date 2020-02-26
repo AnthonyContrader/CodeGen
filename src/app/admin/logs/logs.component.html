@@ -1,0 +1,40 @@
+
+<div class="container" id="load_log"  >
+  <div class="row mt-5">
+    <div class="col-md-1">
+     
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Action
+          </th>
+          <th>
+            User
+          </th>
+          <th>
+            Moment
+          </th>
+        </tr>
+        
+        <tr *ngFor="let log of logs;let i = index">
+          <td>
+            <input type="text" readonly value="{{log.action}}" style="cursor: not-allowed;">
+          </td>
+          <td>
+            <input type="text" readonly value="{{log.user}}" style="cursor: not-allowed;">
+          </td>
+          <td>
+            <input type="text" readonly value="{{log.moment}}" style="cursor: not-allowed;" id="{{i}}" style="border: none;">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1"   >
+    </div>
+
+  </div>
+
+</div>
+

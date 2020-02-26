@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Entity1
+          </th>
+          <th>
+            Entity2
+          </th>
+          <th colspan="2">
+            Action
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <select [(ngModel)]="relationshiptoinsert.entityowner">
+              <option *ngFor="let entity of entities" [ngValue]="entity">{{entity.name}}</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="relationshiptoinsert.entitycustomer">
+              <option *ngFor="let entitysc of entitiesc" [ngValue]="entitysc">{{entitysc.name}}</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="insert(relationshiptoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr class="trows"*ngFor="let relationship of relationships">
+          <td>
+            <input type="text" readonly value="{{relationship.entityowner.name}}" style="cursor: not-allowed;">
+          </td>
+          <td>
+            <input type="text" readonly value="{{relationship.entitycustomer.name}}" style="cursor: not-allowed;">
+          </td>
+          <td colspan="2">
+            <button (click)="delete(relationship)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

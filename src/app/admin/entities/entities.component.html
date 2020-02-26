@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+   
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Project
+          </th>
+          
+          <th>
+            Edit
+          </th>
+          <th>
+            Clear
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="name" [(ngModel)]="entitytoinsert.name">
+          </td>
+          <td>
+            <select [(ngModel)]="entitytoinsert.project">
+              <option *ngFor="let project of projects" [ngValue]="project">{{project.name}}</option>
+            </select>
+          </td>
+          
+          <td>
+            <button (click)="insert(entitytoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let entity of entities">
+          <td>
+            <input [(ngModel)]="entity.name">
+          </td>
+          <td>
+            <input type="text" readonly value="{{entity.project.name}}" style="cursor: not-allowed;">
+          </td>
+         
+          <td>
+            <button (click)=update(entity)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(entity)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
+

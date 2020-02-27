@@ -1,48 +1,74 @@
-*{
-    text-align: center;
-}
-
-/*Tables*/
-table {
-	border-collapse: collapse;
-	width: 100%;
-	float: left;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-}
-
-th, td {
-	text-align: center;
-	padding: 2px;
-}
-
-td{
-    font-size: 16px;
-}
-
-
-tr:nth-child(even) {
-	background-color: #ffdb99;
-}
-
-th {
-	background-color: darkorange;
-	color: #ffffff;
-}
-
-a:hover {
-	color: #999999;
-}
-
-input, select{
-    background-color: inherit;
-    font-size: inherit;
-}
-
-input:hover,  input:active, input:focus{
-    border: 2px solid crimson;
-}
-
-button:hover{
-    background-color: crimson;
-}
+.container-fluid{
+  
+	height: 100vh;
+	width: 100vh;
+  }
+  
+  
+  .img {
+	/* background-image: url('../../../assets/project.jpg'); */
+	width: auto;
+	height:  100vh;
+	background-repeat:no-repeat;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	opacity: 0.8;
+	background-color: #102331;
+   }
+   form{
+	 margin-top: 20%;
+	 max-width: 700px;
+	 background-color: transparent;
+	   
+   }
+   input{
+	color: white;  
+	background-color:#1E3756;
+	opacity:0.5;
+	height: 50px;
+	border: 2px solid #2B4065;
+	border-radius: 25px;
+	font-size: medium;
+	max-width: 50%;
+	padding-left: 45px;
+   }
+   input:focus{
+	 border: 2px solid white;
+	 background-color:#1E3756;
+	 color: white;  
+	 opacity:1;
+   }
+   button{
+	color: white;  
+	background-color:#3282B3;
+	height: 50px;
+	border: 2px solid #2B4065;
+	border-radius: 25px;
+	font-size: medium;
+	width: 50%;
+  
+   }
+  
+   ::-webkit-input-placeholder { /* Edge */
+	color: whitesmoke;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: whitesmoke;
+  }
+  
+  ::placeholder {
+	color: whitesmoke;
+  }
+  
+  .symbol-input100{
+	z-index: 5;
+	position: relative;
+	left: -21%;
+	top: -35px;
+	background-color: transparent; 
+	border: none;
+	font-size: 14px;
+	color: whitesmoke;
+  }

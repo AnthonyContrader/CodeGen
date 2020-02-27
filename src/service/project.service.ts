@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AbstractService } from './abstractservice';
 import { ProjectDTO } from 'src/dto/projectdto';
+import { UserDTO } from 'src/dto/userdto';
 import { HttpClient } from '@angular/common/http';
 
 /**
@@ -19,7 +20,26 @@ export class ProjectService extends AbstractService<ProjectDTO>{
 
   constructor(http: HttpClient) {
     super(http);
-    this.type = 'project';
+    this.type = 'api/projects';
+    this.port = '9090';
   }
+
+  auth() {
+    const user = JSON.parse(localStorage.getItem('currentUser')) as UserDTO;
+    if (user) {
+      return 'Bearer ' + user.authorities;
+    } else {
+      return '';
+    }
+  }
+
+  userLogged(username: string) {
+     return this.http.get('http://192.168.1.202:9090/api/users/' + username, {
+       headers: {
+         Authorization: this.auth()
+       }
+     });
+   }
+
 
 }

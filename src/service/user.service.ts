@@ -34,9 +34,7 @@ export class UserService extends AbstractService<UserDTO>{
   }
 
   userLogged(username: string) {
-    // console.log('qua: ', this.auth());
-     console.log(this.auth());
-     return this.http.get('http://localhost:9090/api/users/' + username, {
+     return this.http.get('http://192.168.1.202:9090/api/users/' + username, {
        headers: {
          Authorization: this.auth()
        }
@@ -44,7 +42,7 @@ export class UserService extends AbstractService<UserDTO>{
    }
 
   login(loginDTO: LoginDTO): Observable<UserDTO> {
-    return this.http.post<any>('http://localhost:9090/' + this.type + '/authenticate', loginDTO)
+    return this.http.post<any>('http://192.168.1.202:9090/' + this.type + '/authenticate', loginDTO)
   }
 
 }

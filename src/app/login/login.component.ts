@@ -29,21 +29,14 @@ export class LoginComponent implements OnInit {
 
         if (user != null) {
           localStorage.setItem('AUTOKEN', JSON.stringify(user));
-          console.log(user.authorities);
           if(user.authorities == "ROLE_ADMIN" ) {
             this.router.navigate(['/admin-dashboard']);
           }
-          if(user.authorities == "ROLE_TUTOR") {
-            this.router.navigate(['/tutor-dashboard']);
-          }
-          if(user.authorities == "ROLE_DOCTOR") {
-            this.router.navigate(['/doctor-dashboard']);
-          }
-          if(user.authorities == "ROLE_DEVICE") {
-            this.router.navigate(['/device-dashboard']);
+          if(user.authorities == "ROLE_USER") {
+            this.router.navigate(['/user-dashboard']);
           }
         }else{
-            alert("Wrong username or password");
+          this.router.navigate(['/login']);
           }
         });
       });

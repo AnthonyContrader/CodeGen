@@ -3,6 +3,7 @@ import { AbstractService } from './abstractservice';
 import { UserDTO } from 'src/dto/userdto';
 import { HttpClient } from '@angular/common/http';
 import { LoginDTO } from 'src/dto/logindto';
+import {SignupDTO} from 'src/dto/signupdto';
 import { Observable } from 'rxjs';
 
 /**
@@ -43,6 +44,9 @@ export class UserService extends AbstractService<UserDTO>{
 
   login(loginDTO: LoginDTO): Observable<UserDTO> {
     return this.http.post<any>('http://localhost:9090/' + this.type + '/authenticate', loginDTO)
+  }
+  signup(signupDTO: SignupDTO): Observable<UserDTO> {
+    return this.http.post<any>('http://localhost:9090/' + this.type + '/authenticate', signupDTO)
   }
 
 }

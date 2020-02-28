@@ -7,7 +7,7 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
-import { SignupComponent } from './signup/signup.component';
+import { SignupModule } from './signup/signup.module';
 
 
 
@@ -30,6 +30,7 @@ import { SignupComponent } from './signup/signup.component';
     HttpClientModule,
     LayoutModule,
     AdminModule,
+    SignupModule
     
   ],
   providers: [],

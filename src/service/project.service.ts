@@ -20,7 +20,8 @@ export class ProjectService extends AbstractService<ProjectDTO>{
 
   constructor(http: HttpClient) {
     super(http);
-    this.type = 'api/projects';
+    this.name = 'management';
+    this.type = 'projects';
     this.port = '9090';
   }
 
@@ -34,7 +35,7 @@ export class ProjectService extends AbstractService<ProjectDTO>{
   }
 
   userLogged(username: string) {
-     return this.http.get('http://192.168.1.202:9090/api/users/' + username, {
+     return this.http.get('http://localhost:9090/api/users/' + username, {
        headers: {
          Authorization: this.auth()
        }

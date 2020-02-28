@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, IterableDiffers } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FieldDTO } from 'src/dto/fielddto';
 import { EntityOwnerDTO } from 'src/dto/entityownerdto';
 import { FieldService } from 'src/service/field.service';

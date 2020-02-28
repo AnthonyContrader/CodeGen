@@ -4,15 +4,16 @@
 	width: 100vh;
   }
   
+	.card-body{
+	 background-image: url('../../../assets/folder.png');
+	 background-size: cover;  
+	}
   
   .img {
 	/* background-image: url('../../../assets/project.jpg'); */
 	width: auto;
 	height:  100vh;
 	background-repeat:no-repeat;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
 	opacity: 0.8;
 	background-color: #102331;
    }

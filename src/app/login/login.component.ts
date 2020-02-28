@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
   login(f: NgForm): void {
     this.loginDTO = new LoginDTO(f.value.username, f.value.password);
-
     this.service.login(this.loginDTO).subscribe((token:any) => {
       localStorage.setItem("AUTOKEN", JSON.stringify({ "authorities": token.id_token }));
       localStorage.setItem("currentUser", JSON.stringify({ "authorities": token.id_token }));

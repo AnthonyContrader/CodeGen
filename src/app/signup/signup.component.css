@@ -7,14 +7,72 @@
     height: 100vh;
     width: 100vh;
   }
-  .img2 {
-    background-image: url('/assets/signup\ page\ intro.jpg');
+  .img {
+    background-image: url('../../assets/signup.jpg');
     width: auto;
-    height:  100vh;
-    background-repeat:no-repeat;
+    height: 1000 vh;
     -webkit-background-size:cover;
   -moz-background-size:cover;
   -o-background-size:cover;
-    
+    background-repeat:no-repeat;
     background-color: #0C6299;
    }
+   form{
+    margin-top: 25%;
+    max-width: 700px;
+    background-color: transparent;
+    padding-right: -125%;
+   }
+      
+  
+  input{
+   color: white;  
+   background-color:#1E3756;
+   opacity:0.5;
+   height: 50px;
+   border: 2px solid #2B4065;
+   border-radius: 25px;
+   font-size: medium;
+   max-width: 50%;
+   padding-right: -125%;
+  }
+  input:focus{
+    border: 2px solid white;
+    background-color:#1E3756;
+    color: white;  
+    opacity:1;
+  }
+  button{
+   color: white;  
+   background-color:#3282B3;
+   height: 50px;
+   border: 2px solid #2B4065;
+   border-radius: 25px;
+   font-size: medium;
+   width: 50%;
+ 
+  }
+ 
+  ::-webkit-input-placeholder { /* Edge */
+   color: whitesmoke;
+ }
+ 
+ :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: whitesmoke;
+ }
+ 
+ ::placeholder {
+   color: whitesmoke;
+ }
+ 
+ .symbol-input100{
+  z-index: 5;
+  position: relative;
+  left: -21%;
+  top: -35px;
+  background-color: transparent; 
+  border: none;
+  font-size: 14px;
+  color: whitesmoke;
+ }
+ .flex {max-width: 100%}

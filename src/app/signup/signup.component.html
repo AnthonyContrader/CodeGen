@@ -1,3 +1,14 @@
-<p>
-  signup works!
-</p>
+<script src="responsiveimgs.js"></script>
+<div class="container-fluid img" >
+  <div class="row">
+    <div class="col-md-5 " align=center>
+      <img class="flex" src="../../assets/signup.png" alt="logo" class="flex">
+      <form #f="ngForm">
+        <div class="form-group">
+          <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">              
+              <input class="form-control input100 " type="text" id="user" name="username" placeholder="Username" ngModel>
+              <i class="far fa-user"></i>
+                <!--<span class="symbol-input100">
+                <i class="fa fa-user"></i>
+                </span>-->              
+          </div>

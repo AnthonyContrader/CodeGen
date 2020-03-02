@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
   
-  login(f: NgForm): void {
+  signup(f: NgForm): void {
     this.signupDTO = new SignupDTO(f.value.username, f.value.email, f.value.password);
 
     this.service.signup(this.signupDTO).subscribe((token:any) => {

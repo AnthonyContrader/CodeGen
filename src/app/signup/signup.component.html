@@ -1,14 +1,56 @@
-<script src="responsiveimgs.js"></script>
+
 <div class="container-fluid img" >
-  <div class="row">
-    <div class="col-md-5 " align=center>
-      <img class="flex" src="../../assets/signup.png" alt="logo" class="flex">
+  <div class = "row">
+    <div class="col-md-5">
+      
       <form #f="ngForm">
-        <div class="form-group">
+        <div class="form-group" id=destra>
           <div class="wrap-input100 validate-input m-b-10" data-validate="Username is required">              
-              <input class="form-control input100 " type="text" id="user" name="username" placeholder="Username" ngModel>
-              <i class="far fa-user"></i>
-                <!--<span class="symbol-input100">
-                <i class="fa fa-user"></i>
-                </span>-->              
+              <input class="form-control input100" type="text" id="user" name="username" placeholder="Username" ngModel>
+              <span class="symbol-input100">
+              <i class="fa fa-user"></i></span>
           </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="form-group"id=destra >
+          <div class="wrap-input100 validate-input m-b-10" data-validate="Email is required">
+            <input class="form-control input100" type="email" id="email" name="email" placeholder="Email" ngModel>
+                <span class="symbol-input100">
+        <i class="fas fa-envelope"></i> </span>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="form-group"id=destra >
+        <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
+          <input class="form-control input100" type="password" id="pass" name="password" placeholder="Password" ngModel>
+              <span class="symbol-input100">
+              <i class="fa fa-lock"></i>
+            </span>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="form-group"id=destra >
+        <div class="wrap-input100 validate-input m-b-10" data-validate="Password is required">
+          <input class="form-control input100" type="password" id="pass" name="password" placeholder="Conferma Password" ngModel>
+              <span class="symbol-input100">
+              <i class="fa fa-lock"></i>
+            </span>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <button id= "destra"  type="button" (click)="login(f)">sign up</button><br>
+      </form>
+    </div>
+  </div>
+</div>
+

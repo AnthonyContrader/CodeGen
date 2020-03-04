@@ -4,24 +4,23 @@
 */
 .container-fluid{
   
-    height: 100vh;
-    width: 100vh;
+    height:100 vh;
+    width: auto;
   }
   .img {
     background-image: url('../../assets/signup.jpg');
     width: auto;
-    height: 1000 vh;
-    -webkit-background-size:cover;
-  -moz-background-size:cover;
-  -o-background-size:cover;
+    height: 150%;
+   
     background-repeat:no-repeat;
-    background-color: #0C6299;
+    background-color: rgb(5, 40, 56);
    }
    form{
     margin-top: 25%;
     max-width: 700px;
+    
     background-color: transparent;
-    padding-right: -125%;
+    
    }
       
   
@@ -29,12 +28,12 @@
    color: white;  
    background-color:#1E3756;
    opacity:0.5;
-   height: 50px;
+   height: 60%;
    border: 2px solid #2B4065;
    border-radius: 25px;
-   font-size: medium;
-   max-width: 50%;
-   padding-right: -125%;
+   font-size: small;
+   width: -80%;
+  padding-left: 20%;
   }
   input:focus{
     border: 2px solid white;
@@ -45,11 +44,11 @@
   button{
    color: white;  
    background-color:#3282B3;
-   height: 50px;
+   height: 10%;
    border: 2px solid #2B4065;
    border-radius: 25px;
    font-size: medium;
-   width: 50%;
+   width: 55%;
  
   }
  
@@ -68,11 +67,14 @@
  .symbol-input100{
   z-index: 5;
   position: relative;
-  left: -21%;
+  left: 15px;
   top: -35px;
   background-color: transparent; 
   border: none;
-  font-size: 14px;
-  color: whitesmoke;
+  font-size: 16px;
+  color: rgba(245, 245, 245, 0.541);
  }
- .flex {max-width: 100%}
+ #destra{
+   position: absolute;
+   right: -120%;
+ }

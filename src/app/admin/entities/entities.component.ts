@@ -30,6 +30,7 @@ export class EntitiesComponent implements OnInit {
   constructor(private service: EntityOwnerService, private servicep:ProjectService, private servicee:EntityCustomerService, private servicelog: LogService) { }
 
   ngOnInit() {
+    
     this.getEntities();
     this.getProjects();
     this.getEntitie2s();

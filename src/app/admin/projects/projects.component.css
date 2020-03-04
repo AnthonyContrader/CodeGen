@@ -3,73 +3,50 @@
 	height: 100vh;
 	width: 100vh;
   }
-  
-	.card-body{
-	 background-image: url('../../../assets/folder.png');
-	 background-size: cover;  
-	}
-  
+
   .img {
-	/* background-image: url('../../../assets/project.jpg'); */
-	width: auto;
-	height:  100vh;
+	width: 84vw;
+	height:  92vh;
 	background-repeat:no-repeat;
 	opacity: 0.8;
 	background-color: #102331;
    }
-   form{
-	 margin-top: 20%;
-	 max-width: 700px;
-	 background-color: transparent;
-	   
-   }
-   input{
-	color: white;  
-	background-color:#1E3756;
-	opacity:0.5;
-	height: 50px;
-	border: 2px solid #2B4065;
-	border-radius: 25px;
-	font-size: medium;
-	max-width: 50%;
-	padding-left: 45px;
-   }
-   input:focus{
-	 border: 2px solid white;
-	 background-color:#1E3756;
-	 color: white;  
-	 opacity:1;
-   }
-   button{
-	color: white;  
-	background-color:#3282B3;
-	height: 50px;
-	border: 2px solid #2B4065;
-	border-radius: 25px;
-	font-size: medium;
-	width: 50%;
-  
-   }
-  
-   ::-webkit-input-placeholder { /* Edge */
-	color: whitesmoke;
+  .btn-info {
+	background-color: #102331;
+	border-color: #102331;
   }
-  
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-	color: whitesmoke;
+
+  .col {
+	font-size: 15vh;
+	color:#102F41;
+	background-color: #102331;
+	border-color: #102331;
   }
-  
-  ::placeholder {
-	color: whitesmoke;
+
+  .fa-folder {
+	font-size: 1200%;
+	color:#102F41;
+	background-color: #102331;
+	border-color: #102331;
   }
-  
-  .symbol-input100{
-	z-index: 5;
-	position: relative;
-	left: -21%;
-	top: -35px;
-	background-color: transparent; 
-	border: none;
-	font-size: 14px;
-	color: whitesmoke;
+
+  .name {
+	position: absolute;
+	top: 5vh;
+	width: min-content;
+	padding-left: 1vmax;
+  }
+  .description {
+	position: absolute;
+	padding-top: 8vh;
+	top: 4.5vh;
+	left: 4vw;
+	width: 45%;
+  }
+  .shippingdate {
+	position: absolute;
+	padding-top: 16vh;
+	top: 4vh;
+	left: 4vw;
+	width: 45%;
   }

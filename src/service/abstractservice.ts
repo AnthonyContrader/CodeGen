@@ -10,7 +10,7 @@ import { UserDTO } from 'src/dto/userdto';
  * 
  * @see Service
  * 
- * @author Vittorio Valent
+ * @author Salvatore Petrianni
  */
 export abstract class AbstractService<DTO> implements Service<DTO> {
 
